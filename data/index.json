@@ -1,0 +1,9 @@
+{
+  "vocab": [
+    "vocab/ejemplo-medio-ambiente.json",
+    "vocab/ejemplo-trabajo.json",
+    "vocab/ejemplo-expresiones.json"
+  ],
+  "grammar": [],
+  "writing": []
+}

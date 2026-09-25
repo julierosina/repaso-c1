@@ -1,0 +1,29 @@
+{
+  "source": "Ejemplo — Expresiones idiomáticas",
+  "topic": "Expresiones idiomáticas",
+  "entries": [
+    {
+      "word": "a regañadientes",
+      "type": "locución adverbial",
+      "definition": "De mala gana, mostrando disgusto o resistencia al hacer algo.",
+      "synonyms": ["de mala gana", "a disgusto"],
+      "example": "Aceptó a regañadientes quedarse a trabajar el fin de semana."
+    },
+    {
+      "word": "dar gato por liebre",
+      "type": "locución verbal",
+      "definition": "Engañar a alguien dándole algo de peor calidad haciéndolo pasar por algo mejor.",
+      "synonyms": ["timar", "engañar"],
+      "example": "Compruébalo todo antes de firmar, no vaya a ser que te den gato por liebre.",
+      "accept": ["gato por liebre"]
+    },
+    {
+      "word": "estar en el candelero",
+      "type": "locución verbal",
+      "definition": "Estar de actualidad o ser objeto de la atención pública.",
+      "synonyms": ["estar de moda", "estar en boga"],
+      "example": "Desde que ganó el premio, la escritora está en el candelero y no para de dar entrevistas.",
+      "accept": ["en el candelero"]
+    }
+  ]
+}

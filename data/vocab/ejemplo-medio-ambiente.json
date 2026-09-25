@@ -1,0 +1,50 @@
+{
+  "source": "Ejemplo — Medio ambiente",
+  "topic": "Medio ambiente",
+  "entries": [
+    {
+      "word": "paliar",
+      "type": "verbo",
+      "definition": "Atenuar o reducir los efectos negativos de un problema, un dolor o una situación, sin llegar a eliminar su causa.",
+      "synonyms": ["mitigar", "atenuar"],
+      "example": "Las ayudas del Gobierno pretenden paliar los efectos de la sequía en las zonas rurales."
+    },
+    {
+      "word": "acarrear",
+      "type": "verbo",
+      "definition": "Traer consigo u ocasionar algo, normalmente consecuencias negativas.",
+      "synonyms": ["conllevar", "ocasionar"],
+      "example": "La tala indiscriminada de bosques acarrea una pérdida irreversible de biodiversidad."
+    },
+    {
+      "word": "desbordarse",
+      "type": "verbo pronominal",
+      "definition": "Salirse un líquido, especialmente un río, por encima de sus bordes o de su cauce. En sentido figurado, sobrepasar algo sus límites o quedar fuera de control.",
+      "synonyms": ["rebosar", "salirse"],
+      "example": "Tras las lluvias torrenciales, el río se desbordó e inundó varias hectáreas de cultivo.",
+      "accept": ["desbordar"]
+    },
+    {
+      "word": "vertido",
+      "type": "sustantivo masculino",
+      "definition": "Acción de verter residuos o sustancias contaminantes en el medio natural, y el conjunto de esos residuos.",
+      "synonyms": ["derrame", "residuo"],
+      "example": "El vertido de crudo frente a la costa gallega tuvo consecuencias devastadoras para la pesca."
+    },
+    {
+      "word": "escasez",
+      "type": "sustantivo femenino",
+      "definition": "Falta o insuficiencia de algo que se necesita.",
+      "synonyms": ["carencia", "penuria"],
+      "example": "La escasez de agua obliga a muchos agricultores a replantearse qué cultivos siembran."
+    },
+    {
+      "word": "sostenible",
+      "type": "adjetivo",
+      "definition": "Que puede mantenerse a lo largo del tiempo sin agotar los recursos ni causar un daño grave al medio ambiente.",
+      "synonyms": ["sustentable", "duradero"],
+      "example": "El ayuntamiento apuesta por un modelo de turismo más sostenible que no destruya el litoral.",
+      "notes": "«Sustentable» es más frecuente en América Latina; en España predomina «sostenible»."
+    }
+  ]
+}
