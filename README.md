@@ -130,20 +130,27 @@ is attached to that ID, so:
 
 ---
 
-## How the vocabulary quiz works
+## How the vocabulary practice works
 
-- **Question types** (mixed randomly, choose which ones in the setup):
-  - *Definición*: see the word, explain it. Self-checked against the definition.
-  - *Sinónimo*: see the word, type a synonym. Auto-checked against the list (tildes are flagged
-    but accepted). If your synonym is valid but not listed, you can still mark it correct.
-  - *Frase de ejemplo*: see the word, write a sentence. The site warns you if your sentence doesn't seem
-    to contain the word; you judge the rest.
-  - *¿Qué palabra es?*: see the definition, type the word. Auto-checked.
-- After each answer you see the full card and decide **✓ Sí** or **✗ A repasar** (keys `1` / `2`).
-  When the site can judge, it highlights its suggestion; you always have the final say.
-- **Progress**: an item is *Dominado* (mastered) after **3 correct answers in a row**. One miss puts it
-  back to *Por reforzar*. Sessions prioritise words you're struggling with, then new ones, then
-  mastered ones you haven't seen for a while.
+Open **Vocabulario** and a question is waiting: no settings to choose. It works like Anki:
+
+- **What comes next** is decided for you: reviews that are due first (most overdue first), then new
+  words (up to 20 new per day), then words you just missed.
+- **Spacing**: a right answer schedules the next review in 1 day, then 3 days, then roughly
+  7, 18, 45 days… (each interval × an "ease" factor). A wrong answer brings the word back in about a minute,
+  resets its interval and lowers its ease, so it comes back more often from then on. The ✓ button shows when you'll see the word next.
+- **Exercise type** changes automatically as a word matures, and never repeats the type used last time:
+  - new or recently missed → *Definición* (explain it) or *Sinónimo*
+  - seen once → also *¿Qué palabra es?* (definition → word) and *Completa la frase* (the example
+    sentence with the word blanked out and its first letters as a hint)
+  - well known → mostly *¿Qué palabra es?*, *Completa la frase* and *Frase de ejemplo* (use it yourself)
+- After each answer you see the full card (definition, synonyms, example, context, connotation) and decide
+  **✓ Sí** or **✗ A repasar** (keys `1` / `2`). Where the site can check the answer (synonym, word, gap),
+  it highlights its suggestion; you always have the final say.
+- When nothing is due you get **¡Todo al día!**. *Seguir practicando* keeps going with your weakest
+  words; in that free practice, right answers don't push words further into the future, but misses count.
+- **Status** in the word list: *Sin intentar* (never seen), *Por reforzar* (interval under 7 days),
+  *Dominado* (interval of 7 days or more).
 - Progress is stored **in this browser only**. A different browser or device starts from zero.
   Clearing site data erases it. An export/import option will come with the Progress dashboard.
 

@@ -14,9 +14,10 @@ export async function renderHome(root) {
   try {
     const { entries } = await loadVocab();
     const c = progress.summarize(entries.map(e => e.key));
+    const due = entries.filter(e => progress.isDue(e.key)).length;
     vocabStats = `
       ${statusBar(c)}
-      <p class="card-stats"><strong>${entries.length}</strong> palabras · ${c.mastered} dominadas · ${c.learning} por reforzar</p>`;
+      <p class="card-stats"><strong>${due}</strong> por repasar · ${c.new} nuevas · ${c.mastered} dominadas</p>`;
   } catch {
     /* data problems are shown in the notice area */
   }

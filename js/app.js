@@ -1,7 +1,7 @@
 // Hash router: #/vocab, #/vocab/lista, … Hash routes work on GitHub Pages without any server config.
 
 import { renderHome } from './home.js';
-import { renderVocabSetup, renderVocabList } from './vocab.js';
+import { renderVocab, renderVocabList } from './vocab.js';
 import { loadVocab } from './data.js';
 import { esc } from './ui.js';
 
@@ -10,7 +10,7 @@ const notices = document.getElementById('notices');
 
 const routes = {
   '': renderHome,
-  vocab: renderVocabSetup,
+  vocab: renderVocab,
   'vocab/lista': renderVocabList,
 };
 

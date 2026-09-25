@@ -62,6 +62,42 @@ export function highlight(text, word) {
     .join('');
 }
 
+// Split a sentence around the shortest stretch that contains every stem of `word`,
+// e.g. "…las compañías se [quedaron con la tajada del león] de…". null if not found.
+export function cloze(text, word) {
+  const stems = stemsOf(word);
+  if (!stems.length) return null;
+  const parts = String(text ?? '').split(/(\p{L}+)/u); // odd indexes are words
+  const hit = i => stems.findIndex(st => stripAccents(parts[i].toLowerCase()).startsWith(st));
+  let best = null;
+  for (let s = 1; s < parts.length; s += 2) {
+    if (hit(s) < 0) continue;
+    const found = new Set();
+    for (let e = s; e < parts.length && e - s <= 20; e += 2) {
+      const h = hit(e);
+      if (h >= 0) found.add(h);
+      if (found.size === stems.length) {
+        if (!best || e - s < best[1] - best[0]) best = [s, e];
+        break;
+      }
+    }
+  }
+  if (!best) return null;
+  return {
+    before: parts.slice(0, best[0]).join(''),
+    answer: parts.slice(best[0], best[1] + 1).join(''),
+    after: parts.slice(best[1] + 1).join(''),
+  };
+}
+
+// "quedaron con la tajada del león" -> "q… con la t… del l…"
+export function clozeHint(answer) {
+  return answer
+    .split(/\s+/)
+    .map(w => (w.length <= 3 ? w : w[0] + '…'))
+    .join(' ');
+}
+
 export function escapeHTML(s) {
   return String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);
 }

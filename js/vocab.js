@@ -1,9 +1,13 @@
-// Vocabulary: session setup, type-the-answer quiz with self-check, session summary, and word list.
+// Vocabulary: a continuous spaced-repetition stream (open the page → a question), and the word list.
+// Which word comes next and which kind of exercise it gets are decided automatically.
 
 import { loadVocab } from './data.js';
 import * as progress from './progress.js';
-import { esc, hueFor, topicTag, statusBadge, statusBar, shuffle, readPref, writePref } from './ui.js';
-import { compare, containsWord, highlight } from './text.js';
+import { esc, hueFor, topicTag, statusBadge } from './ui.js';
+import { compare, containsWord, highlight, cloze, clozeHint } from './text.js';
+
+// New words introduced per day (the rest wait until tomorrow, or until you ask for more).
+const NEW_PER_DAY = 20;
 
 const TYPES = {
   definicion: {
@@ -20,13 +24,6 @@ const TYPES = {
     placeholder: 'Un sinónimo…',
     applies: e => e.synonyms.length > 0,
   },
-  ejemplo: {
-    label: 'Frase de ejemplo',
-    prompt: 'Úsala en una frase',
-    input: 'textarea',
-    placeholder: 'Escribe una frase que use la palabra en contexto…',
-    applies: () => true,
-  },
   inversa: {
     label: '¿Qué palabra es?',
     prompt: '¿Qué palabra o expresión corresponde a esta definición?',
@@ -34,190 +31,162 @@ const TYPES = {
     placeholder: 'La palabra…',
     applies: e => !!e.definition,
   },
+  hueco: {
+    label: 'Completa la frase',
+    prompt: 'Completa con la palabra o expresión que falta, en la forma adecuada',
+    input: 'text',
+    placeholder: 'Lo que falta…',
+    applies: e => !!cloze(e.example, e.word),
+  },
+  ejemplo: {
+    label: 'Frase de ejemplo',
+    prompt: 'Úsala en una frase',
+    input: 'textarea',
+    placeholder: 'Escribe una frase que use la palabra en contexto…',
+    applies: () => true,
+  },
 };
 
-const COUNTS = [10, 20, 30, 0]; // 0 = todas
-const POOLS = { todas: 'Todas', pendientes: 'Sin dominar', nuevas: 'Solo nuevas' };
-const DEFAULTS = { excludedTopics: [], types: Object.keys(TYPES), count: 10, pool: 'todas' };
+// Recognition while a word is new, recall and production as it matures (index = correct reviews in a row).
+const LEVELS = [
+  ['definicion', 'sinonimo'],
+  ['sinonimo', 'inversa', 'hueco', 'definicion'],
+  ['inversa', 'hueco', 'ejemplo', 'sinonimo'],
+];
 
-// ---------- Setup ----------
+function pickType(e) {
+  const r = progress.get(e.key);
+  const usable = list => list.filter(t => TYPES[t].applies(e));
+  let options = usable(LEVELS[Math.min(r?.reps || 0, LEVELS.length - 1)]);
+  if (!options.length) options = usable(Object.keys(TYPES));
+  const varied = options.filter(t => t !== r?.lastType);
+  const pool = varied.length ? varied : options;
+  return pool[Math.floor(Math.random() * pool.length)];
+}
 
-export async function renderVocabSetup(root) {
-  const data = await loadVocab();
-  const s = { ...DEFAULTS, ...readPref('vocab-settings', {}) };
-  if (!s.types.length) s.types = DEFAULTS.types;
-  const c = progress.summarize(data.entries.map(e => e.key));
+// Due reviews first (most overdue first), then new words, then words being relearnt.
+// With `practice`, when nothing is due it keeps going with the words you've struggled with most.
+function nextCard(entries, recent, { practice, extraNew }) {
+  const now = Date.now();
+  const r = e => progress.get(e.key);
+  const avoid = list => list.find(e => !recent.includes(e.key)) || null;
 
-  root.innerHTML = `
-    <section class="page-head">
-      <p class="eyebrow">Vocabulario</p>
-      <h1>Practica tu vocabulario</h1>
-      <p class="lede">${data.entries.length} palabras en ${data.topics.length} temas. Escribe tu respuesta, compárala con la solución y di si la sabías.</p>
-      <div class="head-row">
-        <div class="head-stats">${statusBar(c)}
-          <p class="legend"><span class="dot dot-mastered"></span>${c.mastered} dominadas <span class="dot dot-learning"></span>${c.learning} por reforzar <span class="dot dot-new"></span>${c.new} sin intentar</p>
-        </div>
-        <a class="btn ghost" href="#/vocab/lista">Ver la lista completa →</a>
-      </div>
-    </section>
+  const scheduled = entries.filter(e => progress.isScheduled(e.key));
+  const due = scheduled.filter(e => r(e).due <= now).sort((a, b) => r(a).due - r(b).due);
+  let c = avoid(due);
+  if (c) return { entry: c, scheduled: true };
 
-    <form class="panel setup" id="setup">
-      <fieldset>
-        <legend>Temas <span class="mini-actions"><button type="button" class="link" data-topics="all">todos</button> · <button type="button" class="link" data-topics="none">ninguno</button></span></legend>
-        <div class="chips">
-          ${data.topics.map(t => `
-            <label class="chip" style="--h:${hueFor(t.id)}">
-              <input type="checkbox" name="topic" value="${esc(t.id)}" ${s.excludedTopics.includes(t.id) ? '' : 'checked'}>
-              <span>${esc(t.name)} <small>${t.count}</small></span>
-            </label>`).join('')}
-        </div>
-      </fieldset>
+  const fresh = entries.filter(e => !progress.isScheduled(e.key));
+  if (fresh.length && (extraNew || progress.today().newSeen < NEW_PER_DAY)) {
+    return { entry: fresh[Math.floor(Math.random() * fresh.length)], isNew: true, scheduled: true };
+  }
 
-      <fieldset>
-        <legend>Tipos de pregunta</legend>
-        <div class="chips">
-          ${Object.entries(TYPES).map(([id, t]) => `
-            <label class="chip chip-plain">
-              <input type="checkbox" name="type" value="${id}" ${s.types.includes(id) ? 'checked' : ''}>
-              <span>${t.label}</span>
-            </label>`).join('')}
-        </div>
-      </fieldset>
+  const relearning = scheduled.filter(e => r(e).interval === 0).sort((a, b) => r(a).due - r(b).due);
+  c = avoid(relearning) || due[0] || relearning[0];
+  if (c) return { entry: c, scheduled: true };
 
-      <div class="setup-row">
-        <fieldset>
-          <legend>Preguntas</legend>
-          <div class="segmented">
-            ${COUNTS.map(n => `<label><input type="radio" name="count" value="${n}" ${s.count === n ? 'checked' : ''}><span>${n || 'Todas'}</span></label>`).join('')}
-          </div>
-        </fieldset>
-        <fieldset>
-          <legend>Palabras</legend>
-          <div class="segmented">
-            ${Object.entries(POOLS).map(([id, label]) => `<label><input type="radio" name="pool" value="${id}" ${s.pool === id ? 'checked' : ''}><span>${label}</span></label>`).join('')}
-          </div>
-        </fieldset>
-      </div>
+  if (practice && scheduled.length) {
+    const ranked = scheduled
+      .map(e => [e, (r(e).lapses || 0) * 2 + (r(e).ease < 2.5 ? 1 : 0) + Math.random() * 2])
+      .sort((a, b) => b[1] - a[1])
+      .map(([e]) => e);
+    return { entry: avoid(ranked) || ranked[0], scheduled: false };
+  }
+  return null;
+}
 
-      <div class="setup-foot">
-        <p class="muted" id="setup-count"></p>
-        <button class="btn primary" type="submit">Empezar</button>
-      </div>
-    </form>`;
-
-  const form = root.querySelector('#setup');
-  const countEl = root.querySelector('#setup-count');
-  const startBtn = form.querySelector('[type=submit]');
-
-  const read = () => {
-    const fd = new FormData(form);
-    const on = new Set(fd.getAll('topic'));
-    return {
-      excludedTopics: data.topics.map(t => t.id).filter(id => !on.has(id)),
-      types: fd.getAll('type'),
-      count: Number(fd.get('count')),
-      pool: fd.get('pool'),
-    };
+function counts(entries) {
+  const now = Date.now();
+  const day = progress.today();
+  const fresh = entries.filter(e => !progress.isScheduled(e.key)).length;
+  return {
+    due: entries.filter(e => progress.isDue(e.key, now)).length,
+    newLeft: Math.min(fresh, Math.max(0, NEW_PER_DAY - day.newSeen)),
+    freshTotal: fresh,
+    done: day.reviewed,
   };
-
-  const update = () => {
-    const settings = read();
-    writePref('vocab-settings', settings);
-    const n = candidates(data.entries, settings).length;
-    const q = settings.count ? Math.min(n, settings.count) : n;
-    if (!settings.types.length) countEl.textContent = 'Elige al menos un tipo de pregunta.';
-    else if (!n) countEl.textContent = 'No hay palabras con estos filtros.';
-    else countEl.textContent = `${n} ${n === 1 ? 'palabra disponible' : 'palabras disponibles'} · sesión de ${q} ${q === 1 ? 'pregunta' : 'preguntas'}`;
-    startBtn.disabled = !n || !settings.types.length;
-  };
-
-  form.addEventListener('change', update);
-  form.querySelectorAll('[data-topics]').forEach(b =>
-    b.addEventListener('click', () => {
-      form.querySelectorAll('input[name=topic]').forEach(i => (i.checked = b.dataset.topics === 'all'));
-      update();
-    })
-  );
-  form.addEventListener('submit', ev => {
-    ev.preventDefault();
-    const settings = read();
-    startQuiz(root, buildSession(data.entries, settings), settings);
-  });
-  update();
 }
 
-function candidates(entries, s) {
-  return entries.filter(e => {
-    if (s.excludedTopics.includes(e.topicId)) return false;
-    const st = progress.status(e.key);
-    if (s.pool === 'pendientes') return st !== 'mastered';
-    if (s.pool === 'nuevas') return st === 'new';
-    return true;
-  });
+const inDays = d => (d <= 1 ? 'mañana' : d < 7 ? `en ${d} días` : d < 30 ? `en ${Math.round(d / 7)} sem.` : `en ${Math.round(d / 30)} ${Math.round(d / 30) === 1 ? 'mes' : 'meses'}`);
+
+function when(ts) {
+  const diff = ts - Date.now();
+  if (diff < 60 * 60 * 1000) return 'en unos minutos';
+  const d = new Date(ts);
+  const time = d.toLocaleTimeString('es', { hour: '2-digit', minute: '2-digit' });
+  if (d.toDateString() === new Date().toDateString()) return `hoy a las ${time}`;
+  if (d.toDateString() === new Date(Date.now() + 864e5).toDateString()) return 'mañana';
+  return d.toLocaleDateString('es', { weekday: 'long', day: 'numeric', month: 'long' });
 }
 
-// Words you keep missing come first, then new ones, then mastered ones (least recently seen first).
-function buildSession(entries, s) {
-  const pool = candidates(entries, s);
-  const by = st => pool.filter(e => progress.status(e.key) === st);
-  const lastSeen = e => progress.get(e.key)?.last || '';
-  const ordered = [
-    ...shuffle(by('learning')),
-    ...shuffle(by('new')),
-    ...by('mastered').sort((a, b) => lastSeen(a).localeCompare(lastSeen(b))),
-  ];
-  return shuffle(s.count ? ordered.slice(0, s.count) : ordered);
-}
+// ---------- Practice stream ----------
 
-function pickType(entry, enabled) {
-  const ok = enabled.filter(t => TYPES[t].applies(entry));
-  if (ok.length) return ok[Math.floor(Math.random() * ok.length)];
-  return 'ejemplo';
-}
+export async function renderVocab(root) {
+  const { entries } = await loadVocab();
+  if (!entries.length) {
+    root.innerHTML = `<section class="page-head"><p class="eyebrow">Vocabulario</p><h1>Aún no hay palabras</h1>
+      <p class="lede">Añade una lista en <code>data/vocab/</code> (el README explica cómo).</p></section>`;
+    return;
+  }
 
-// ---------- Quiz ----------
-
-function startQuiz(root, entries, settings) {
-  const questions = entries.map(entry => ({ entry, type: pickType(entry, settings.types) }));
-  const results = [];
-  let i = 0;
-  let awaitingGrade = false;
+  const mode = { practice: false, extraNew: false };
+  const recent = [];
+  let current = null;
   let grade = null;
 
   const onKey = ev => {
     if (!root.isConnected) return document.removeEventListener('keydown', onKey);
-    if (!awaitingGrade || ev.metaKey || ev.ctrlKey || ev.altKey) return;
+    if (!grade || ev.metaKey || ev.ctrlKey || ev.altKey) return;
     if (ev.key === '1') grade(true);
     else if (ev.key === '2') grade(false);
   };
   document.addEventListener('keydown', onKey);
-  const stop = () => document.removeEventListener('keydown', onKey);
 
-  show();
+  next();
+
+  function next() {
+    grade = null;
+    const pick = nextCard(entries, recent, mode);
+    if (!pick) return caughtUp();
+    current = { ...pick, type: pickType(pick.entry) };
+    show();
+  }
+
+  function topBar() {
+    const c = counts(entries);
+    return `
+      <div class="quiz-top">
+        <div class="counters">
+          <span class="counter c-due"><strong>${c.due}</strong> por repasar</span>
+          <span class="counter c-new"><strong>${c.newLeft}</strong> ${c.newLeft === 1 ? 'nueva' : 'nuevas'}</span>
+          <span class="counter c-done"><strong>${c.done}</strong> hoy</span>
+        </div>
+        <a class="link" href="#/vocab/lista">Lista de palabras →</a>
+      </div>
+      ${current && !current.scheduled ? '<p class="practice-note">Práctica libre: los aciertos no cambian tu calendario de repaso; los fallos sí.</p>' : ''}`;
+  }
 
   function show() {
-    const { entry: e, type } = questions[i];
+    const { entry: e, type, isNew } = current;
     const t = TYPES[type];
-    const pct = (i / questions.length) * 100;
+    const gap = type === 'hueco' ? cloze(e.example, e.word) : null;
+
+    let prompt;
+    if (type === 'inversa') prompt = `<p class="q-definition">${esc(e.definition)}</p>`;
+    else if (gap) prompt = `<p class="q-sentence">${esc(gap.before)}<span class="blank">${esc(clozeHint(gap.answer))}</span>${esc(gap.after)}</p>`;
+    else prompt = `<h2 class="q-word">${esc(e.word)}</h2>`;
 
     root.innerHTML = `
       <div class="quiz">
-        <div class="quiz-top">
-          <button type="button" class="link" data-quit>← Terminar</button>
-          <div class="progress-track"><span style="width:${pct}%"></span></div>
-          <span class="muted">${i + 1} / ${questions.length}</span>
-        </div>
-
+        ${topBar()}
         <article class="panel q-card">
           <div class="q-meta">
-            <span class="qtype">${t.label}</span>
+            <span class="qtype">${t.label}${isNew ? ' <span class="new-badge">Nueva</span>' : ''}</span>
             ${topicTag(e.topicId, e.topic)}
           </div>
           <p class="q-prompt">${t.prompt}</p>
-          ${type === 'inversa'
-            ? `<p class="q-definition">${esc(e.definition)}</p>`
-            : `<h2 class="q-word">${esc(e.word)}</h2>`}
-          ${e.type ? `<p class="q-pos">${esc(e.type)}</p>` : ''}
+          ${prompt}
+          ${e.type && type !== 'hueco' ? `<p class="q-pos">${esc(e.type)}</p>` : ''}
 
           <form class="q-form" autocomplete="off">
             ${t.input === 'textarea'
@@ -235,15 +204,7 @@ function startQuiz(root, entries, settings) {
 
     const form = root.querySelector('.q-form');
     const field = form.elements.answer;
-    field.focus();
-
-    root.querySelector('[data-quit]').addEventListener('click', () => {
-      if (results.length) summary();
-      else {
-        stop();
-        renderVocabSetup(root);
-      }
-    });
+    field.focus({ preventScroll: true });
 
     if (field.tagName === 'TEXTAREA') {
       field.addEventListener('keydown', ev => {
@@ -255,28 +216,33 @@ function startQuiz(root, entries, settings) {
     }
     form.addEventListener('submit', ev => {
       ev.preventDefault();
-      reveal(field.value.trim());
+      reveal(field.value.trim(), gap);
     });
-    root.querySelector('[data-dunno]').addEventListener('click', () => reveal(''));
+    root.querySelector('[data-dunno]').addEventListener('click', () => reveal('', gap));
   }
 
-  function reveal(answer) {
-    const { entry: e, type } = questions[i];
+  function reveal(answer, gap) {
+    const { entry: e, type, scheduled } = current;
     const form = root.querySelector('.q-form');
     form.querySelectorAll('textarea, input, button').forEach(el => (el.disabled = true));
     form.querySelector('.q-actions').hidden = true;
 
-    const v = autoCheck(type, e, answer);
+    const v = autoCheck(type, e, answer, gap);
+    const r = progress.get(e.key);
+    const keepsSchedule = !scheduled && r?.interval > 0;
+    const okLabel = keepsSchedule ? 'sin cambios' : inDays(progress.nextInterval(r));
+
     const box = root.querySelector('.reveal');
     box.hidden = false;
     box.innerHTML = `
       ${answer ? '' : '<p class="verdict verdict-neutral">Sin respuesta. Aquí tienes la solución:</p>'}
       ${v.message ? `<p class="verdict verdict-${v.suggest === true ? 'good' : v.suggest === false ? 'bad' : 'neutral'}">${v.message}</p>` : ''}
       <dl class="solution">
-        ${type === 'inversa' ? `<div class="sol-focus"><dt>Palabra</dt><dd class="sol-word">${esc(e.word)}</dd></div>` : ''}
+        ${gap ? `<div class="sol-focus"><dt>Frase</dt><dd>${esc(gap.before)}<mark>${esc(gap.answer)}</mark>${esc(gap.after)}</dd></div>` : ''}
+        ${type === 'inversa' || gap ? `<div class="${gap ? '' : 'sol-focus'}"><dt>Palabra</dt><dd class="sol-word">${esc(e.word)}</dd></div>` : ''}
         ${e.definition && type !== 'inversa' ? `<div class="${type === 'definicion' ? 'sol-focus' : ''}"><dt>Definición</dt><dd>${esc(e.definition)}</dd></div>` : ''}
         ${e.synonyms.length ? `<div class="${type === 'sinonimo' ? 'sol-focus' : ''}"><dt>Sinónimos</dt><dd>${e.synonyms.map(esc).join(' · ')}</dd></div>` : ''}
-        ${e.example ? `<div class="${type === 'ejemplo' ? 'sol-focus' : ''}"><dt>Ejemplo</dt><dd class="example">${highlight(e.example, e.word)}</dd></div>` : ''}
+        ${e.example && !gap ? `<div class="${type === 'ejemplo' ? 'sol-focus' : ''}"><dt>Ejemplo</dt><dd class="example">${highlight(e.example, e.word)}</dd></div>` : ''}
         ${e.context ? `<div><dt>Contexto</dt><dd>${esc(e.context)}</dd></div>` : ''}
         ${e.connotation ? `<div><dt>Función / connotación</dt><dd>${esc(e.connotation)}</dd></div>` : ''}
         ${e.notes ? `<div><dt>Nota</dt><dd>${esc(e.notes)}</dd></div>` : ''}
@@ -284,68 +250,66 @@ function startQuiz(root, entries, settings) {
       <div class="grade">
         <p>${answer ? '¿Tu respuesta era correcta?' : '¿La sabías?'}</p>
         <div class="grade-buttons">
-          <button type="button" class="btn good ${v.suggest === true ? 'suggested' : ''}" data-grade="1">✓ Sí <kbd>1</kbd></button>
-          <button type="button" class="btn bad ${v.suggest === false ? 'suggested' : ''}" data-grade="0">✗ A repasar <kbd>2</kbd></button>
+          <button type="button" class="btn good ${v.suggest === true ? 'suggested' : ''}" data-grade="1">
+            <span>✓ Sí <kbd>1</kbd></span><small>${okLabel}</small></button>
+          <button type="button" class="btn bad ${v.suggest === false ? 'suggested' : ''}" data-grade="0">
+            <span>✗ A repasar <kbd>2</kbd></span><small>otra vez hoy</small></button>
         </div>
       </div>`;
 
     grade = correct => {
-      if (!awaitingGrade) return;
-      awaitingGrade = false;
-      progress.record(e.key, correct, type);
-      results.push({ entry: e, type, correct, answer });
-      i++;
-      if (i < questions.length) show();
-      else summary();
+      grade = null;
+      progress.review(e.key, correct, type, { practice: !scheduled });
+      recent.push(e.key);
+      if (recent.length > 3) recent.shift();
+      next();
     };
-    box.querySelectorAll('[data-grade]').forEach(b => b.addEventListener('click', () => grade(b.dataset.grade === '1')));
-    awaitingGrade = true;
+    box.querySelectorAll('[data-grade]').forEach(b => b.addEventListener('click', () => grade?.(b.dataset.grade === '1')));
 
     const suggested = box.querySelector('.suggested');
-    (suggested || box.querySelector('.grade')).focus?.();
-    if (!suggested) document.activeElement?.blur();
+    if (suggested) suggested.focus({ preventScroll: true });
+    else document.activeElement?.blur();
     box.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
   }
 
-  function summary() {
-    stop();
-    awaitingGrade = false;
-    const right = results.filter(r => r.correct).length;
-    const missed = results.filter(r => !r.correct).map(r => r.entry);
-    const ratio = results.length ? right / results.length : 0;
-    const msg = ratio === 1 ? '¡Perfecto! Todo correcto.' : ratio >= 0.75 ? '¡Muy bien! Repasa las que se te resistieron.' : ratio >= 0.5 ? 'Vas por buen camino.' : 'Sigue practicando: la repetición funciona.';
+  function caughtUp() {
+    current = null;
+    const c = counts(entries);
+    const upcoming = entries.map(e => progress.get(e.key)?.due).filter(Boolean).sort((a, b) => a - b);
+    const limitHit = c.freshTotal > 0 && c.newLeft === 0;
 
     root.innerHTML = `
-      <section class="page-head">
-        <p class="eyebrow">Sesión terminada</p>
-        <h1>${right} de ${results.length}</h1>
-        <p class="lede">${msg}</p>
-      </section>
-      <div class="panel">
-        <ul class="result-list">
-          ${results.map(r => `
-            <li class="${r.correct ? 'ok' : 'ko'}">
-              <span class="mark">${r.correct ? '✓' : '✗'}</span>
-              <span class="rl-word">${esc(r.entry.word)}</span>
-              <span class="muted rl-type">${TYPES[r.type].label}</span>
-              ${statusBadge(progress.status(r.entry.key))}
-            </li>`).join('')}
-        </ul>
-      </div>
-      <div class="actions">
-        ${missed.length ? `<button type="button" class="btn primary" data-retry>Repetir las ${missed.length} falladas</button>` : ''}
-        <button type="button" class="btn ${missed.length ? 'ghost' : 'primary'}" data-again>Nueva sesión</button>
-        <a class="btn ghost" href="#/vocab/lista">Ver la lista</a>
+      <div class="quiz">
+        ${topBar()}
+        <div class="panel done-card">
+          <div class="done-icon">✓</div>
+          <h1>¡Todo al día!</h1>
+          <p class="lede">
+            ${c.done ? `Has hecho ${c.done} ${c.done === 1 ? 'repaso' : 'repasos'} hoy.` : ''}
+            ${upcoming.length ? `Próximo repaso: ${when(upcoming[0])}.` : ''}
+            ${limitHit ? `<br>Ya has visto ${NEW_PER_DAY} palabras nuevas hoy; quedan ${c.freshTotal} para los próximos días.` : ''}
+          </p>
+          <div class="actions">
+            ${limitHit ? '<button type="button" class="btn primary" data-more>Aprender más palabras nuevas</button>' : ''}
+            <button type="button" class="btn ${limitHit ? 'ghost' : 'primary'}" data-practice>Seguir practicando</button>
+            <a class="btn ghost" href="#/vocab/lista">Ver la lista</a>
+          </div>
+        </div>
       </div>`;
 
-    root.querySelector('[data-retry]')?.addEventListener('click', () => startQuiz(root, shuffle(missed), settings));
-    root.querySelector('[data-again]').addEventListener('click', () => renderVocabSetup(root));
-    window.scrollTo(0, 0);
+    root.querySelector('[data-more]')?.addEventListener('click', () => {
+      mode.extraNew = true;
+      next();
+    });
+    root.querySelector('[data-practice]').addEventListener('click', () => {
+      mode.practice = true;
+      next();
+    });
   }
 }
 
 // Suggest a verdict where the computer can reasonably judge; you always have the final say.
-function autoCheck(type, e, answer) {
+function autoCheck(type, e, answer, gap) {
   if (!answer) return { suggest: false };
   if (type === 'sinonimo') {
     const r = compare(answer, e.synonyms);
@@ -358,6 +322,15 @@ function autoCheck(type, e, answer) {
     if (r.result === 'exact') return { suggest: true, message: '¡Correcto!' };
     if (r.result === 'accents') return { suggest: true, message: `Correcto, pero revisa las tildes: <strong>${esc(e.word)}</strong>` };
     return { suggest: false, message: `Tu respuesta: <strong>${esc(answer)}</strong>. No es la palabra que se buscaba.` };
+  }
+  if (type === 'hueco') {
+    const r = compare(answer, [gap.answer]);
+    if (r.result === 'exact') return { suggest: true, message: '¡Correcto!' };
+    if (r.result === 'accents') return { suggest: true, message: `Correcto, pero revisa las tildes: <strong>${esc(gap.answer)}</strong>` };
+    if (containsWord(answer, e.word)) {
+      return { suggest: null, message: `Tu respuesta: <strong>${esc(answer)}</strong>. Es la palabra correcta; revisa si la forma encaja en la frase.` };
+    }
+    return { suggest: false, message: `Tu respuesta: <strong>${esc(answer)}</strong>. No es lo que faltaba.` };
   }
   if (type === 'ejemplo') {
     const has = containsWord(answer, e.word);
@@ -447,7 +420,7 @@ function wordCard(e) {
       <footer>
         ${topicTag(e.topicId, e.topic)}
         ${statusBadge(progress.status(e.key))}
-        ${p ? `<span class="muted small">${p.correct}/${p.attempts} aciertos</span>` : ''}
+        ${p?.due ? `<span class="muted small">${p.correct}/${p.attempts} aciertos · repaso ${progress.isDue(e.key) ? 'pendiente' : when(p.due)}</span>` : ''}
       </footer>
     </article>`;
 }
