@@ -78,6 +78,8 @@ export function loadVocab() {
           definition: raw.definition || '',
           synonyms: asList(raw.synonyms),
           example: raw.example || '',
+          context: raw.context || '',
+          connotation: raw.connotation || '',
           notes: raw.notes || '',
           accept: asList(raw.accept),
           topic,

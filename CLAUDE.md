@@ -9,6 +9,7 @@ When the user uploads a vocab list:
 - Generate `definition`, 1–2 `synonyms`, one `example`, and `type` yourself: natural, accurate, C1-appropriate peninsular Spanish (note regional variants in `notes`). Definitions must not contain the headword itself (it breaks the "¿Qué palabra es?" question).
 - Synonyms should be genuinely interchangeable in at least one common context; the quiz auto-checks against them.
 - For reflexive/phrasal headwords, add `accept` variants (e.g. `"desbordar"` for `"desbordarse"`).
+- If the material has context / connotation columns, map them to `context` and `connotation` (fix typos, keep the user's meaning).
 - Reuse existing topic names exactly (check other files) unless the material is a new topic.
 - Never change an existing entry's `word` (it's the progress ID) without flagging it to the user.
 - Validate afterwards: `python3 -c "import json,glob; [json.load(open(f)) for f in glob.glob('data/**/*.json', recursive=True)]"` and check for duplicate words across files.

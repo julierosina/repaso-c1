@@ -1,0 +1,107 @@
+{
+  "source": "Clase — Venezuela, el petróleo y el intervencionismo estadounidense",
+  "topic": "Venezuela y EE. UU.",
+  "entries": [
+    {
+      "word": "llevarse a los chavistas",
+      "type": "expresión (contextual)",
+      "definition": "Sacar del poder a los partidarios del régimen de Hugo Chávez y Nicolás Maduro.",
+      "synonyms": ["derrocar al chavismo", "echar a los chavistas"],
+      "example": "«Era llevarse a los chavistas y dejarnos el petróleo, no llevarse el petróleo y dejarnos a los chavistas», bromeaban los venezolanos en las redes.",
+      "context": "Meme venezolano que juega con la idea de expulsar al Gobierno de Maduro.",
+      "connotation": "Juego de palabras construido como un quiasmo: se invierte el orden de «llevarse» y «dejarnos» con «los chavistas» y «el petróleo»."
+    },
+    {
+      "word": "aparatoso golpe de mano",
+      "type": "sintagma nominal",
+      "definition": "Acción rápida, por sorpresa y espectacular, llevada a cabo por la fuerza.",
+      "synonyms": ["operación relámpago", "golpe de fuerza"],
+      "example": "Buena parte de la prensa latinoamericana describió la operación de Washington como un aparatoso golpe de mano.",
+      "context": "Designa la intervención estadounidense para sacar a Maduro del poder.",
+      "connotation": "Negativa: insiste en el uso de la fuerza y en el carácter espectacular de la acción («aparatoso»).",
+      "accept": ["golpe de mano"]
+    },
+    {
+      "word": "injerencia",
+      "type": "sustantivo femenino (a menudo en plural)",
+      "definition": "Intervención de un país en los asuntos internos de otro Estado, o de alguien en asuntos que no le corresponden.",
+      "synonyms": ["intromisión", "intervención"],
+      "example": "El Gobierno denunció las injerencias extranjeras en su política interior.",
+      "context": "Se refiere a la política de Estados Unidos en América Latina.",
+      "connotation": "Negativa: cuestiona la soberanía del país afectado.",
+      "accept": ["injerencias"]
+    },
+    {
+      "word": "excremento del diablo",
+      "type": "expresión metafórica",
+      "definition": "Metáfora con la que se designa el petróleo, visto a la vez como una gran riqueza y como fuente de corrupción, dependencia y desgracia.",
+      "synonyms": ["el petróleo", "oro negro"],
+      "example": "Para muchos venezolanos, el petróleo ha resultado ser el excremento del diablo: una riqueza inmensa que nunca llegó a la población.",
+      "context": "Aparece en un título que presenta el petróleo como riqueza y, al mismo tiempo, como peligro y fuente de corrupción.",
+      "connotation": "Metáfora que muestra la ambivalencia del petróleo. Contrasta con «oro negro», que solo destaca su valor.",
+      "notes": "La expresión se atribuye a Juan Pablo Pérez Alfonzo, ministro venezolano del petróleo y cofundador de la OPEP.",
+      "accept": ["el excremento del diablo"]
+    },
+    {
+      "word": "Gran Garrote",
+      "type": "sustantivo (política exterior)",
+      "definition": "Política exterior basada en la presión y en la amenaza del uso de la fuerza militar para imponer los propios intereses.",
+      "synonyms": ["diplomacia de las cañoneras", "política de fuerza"],
+      "example": "La intervención ha resucitado en la prensa latinoamericana el recuerdo de la política del Gran Garrote.",
+      "context": "Política estadounidense hacia América Latina.",
+      "connotation": "Histórica: ejemplo emblemático del intervencionismo estadounidense.",
+      "notes": "Traducción de «Big Stick», la doctrina de Theodore Roosevelt a principios del siglo XX («habla suavemente y lleva un gran garrote»).",
+      "accept": ["el gran garrote", "política del gran garrote"]
+    },
+    {
+      "word": "patio trasero",
+      "type": "sintagma nominal (sentido figurado)",
+      "definition": "Zona que una potencia considera bajo su influencia y control, como si le perteneciera.",
+      "synonyms": ["zona de influencia", "esfera de influencia"],
+      "example": "Durante décadas, Washington trató a América Latina como su patio trasero.",
+      "context": "Expresión para designar a América Latina respecto de Estados Unidos.",
+      "connotation": "Peyorativa: expresa una relación de subordinación.",
+      "accept": ["el patio trasero"]
+    },
+    {
+      "word": "vasallaje",
+      "type": "sustantivo masculino",
+      "definition": "Relación de sumisión y dependencia respecto de alguien más poderoso; en origen, el vínculo de dependencia propio del sistema feudal.",
+      "synonyms": ["sumisión", "servidumbre"],
+      "example": "La oposición acusó al Gobierno de aceptar una relación de vasallaje con la potencia extranjera.",
+      "context": "Dependencia de un país frente a una potencia extranjera.",
+      "connotation": "Peyorativa: léxico de la dominación y la subordinación."
+    },
+    {
+      "word": "quedarse con la tajada del león",
+      "type": "locución verbal",
+      "definition": "Quedarse con la parte mayor o más importante de un beneficio o de un reparto.",
+      "synonyms": ["llevarse la mejor parte", "quedarse con la parte del león"],
+      "example": "Durante años, las compañías extranjeras se quedaron con la tajada del león de los beneficios del petróleo.",
+      "context": "Estados Unidos se queda con la mayor parte de los beneficios de la explotación del petróleo.",
+      "connotation": "Crítica de una relación desigual.",
+      "notes": "La forma más extendida es «la parte del león»; «tajada» insiste en la idea de reparto de beneficios.",
+      "accept": ["la tajada del león", "tajada del león", "llevarse la tajada del león"]
+    },
+    {
+      "word": "títere",
+      "type": "sustantivo masculino",
+      "definition": "Muñeco que se mueve con hilos; en sentido figurado, persona o gobierno que actúa manejado por otro.",
+      "synonyms": ["marioneta", "pelele"],
+      "example": "Sus críticos lo acusan de ser un títere de las potencias extranjeras.",
+      "context": "Gobierno controlado por una potencia extranjera.",
+      "connotation": "Peyorativa: expresa subordinación.",
+      "notes": "Frecuente en aposición: «un gobierno títere»."
+    },
+    {
+      "word": "garra imperial",
+      "type": "sintagma nominal (metáfora)",
+      "definition": "Metáfora del poder agresivo y dominador que un imperio ejerce sobre otros países.",
+      "synonyms": ["yugo imperial", "dominio imperialista"],
+      "example": "El discurso oficial presentó la intervención como una nueva muestra de la garra imperial sobre América Latina.",
+      "context": "Dominación histórica de Estados Unidos.",
+      "connotation": "Metáfora negativa del control de Estados Unidos sobre América Latina.",
+      "accept": ["la garra imperial"]
+    }
+  ]
+}

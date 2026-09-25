@@ -65,7 +65,7 @@ data/
 ```json
 {
   "vocab": [
-    "vocab/ejemplo-medio-ambiente.json",
+    "vocab/venezuela-eeuu.json",
     "vocab/unidad-3-salud.json"
   ],
   "grammar": [],
@@ -103,6 +103,8 @@ One file per list or unit works well (e.g. `data/vocab/unidad-3-salud.json`):
 | `entries[].definition` | **yes** | Definition in Spanish. |
 | `entries[].synonyms` | recommended | List of 1–2 synonyms. The *Sinónimo* question checks your answer against these. |
 | `entries[].example` | recommended | One example sentence. The word is highlighted automatically. |
+| `entries[].context` | no | Where/how the word appeared in the class text. Shown as *Contexto*. |
+| `entries[].connotation` | no | Function or connotation (peyorativa, metáfora, ironía…). Shown as *Función / connotación*. |
 | `entries[].type` | no | Part of speech, e.g. `"verbo"`, `"locución adverbial"`. Shown as a small hint. |
 | `entries[].topic` | no | Overrides the file's `topic` for this one entry. |
 | `entries[].accept` | no | Extra answers accepted in the *¿Qué palabra es?* question, e.g. `["gato por liebre"]`. |

@@ -277,6 +277,8 @@ function startQuiz(root, entries, settings) {
         ${e.definition && type !== 'inversa' ? `<div class="${type === 'definicion' ? 'sol-focus' : ''}"><dt>Definición</dt><dd>${esc(e.definition)}</dd></div>` : ''}
         ${e.synonyms.length ? `<div class="${type === 'sinonimo' ? 'sol-focus' : ''}"><dt>Sinónimos</dt><dd>${e.synonyms.map(esc).join(' · ')}</dd></div>` : ''}
         ${e.example ? `<div class="${type === 'ejemplo' ? 'sol-focus' : ''}"><dt>Ejemplo</dt><dd class="example">${highlight(e.example, e.word)}</dd></div>` : ''}
+        ${e.context ? `<div><dt>Contexto</dt><dd>${esc(e.context)}</dd></div>` : ''}
+        ${e.connotation ? `<div><dt>Función / connotación</dt><dd>${esc(e.connotation)}</dd></div>` : ''}
         ${e.notes ? `<div><dt>Nota</dt><dd>${esc(e.notes)}</dd></div>` : ''}
       </dl>
       <div class="grade">
@@ -439,6 +441,8 @@ function wordCard(e) {
       ${e.definition ? `<p class="def">${esc(e.definition)}</p>` : ''}
       ${e.synonyms.length ? `<p class="syn"><span class="label">Sinónimos</span> ${e.synonyms.map(esc).join(' · ')}</p>` : ''}
       ${e.example ? `<p class="example">${highlight(e.example, e.word)}</p>` : ''}
+      ${e.context ? `<p class="syn"><span class="label">Contexto</span> ${esc(e.context)}</p>` : ''}
+      ${e.connotation ? `<p class="syn"><span class="label">Connotación</span> ${esc(e.connotation)}</p>` : ''}
       ${e.notes ? `<p class="note">${esc(e.notes)}</p>` : ''}
       <footer>
         ${topicTag(e.topicId, e.topic)}

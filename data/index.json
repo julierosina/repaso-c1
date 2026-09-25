@@ -1,8 +1,6 @@
 {
   "vocab": [
-    "vocab/ejemplo-medio-ambiente.json",
-    "vocab/ejemplo-trabajo.json",
-    "vocab/ejemplo-expresiones.json"
+    "vocab/venezuela-eeuu.json"
   ],
   "grammar": [],
   "writing": []
