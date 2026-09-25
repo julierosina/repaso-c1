@@ -1,0 +1,110 @@
+{
+  "source": "Clase — Ceuta y la extrema derecha",
+  "topic": "Ceuta y la extrema derecha",
+  "entries": [
+    {
+      "word": "laboratorio",
+      "type": "sustantivo masculino (sentido figurado)",
+      "definition": "Lugar donde se hacen experimentos científicos; en sentido figurado, lugar donde se ensayan ideas o estrategias antes de aplicarlas a mayor escala.",
+      "synonyms": ["banco de pruebas", "campo de experimentación"],
+      "example": "Algunos analistas ven en la ciudad un laboratorio donde los partidos ensayan sus discursos antes de llevarlos al resto del país.",
+      "context": "Ceuta se presenta como un lugar donde la extrema derecha prueba sus estrategias, como si fuera un experimento.",
+      "connotation": "Negativa: Ceuta y sus habitantes son tratados como un experimento político."
+    },
+    {
+      "word": "cuasibélico",
+      "type": "adjetivo",
+      "definition": "Que parece propio de una guerra, aunque no lo sea realmente.",
+      "synonyms": ["militarizado", "casi bélico"],
+      "example": "La frontera vivía un ambiente cuasibélico, con patrullas militares y una tensión constante.",
+      "context": "Describe cómo ha cambiado Ceuta, con presencia militar y tensión constante.",
+      "connotation": "Dramatiza el contraste entre la Ceuta de antes y la de ahora.",
+      "notes": "Formado con el prefijo cuasi- («casi»), que se escribe unido a la palabra: cuasibélico, cuasiperfecto.",
+      "accept": ["cuasibélica"]
+    },
+    {
+      "word": "el fantasma del odio merodea",
+      "type": "expresión metafórica",
+      "definition": "Imagen de una amenaza invisible que ronda un lugar y que se percibe en el ambiente, aunque no se vea.",
+      "synonyms": ["el odio acecha", "el odio flota en el ambiente"],
+      "example": "Desde la crisis, el fantasma del odio merodea por las calles y las redes sociales de la ciudad.",
+      "context": "Representa la sensación de que el odio ya está en el ambiente, como una amenaza invisible.",
+      "connotation": "Metáfora que anuncia el tono de alerta del artículo.",
+      "notes": "Merodear: vagar por un lugar, a menudo con malas intenciones.",
+      "accept": ["fantasma del odio merodea", "el fantasma del odio"]
+    },
+    {
+      "word": "espolear la desgracia",
+      "type": "locución verbal",
+      "definition": "Avivar o agravar una situación dolorosa en lugar de aliviarla, como quien pica con las espuelas a un caballo para que corra más.",
+      "synonyms": ["avivar el sufrimiento", "atizar"],
+      "example": "En lugar de buscar soluciones, algunos políticos prefieren espolear la desgracia para sacar rédito electoral.",
+      "context": "La extrema derecha aviva el sufrimiento causado por la crisis de Ceuta, en vez de calmarlo, porque le conviene políticamente.",
+      "connotation": "Negativa: sugiere una manipulación cruel del sufrimiento ajeno.",
+      "notes": "Espolear: picar con la espuela; en sentido figurado, incitar o estimular."
+    },
+    {
+      "word": "españolidad a ultranza",
+      "type": "sintagma nominal",
+      "definition": "Defensa extrema y sin matices de la identidad nacional de España.",
+      "synonyms": ["nacionalismo exacerbado", "patriotismo radical"],
+      "example": "El partido apela a una españolidad a ultranza para ganarse a los votantes de la ciudad.",
+      "context": "La extrema derecha utiliza el sentimiento identitario de los ceutíes para sus fines políticos.",
+      "connotation": "Crítica: la extrema derecha se apropia de un sentimiento identitario para politizarlo.",
+      "notes": "A ultranza: de manera radical, sin detenerse ante nada («defender algo a ultranza»)."
+    },
+    {
+      "word": "encaje de bolillos",
+      "type": "locución nominal",
+      "definition": "Técnica artesanal de tejer con pequeños palillos de madera; en sentido figurado, algo muy complicado hecho con gran destreza.",
+      "synonyms": ["filigrana", "trabajo minucioso"],
+      "example": "Formar un gobierno con tantos socios distintos fue un auténtico encaje de bolillos.",
+      "context": "Describe cómo las fuerzas de extrema derecha combinan distintos elementos en las redes sociales para construir un discurso eficaz.",
+      "connotation": "Irónica: la autora parece admirar la habilidad de la extrema derecha en las redes, pero en realidad la está criticando.",
+      "notes": "Se usa sobre todo en construcciones como «hacer encaje de bolillos» o «ser un encaje de bolillos»."
+    },
+    {
+      "word": "manosear a placer la inmigración",
+      "type": "expresión verbal",
+      "definition": "Utilizar un tema a su antojo, de forma oportunista y sin respeto, como quien toca algo repetidamente y sin cuidado.",
+      "synonyms": ["instrumentalizar", "utilizar a su antojo"],
+      "example": "Durante la campaña, algunos partidos manosean a placer la inmigración para arañar votos.",
+      "context": "La derecha radical usa la inmigración de forma interesada, solo por los votos que puede conseguir.",
+      "connotation": "Negativa: sugiere falta de respeto y oportunismo político.",
+      "notes": "Manosear: tocar algo repetidamente con las manos. A placer: cuanto uno quiere, a su antojo.",
+      "accept": ["manosear a placer"]
+    },
+    {
+      "word": "tótems electorales",
+      "type": "sintagma nominal (plural)",
+      "definition": "Temas o símbolos que un partido convierte en objeto casi sagrado y explota estratégicamente para conseguir votos.",
+      "synonyms": ["banderas electorales", "reclamos electorales"],
+      "example": "La seguridad y la inmigración se han convertido en los tótems electorales de la derecha radical.",
+      "context": "La derecha radical usa la inmigración para movilizar a sus votantes.",
+      "connotation": "Metáfora que critica el uso instrumental de la inmigración como arma política.",
+      "notes": "Tótem: objeto venerado como símbolo de un grupo. Plural: tótems.",
+      "accept": ["tótem electoral"]
+    },
+    {
+      "word": "cabalgar a lomos de un algoritmo",
+      "type": "expresión metafórica",
+      "definition": "Avanzar y ganar difusión gracias al impulso de un sistema automático de recomendación, como un jinete montado sobre su caballo.",
+      "synonyms": ["viralizarse gracias al algoritmo", "ser impulsado por el algoritmo"],
+      "example": "Las cuentas falsas cabalgan a lomos de un algoritmo que premia los mensajes más emocionales.",
+      "context": "El algoritmo favorece a las cuentas falsas cuando generan muchas emociones.",
+      "connotation": "Metáfora: el algoritmo es como un caballo que lleva a estas cuentas más lejos.",
+      "notes": "Cabalgar: ir a caballo. A lomos de: sobre el lomo de un animal; también en sentido figurado («llegó al poder a lomos del descontento»). En el texto aparece conjugado: «cabalgan a lomos de un algoritmo».",
+      "accept": ["cabalgan a lomos de un algoritmo", "a lomos de un algoritmo"]
+    },
+    {
+      "word": "paraperiodismo",
+      "type": "sustantivo masculino",
+      "definition": "Contenido que imita la forma de las noticias profesionales sin respetar su rigor ni su ética; información falsa o de mala calidad presentada como si fuera prensa.",
+      "synonyms": ["pseudoperiodismo", "desinformación"],
+      "example": "Muchos influencers practican un paraperiodismo que solo busca la viralidad.",
+      "context": "Se refiere al contenido de los influencers de extrema derecha, que imita el periodismo real pero solo busca la viralidad.",
+      "connotation": "Irónica y crítica: distingue el periodismo real del contenido de los influencers de extrema derecha.",
+      "notes": "Prefijo para- («al margen de», «que imita»), como en paramilitar."
+    }
+  ]
+}

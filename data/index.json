@@ -1,6 +1,7 @@
 {
   "vocab": [
-    "vocab/venezuela-eeuu.json"
+    "vocab/venezuela-eeuu.json",
+    "vocab/ceuta-extrema-derecha.json"
   ],
   "grammar": [],
   "writing": []
