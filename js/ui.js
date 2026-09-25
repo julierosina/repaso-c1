@@ -4,6 +4,9 @@ import { escapeHTML } from './text.js';
 
 export const esc = escapeHTML;
 
+// Escaped text with **bold** and line breaks, for explanations written in the data files.
+export const fmt = s => esc(s).replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>').replace(/\n/g, '<br>');
+
 // Topics get a stable colour derived from their name, so new topics need no configuration.
 const HUES = [172, 262, 12, 215, 330, 38, 140, 190, 290, 100];
 export function hueFor(id) {
@@ -16,6 +19,15 @@ export const topicTag = (id, name) => `<span class="tag" style="--h:${hueFor(id)
 
 export const STATUS_LABEL = { new: 'Sin intentar', learning: 'Por reforzar', mastered: 'Dominado' };
 export const statusBadge = s => `<span class="status status-${s}">${STATUS_LABEL[s]}</span>`;
+
+export function shuffle(arr) {
+  const a = [...arr];
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
 
 // Stacked bar of mastered / learning / new.
 export function statusBar(c) {

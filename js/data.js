@@ -4,6 +4,8 @@ import { slugify } from './text.js';
 
 let indexPromise;
 let vocabPromise;
+let grammarPromise;
+let writingPromise;
 
 async function fetchJSON(path) {
   let res;
@@ -36,6 +38,21 @@ export function loadIndex() {
   return (indexPromise ||= fetchJSON('data/index.json'));
 }
 
+// Fetch every file listed for a section; broken files are reported and skipped.
+async function loadFiles(paths, problems) {
+  const files = await Promise.all(
+    (paths || []).map(async path => {
+      try {
+        return { path, data: await fetchJSON('data/' + path) };
+      } catch (e) {
+        problems.push(e.message);
+        return null;
+      }
+    })
+  );
+  return files.filter(Boolean);
+}
+
 const asList = v => (Array.isArray(v) ? v : v ? [v] : []).map(String).filter(Boolean);
 
 export function loadVocab() {
@@ -45,20 +62,9 @@ export function loadVocab() {
     const entries = [];
     const seen = new Map();
 
-    const files = await Promise.all(
-      (index.vocab || []).map(async path => {
-        try {
-          return { path, data: await fetchJSON('data/' + path) };
-        } catch (e) {
-          problems.push(e.message);
-          return null;
-        }
-      })
-    );
+    const files = await loadFiles(index.vocab, problems);
 
-    for (const file of files) {
-      if (!file) continue;
-      const { path, data } = file;
+    for (const { path, data } of files) {
       const list = Array.isArray(data) ? data : data.entries;
       if (!Array.isArray(list)) {
         problems.push(`${path}: falta la lista "entries".`);
@@ -106,5 +112,101 @@ export function loadVocab() {
     const topics = [...topicMap.values()].sort((a, b) => a.name.localeCompare(b.name, 'es'));
 
     return { entries, topics, problems };
+  })());
+}
+
+// ---------- Grammar ----------
+
+export function loadGrammar() {
+  return (grammarPromise ||= (async () => {
+    const index = await loadIndex();
+    const problems = [];
+    const topics = [];
+    const files = await loadFiles(index.grammar, problems);
+
+    for (const { path, data } of files) {
+      if (!data.topic) {
+        problems.push(`${path}: falta "topic".`);
+        continue;
+      }
+      const topicId = data.id || slugify(data.topic);
+      if (topics.some(t => t.id === topicId)) {
+        problems.push(`${path}: ya existe un tema «${data.topic}». Cambia el nombre o añade un "id" distinto.`);
+        continue;
+      }
+      const exercises = [];
+      const seen = new Set();
+      (data.exercises || []).forEach((raw, i) => {
+        const where = `${path}, ejercicio ${i + 1}`;
+        if (!raw || !raw.prompt) return problems.push(`${where}: falta "prompt".`);
+        const kind = raw.options ? 'choice' : 'text';
+        const answers = kind === 'choice' ? asList(raw.answer) : asList(raw.answers ?? raw.answer);
+        if (!answers.length) return problems.push(`${where}: falta "answer${kind === 'text' ? 's' : ''}".`);
+        if (kind === 'choice' && !answers.every(a => raw.options.includes(a))) {
+          return problems.push(`${where}: la respuesta «${answers[0]}» no está entre las "options".`);
+        }
+        const id = raw.id || slugify(raw.prompt).slice(0, 60);
+        if (seen.has(id)) return problems.push(`${where}: hay dos ejercicios con el mismo enunciado; añade un "id" a uno de ellos.`);
+        seen.add(id);
+        exercises.push({
+          id,
+          key: `grammar:${topicId}:${id}`,
+          kind,
+          label: raw.label || (kind === 'choice' ? 'Elige la opción correcta' : 'Completa'),
+          instruction: raw.instruction || '',
+          prompt: raw.prompt,
+          options: kind === 'choice' ? asList(raw.options) : [],
+          answers,
+          explanation: raw.explanation || '',
+          whyNot: raw.whyNot || {},
+          alsoAccepted: raw.alsoAccepted || {},
+          traps: raw.traps || {},
+          source: raw.source || 'generated',
+          topicId,
+          topic: data.topic,
+        });
+        if (!raw.explanation) problems.push(`${where}: falta "explanation".`);
+      });
+      topics.push({ id: topicId, name: data.topic, summary: data.summary || '', fiche: data.fiche || {}, exercises });
+    }
+    return { topics, exercises: topics.flatMap(t => t.exercises), problems };
+  })());
+}
+
+// ---------- Writing ----------
+
+export function loadWriting() {
+  return (writingPromise ||= (async () => {
+    const index = await loadIndex();
+    const problems = [];
+    const prompts = [];
+    const files = await loadFiles(index.writing, problems);
+
+    for (const { path, data } of files) {
+      const list = Array.isArray(data.prompts) ? data.prompts : [data];
+      for (const raw of list) {
+        if (!raw.title || !Array.isArray(raw.parts)) {
+          problems.push(`${path}: cada tema necesita "title" y una lista "parts".`);
+          continue;
+        }
+        const id = raw.id || slugify(raw.title);
+        for (const [i, part] of raw.parts.entries()) {
+          part.id ||= slugify(part.title || `parte-${i + 1}`);
+          for (const c of part.checks || []) {
+            for (const key of ['pattern', 'avoid']) {
+              if (!c[key]) continue;
+              try {
+                new RegExp(c[key], 'iu');
+              } catch (e) {
+                problems.push(`${path}, «${part.title}»: la expresión de "${c.label}" no es válida (${e.message}).`);
+                c.broken = true;
+              }
+            }
+          }
+        }
+        prompts.push({ ...raw, id, topic: raw.topic || data.topic || '' });
+      }
+    }
+    return { prompts, problems };
   })());
 }

@@ -2,7 +2,9 @@
 
 import { renderHome } from './home.js';
 import { renderVocab, renderVocabList } from './vocab.js';
-import { loadVocab } from './data.js';
+import { renderGrammarHome, renderGrammarTopic, renderGrammarPractice } from './grammar.js';
+import { renderWritingHome, renderWritingPrompt } from './writing.js';
+import { loadVocab, loadGrammar, loadWriting } from './data.js';
 import { esc } from './ui.js';
 
 const app = document.getElementById('app');
@@ -12,11 +14,21 @@ const routes = {
   '': renderHome,
   vocab: renderVocab,
   'vocab/lista': renderVocabList,
+  grammar: renderGrammarHome,
+  'grammar/practica': root => renderGrammarPractice(root, null),
+  writing: renderWritingHome,
 };
 
+// Routes with an id in them: #/grammar/<tema>, #/grammar/<tema>/practica, #/writing/<tema>
+function dynamicRoute(path) {
+  let m;
+  if ((m = path.match(/^grammar\/([\w-]+)\/practica$/))) return root => renderGrammarPractice(root, m[1]);
+  if ((m = path.match(/^grammar\/([\w-]+)$/))) return root => renderGrammarTopic(root, m[1]);
+  if ((m = path.match(/^writing\/([\w-]+)$/))) return root => renderWritingPrompt(root, m[1]);
+  return null;
+}
+
 const COMING_SOON = {
-  grammar: ['Gramática', 'Mini-fichas de cada punto gramatical y ejercicios para practicarlo.'],
-  writing: ['Expresión escrita', 'Temas de redacción con estructura, conectores y ejercicios de preparación.'],
   exam: ['Modo examen', 'Una mezcla de vocabulario, gramática y redacción, con las respuestas al final.'],
   progress: ['Progreso', 'Qué dominas, qué necesitas reforzar y qué te falta por ver.'],
 };
@@ -48,7 +60,7 @@ async function route() {
   document.body.dataset.section = section || 'home';
   document.querySelectorAll('.site-nav a').forEach(a => a.classList.toggle('active', a.dataset.section === section));
 
-  const view = routes[path] || (COMING_SOON[section] ? comingSoon(section) : notFound);
+  const view = routes[path] || dynamicRoute(path) || (COMING_SOON[section] ? comingSoon(section) : notFound);
   const container = document.createElement('div');
   try {
     await view(container);
@@ -70,7 +82,8 @@ async function showDataProblems() {
     return;
   }
   try {
-    const { problems } = await loadVocab();
+    const results = await Promise.allSettled([loadVocab(), loadGrammar(), loadWriting()]);
+    const problems = results.flatMap(r => (r.status === 'fulfilled' ? r.value.problems : []));
     if (!problems.length) return;
     notices.innerHTML = `<details class="notice warn"><summary><strong>${problems.length} ${problems.length === 1 ? 'problema' : 'problemas'} en los archivos de datos</strong> (el resto del contenido funciona con normalidad)</summary>
       <ul>${problems.map(p => `<li>${esc(p)}</li>`).join('')}</ul></details>`;

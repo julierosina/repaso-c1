@@ -4,8 +4,8 @@ import { statusBar } from './ui.js';
 
 const SECTIONS = [
   { id: 'vocab', title: 'Vocabulario', text: 'Definiciones, sinónimos y frases de ejemplo, por temas.', ready: true },
-  { id: 'grammar', title: 'Gramática', text: 'Mini-fichas y ejercicios de cada punto gramatical.' },
-  { id: 'writing', title: 'Expresión escrita', text: 'Temas de redacción con estructura y conectores.' },
+  { id: 'grammar', title: 'Gramática', text: 'Fichas y ejercicios, con la explicación de cada respuesta.', ready: true },
+  { id: 'writing', title: 'Expresión escrita', text: 'Prepara textos y presentaciones con comprobaciones automáticas.', ready: true },
   { id: 'exam', title: 'Modo examen', text: 'Mezcla de todo, con las respuestas al final.' },
 ];
 
@@ -34,7 +34,7 @@ export async function renderHome(root) {
           <span class="section-dot"></span>
           <h2>${s.title}</h2>
           <p>${s.text}</p>
-          ${s.id === 'vocab' ? vocabStats : '<p class="soon-label">Próximamente</p>'}
+          ${s.id === 'vocab' ? vocabStats : s.ready ? '' : '<p class="soon-label">Próximamente</p>'}
         </a>`).join('')}
     </div>`;
 }

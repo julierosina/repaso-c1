@@ -1,0 +1,193 @@
+{
+  "id": "presentacion-articulo-opinion",
+  "title": "Presentación de un artículo de opinión",
+  "topic": "Expresión oral",
+  "description": "Ejercicio de expresión oral (15 minutos): presentar un artículo de opinión en español sobre una cuestión de actualidad. Prepara aquí cada parte. La duración se estima a unas 130 palabras por minuto.",
+  "notes": {
+    "title": "Para enviar el lunes (día anterior) · /3",
+    "items": [
+      "El artículo de opinión que vas a presentar.",
+      "Un **esquema** del artículo (máximo 10 palabras): última parte de esta página.",
+      "Una **ficha de vocabulario** con las 10 palabras o expresiones más difíciles o importantes: significado, significado en el contexto y función o connotación. Pásamela y la añado a **Vocabulario**.",
+      "Las **3 preguntas de interacción** (parte 6)."
+    ]
+  },
+  "parts": [
+    {
+      "id": "introduccion",
+      "title": "Introducción",
+      "minutes": 1,
+      "guidance": [
+        "Título del artículo, autor/a, medio y fecha",
+        "Tema del artículo",
+        "Problemática que plantea: formúlala como una pregunta"
+      ],
+      "phrases": [
+        "El artículo que voy a presentar se titula «…»",
+        "y fue publicado en … el …",
+        "Su autora, …, aborda la cuestión de",
+        "El texto plantea la siguiente problemática: ¿…?",
+        "Se trata de un artículo de opinión en el que"
+      ],
+      "checks": [
+        { "label": "Formula la problemática como una pregunta (¿…?)", "pattern": "¿[^?]{10,}\\?", "hint": "Por ejemplo: «¿Hasta qué punto…?», «¿Por qué…?», «¿Debe…?»" },
+        { "label": "Da la fecha de publicación", "pattern": "\\b(\\d{1,2} de (enero|febrero|marzo|abril|mayo|junio|julio|agosto|septiembre|setiembre|octubre|noviembre|diciembre)|(19|20)\\d{2})\\b", "hint": "Por ejemplo: «publicado el 3 de octubre de 2026»." },
+        { "label": "Presenta el tipo de texto y el medio", "anyOf": [["artículo de opinión"], ["columna"], ["tribuna"], ["editorial"], ["publicado en", "publicada en"]], "hint": "«Se trata de un artículo de opinión publicado en…»" },
+        { "label": "Doy título, autor/a, medio y tema", "self": true }
+      ],
+      "model": "El artículo que voy a presentar se titula «[título]» y fue publicado en [medio] el [fecha]. Se trata de un artículo de opinión en el que su autora, [nombre], aborda el auge de la extrema derecha en Ceuta. El texto plantea la siguiente problemática: ¿hasta qué punto las redes sociales permiten a la extrema derecha convertir una crisis local en un laboratorio político?"
+    },
+    {
+      "id": "contextualizacion",
+      "title": "Presentación y contextualización",
+      "minutes": 3,
+      "guidance": [
+        { "title": "A. El artículo", "items": ["¿Dónde y cuándo se publica?", "¿Qué tipo de publicación es?", "¿A qué público se dirige?"] },
+        { "title": "B. El contexto", "items": ["¿Qué acontecimiento o situación de actualidad explica la publicación?", "¿Por qué es un tema relevante actualmente?"] },
+        { "title": "C. La posición del autor", "items": ["¿Cuál es su tesis?", "¿Qué postura adopta?", "¿Qué quiere conseguir: denunciar, convencer, alertar, criticar, defender una posición…?"] }
+      ],
+      "phrases": [
+        "El artículo se publica en el contexto de",
+        "a raíz de",
+        "Se dirige a un público",
+        "El tema cobra especial relevancia hoy porque",
+        "La tesis que defiende la autora es que",
+        "Adopta una postura claramente crítica con",
+        "Su objetivo es alertar al lector sobre"
+      ],
+      "checks": [
+        { "label": "Sitúa el artículo en la actualidad", "anyOf": [["actualidad", "actualmente"], ["hoy en día"], ["en los últimos"], ["reciente", "recientemente"], ["a raíz de"], ["en el contexto de"], ["cobra relevancia", "cobra especial relevancia"]], "hint": "«El artículo se publica a raíz de…», «El tema cobra especial relevancia hoy porque…»" },
+        { "label": "Dice a qué público se dirige", "anyOf": [["público"], ["lectores", "lector"], ["se dirige a"], ["destinatario", "destinatarios"]] },
+        { "label": "Formula la tesis del autor", "anyOf": [["tesis"], ["sostiene que"], ["defiende que"], ["afirma que"], ["postura"], ["considera que"]], "hint": "«La tesis que defiende la autora es que…»" },
+        { "label": "Nombra su intención (denunciar, convencer, alertar…)", "anyOf": [["denunciar", "denuncia"], ["convencer"], ["alertar", "alerta"], ["advertir", "advierte"], ["criticar", "critica"], ["defender"], ["concienciar"], ["persuadir"]] },
+        { "label": "Explico por qué el tema es relevante ahora", "self": true }
+      ],
+      "model": "El artículo se publica en [medio], un diario generalista de gran difusión, y se dirige a un público amplio, interesado por la actualidad política. Aparece a raíz de [acontecimiento: por ejemplo, la crisis migratoria y la tensión en la ciudad]. El tema cobra especial relevancia hoy porque la extrema derecha gana terreno en toda Europa gracias, en parte, a las redes sociales.\n\nLa tesis que defiende la autora es que la extrema derecha utiliza Ceuta como un laboratorio: aprovecha el sufrimiento de sus habitantes para ensayar un discurso que después exporta. Adopta una postura claramente crítica, y su objetivo es alertar al lector y denunciar esta manipulación."
+    },
+    {
+      "id": "analisis",
+      "title": "Análisis del artículo",
+      "minutes": 5,
+      "guidance": [
+        "A. ¿Cómo está construido el artículo? (partes, progresión)",
+        "B. ¿Cuáles son los argumentos?",
+        { "title": "C. ¿Cómo expresa el autor su opinión?", "items": ["léxico valorativo, modalizadores, expresiones de certeza o duda", "ironía, preguntas retóricas, metáforas", "contrastes, generalizaciones, conectores argumentativos"] },
+        "D. Léxico: 3–5 palabras o expresiones con significado + contexto + connotación + función"
+      ],
+      "phrases": [
+        "El artículo se estructura en … partes:",
+        "En primer lugar,",
+        "En segundo lugar,",
+        "El principal argumento es que",
+        "La autora recurre a una metáfora:",
+        "El uso irónico de «…» permite",
+        "Esta pregunta retórica busca",
+        "El léxico valorativo («…») revela",
+        "Este recurso pone de relieve",
+        "La expresión «…» tiene una connotación claramente negativa:"
+      ],
+      "checks": [
+        { "label": "Analiza al menos 4 recursos distintos", "min": 4, "anyOf": [["metáfora", "metafórico", "metafórica"], ["ironía", "irónico", "irónica", "irónicamente"], ["pregunta retórica", "preguntas retóricas"], ["modalizador", "modalizadores"], ["léxico valorativo"], ["generalización", "generalizaciones"], ["contraste", "antítesis"], ["conector", "conectores"], ["hipérbole", "exageración"], ["quiasmo"], ["enumeración"], ["comparación"]], "hint": "Repasa la ficha **Recursos del artículo de opinión** en Gramática." },
+        { "label": "Cita el texto entre comillas al menos 3 veces", "pattern": "«[^»]+»|\"[^\"]+\"|“[^”]+”", "min": 3, "hint": "Apoya cada recurso con una cita breve: «el fantasma del odio merodea»." },
+        { "label": "Explica el efecto de los recursos, no solo los nombra", "min": 2, "anyOf": [["pone de relieve"], ["subraya"], ["refuerza"], ["sugiere"], ["transmite"], ["permite"], ["busca"], ["acentúa"], ["evoca"], ["revela"], ["dramatiza"], ["con el fin de"]], "hint": "«Esta metáfora **sugiere**…», «Este contraste **pone de relieve**…»" },
+        { "label": "Ordena el análisis con conectores", "min": 2, "anyOf": [["en primer lugar"], ["en segundo lugar"], ["por un lado"], ["por otro lado"], ["además"], ["asimismo"], ["por último"], ["finalmente"]] },
+        { "label": "Presento 3–5 palabras con significado, contexto, connotación y función", "self": true }
+      ],
+      "model": "El artículo se estructura en tres partes: primero describe el cambio de clima en Ceuta, después explica la estrategia de la extrema derecha en las redes y, por último, alerta sobre sus consecuencias.\n\nEn cuanto a los recursos, la autora recurre desde el principio a una metáfora, «el fantasma del odio merodea», que presenta el odio como una amenaza invisible y anuncia el tono de alerta del texto. Además, el contraste entre la Ceuta de antes y el clima «cuasibélico» de hoy dramatiza el cambio. El uso irónico de «encaje de bolillos» es especialmente interesante: la autora parece admirar la habilidad de la extrema derecha en las redes, pero en realidad la critica. Por último, el léxico valorativo, como «paraperiodismo» o «manosear a placer la inmigración», revela una postura claramente crítica.\n\nEn cuanto al léxico, la expresión «tótems electorales» designa los temas que un partido explota para conseguir votos; en el texto se refiere a la inmigración y tiene una connotación negativa: critica su uso instrumental como arma política."
+    },
+    {
+      "id": "reflexion",
+      "title": "Reflexión personal",
+      "minutes": 5,
+      "guidance": [
+        "Tu posición: ¿estás de acuerdo con el autor? ¿Hasta qué punto?",
+        "Argumentos y ejemplos concretos",
+        "Matices: no todo es blanco o negro",
+        "Un contraargumento… y tu respuesta"
+      ],
+      "phrases": [
+        "A mi juicio,",
+        "Desde mi punto de vista,",
+        "Comparto la postura de la autora en la medida en que",
+        "No obstante, no creo que",
+        "Si bien es cierto que …, no es menos cierto que",
+        "Un buen ejemplo de ello es",
+        "Cabría objetar que",
+        "Sin embargo, este argumento no me convence del todo porque",
+        "Me parece preocupante que"
+      ],
+      "checks": [
+        { "label": "Expresa tu opinión con fórmulas variadas", "min": 2, "anyOf": [["a mi juicio"], ["desde mi punto de vista"], ["en mi opinión"], ["a mi modo de ver", "a mi entender"], ["considero que"], ["opino que"], ["estoy convencido", "estoy convencida"], ["comparto"], ["me parece que"], ["creo que", "pienso que"]], "hint": "Varía: «a mi juicio», «desde mi punto de vista», «comparto la postura de…»" },
+        { "label": "Incluye un contraargumento", "anyOf": [["si bien"], ["no es menos cierto"], ["cabría objetar", "cabe objetar"], ["se podría argumentar", "podría argumentarse", "se podría pensar"], ["hay quien", "hay quienes"], ["algunos dirán", "algunos podrían"]], "hint": "«Si bien es cierto que…, no es menos cierto que…», «Cabría objetar que…»" },
+        { "label": "Matiza con conectores de oposición", "min": 2, "anyOf": [["sin embargo"], ["no obstante"], ["ahora bien"], ["aun así"], ["en cambio"], ["aunque"]] },
+        { "label": "Da al menos un ejemplo concreto", "anyOf": [["por ejemplo"], ["un ejemplo", "un buen ejemplo"], ["es el caso de"], ["como muestra", "como demuestra"], ["pensemos en"]] },
+        { "label": "Usa el subjuntivo para matizar (no creo que, es posible que, me parece preocupante que…)", "pattern": "\\b(no (creo|pienso|considero|me parece)|dudo|puede|es (posible|probable|lógico|normal|preocupante|inadmisible|lamentable|comprensible|necesario|fundamental|importante|imprescindible|urgente)|me parece (preocupante|inadmisible|lamentable|lógico|normal|grave|positivo|necesario)) que\\b", "hint": "Repasa la ficha **Expresar y matizar la opinión** en Gramática." },
+        { "label": "«No creo que» + indicativo: aquí va subjuntivo (sea, tenga, haya, pueda…)", "avoid": "\\bno (creo|pienso|considero|me parece) que (\\p{L}+ ){0,2}(es|son|está|están|tiene|tienen|hay|va|van|puede|pueden|debe|deben|hace|hacen|quiere|quieren)\\b" },
+        { "label": "«Creo que» + subjuntivo: la opinión afirmativa va con indicativo (es, tiene, hay…)", "avoid": "(?<!no )\\b(creo|pienso|considero|opino) que (\\p{L}+ ){0,2}(sea|sean|esté|estén|tenga|tengan|haya|vaya|vayan|pueda|puedan|deba|deban|haga|hagan|quiera|quieran)\\b" },
+        { "label": "Repites «creo que» más de dos veces", "avoid": "\\bcreo que\\b", "max": 2, "hint": "Varía: «a mi juicio», «considero que», «desde mi punto de vista»." },
+        { "label": "Respondo al contraargumento, no solo lo menciono", "self": true }
+      ],
+      "model": "A mi juicio, la autora acierta al señalar el peligro de que una crisis local se convierta en un banco de pruebas para la extrema derecha. Comparto su postura en la medida en que las redes sociales amplifican los mensajes más emocionales: un buen ejemplo de ello es la rapidez con la que se difunden los bulos sobre inmigración.\n\nNo obstante, no creo que las redes sean la única explicación. Si bien es cierto que el algoritmo favorece el odio, no es menos cierto que este discurso prospera allí donde los ciudadanos se sienten abandonados por las instituciones. Cabría objetar que la autora exagera al hablar de un clima «cuasibélico»; sin embargo, me parece lógico que utilice un tono de alerta, porque su objetivo es despertar al lector."
+    },
+    {
+      "id": "conclusion",
+      "title": "Conclusión",
+      "minutes": 1,
+      "guidance": [
+        "Síntesis de lo esencial",
+        "Respuesta a la problemática planteada al principio",
+        "Apertura: una pregunta o una perspectiva nueva"
+      ],
+      "phrases": [
+        "En definitiva,",
+        "Para concluir,",
+        "Volviendo a la pregunta inicial,",
+        "Queda por ver si",
+        "Cabe preguntarse, por último, si"
+      ],
+      "checks": [
+        { "label": "Anuncia la conclusión", "anyOf": [["en conclusión"], ["en definitiva"], ["para concluir"], ["para terminar"], ["en resumen"], ["en suma"], ["a modo de conclusión"], ["en síntesis"]] },
+        { "label": "Termina con una apertura (pregunta o perspectiva)", "pattern": "¿[^?]+\\?|queda por ver|cabe preguntarse|habrá que ver|en el futuro", "hint": "«Queda por ver si…», «Cabe preguntarse, por último, si…»" },
+        { "label": "Respondo a la problemática del principio", "self": true }
+      ],
+      "model": "En definitiva, el artículo muestra cómo la extrema derecha convierte el sufrimiento de Ceuta en un laboratorio político, con la ayuda de un algoritmo que premia la emoción. Volviendo a la pregunta inicial, creo que las redes no crean el odio, pero sí lo aceleran de forma preocupante. Queda por ver si las plataformas y las instituciones serán capaces de frenar este fenómeno antes de las próximas elecciones."
+    },
+    {
+      "id": "interaccion",
+      "title": "Preguntas para los compañeros",
+      "intro": "Preguntas abiertas relacionadas con la problemática del artículo, para suscitar un intercambio de opiniones. El lunes envías **3**.",
+      "guidance": [
+        "Que se posicionen y justifiquen su respuesta",
+        "Que reaccionen a la opinión de otro compañero",
+        "Que propongan una solución"
+      ],
+      "phrases": [
+        "¿Estáis de acuerdo con la postura de la autora? ¿Por qué?",
+        "¿Hasta qué punto…?",
+        "¿Qué argumentos podríamos utilizar para defender la posición contraria?",
+        "¿Pensáis que este problema nos afecta personalmente? ¿De qué manera?",
+        "Si pudierais proponer una solución, ¿cuál sería?",
+        "¿Alguien tiene una opinión diferente?"
+      ],
+      "checks": [
+        { "label": "Tres preguntas (las que enviarás el lunes)", "pattern": "¿[^?]+\\?", "min": 3 },
+        { "label": "Preguntas abiertas que piden justificar o posicionarse", "min": 2, "anyOf": [["por qué"], ["hasta qué punto"], ["de qué manera", "de qué modo"], ["en qué medida"], ["qué opináis", "qué pensáis"], ["cuál", "cuáles"], ["qué argumentos"]] },
+        { "label": "Te diriges a tus compañeros (vosotros: ¿estáis…?, ¿pensáis…?)", "pattern": "\\b(estáis|pensáis|creéis|opináis|consideráis|pudierais|podríais|haríais|habéis|sois|os|vosotros|vosotras)\\b" },
+        { "label": "Las preguntas están relacionadas con la problemática del artículo", "self": true },
+        { "label": "Ninguna se responde solo con «sí» o «no»", "self": true }
+      ],
+      "model": "¿Hasta qué punto creéis que las redes sociales son responsables del auge de la extrema derecha? ¿Por qué?\n¿Pensáis que un tema como la inmigración puede debatirse en redes sin caer en la manipulación? ¿De qué manera?\nSi tuvierais que proponer una medida para frenar la desinformación, ¿cuál sería y quién debería aplicarla?"
+    },
+    {
+      "id": "esquema",
+      "title": "Esquema del artículo (para enviar)",
+      "intro": "Máximo **10 palabras** que recojan las ideas principales y te ayuden a estructurar la presentación.",
+      "rows": 2,
+      "checks": [
+        { "label": "Máximo 10 palabras", "minWords": 1, "maxWords": 10 },
+        { "label": "Recoge las ideas principales en orden", "self": true }
+      ],
+      "model": "Ceuta laboratorio → odio en redes → algoritmo → alerta democrática"
+    }
+  ]
+}

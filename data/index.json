@@ -3,6 +3,11 @@
     "vocab/venezuela-eeuu.json",
     "vocab/ceuta-extrema-derecha.json"
   ],
-  "grammar": [],
-  "writing": []
+  "grammar": [
+    "grammar/opinion-y-matices.json",
+    "grammar/recursos-articulo-opinion.json"
+  ],
+  "writing": [
+    "writing/presentacion-articulo-opinion.json"
+  ]
 }

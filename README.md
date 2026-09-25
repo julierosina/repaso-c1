@@ -4,7 +4,7 @@ A small static site for revising C1 Spanish: vocabulary, grammar, writing and pr
 Plain HTML/CSS/JavaScript, no build step. All content lives in JSON files under `data/`,
 and your progress is saved in your browser (localStorage).
 
-**Status:** Vocabulary is built. Grammar, Writing, Practice exam and the Progress dashboard come next.
+**Status:** Vocabulary, Grammar and Writing are built. Practice exam and the Progress dashboard come next.
 
 ---
 
@@ -156,26 +156,89 @@ Open **Vocabulario** and a question is waiting: no settings to choose. It works 
 
 ---
 
-## Planned data formats (draft, not used yet)
+## Grammar files
 
-These will be finalised when each section is built; they're here so you can see where things are headed.
+One file per topic in `data/grammar/`, listed under `"grammar"` in `data/index.json`.
+Every answer shows an explanation; every wrong option shows why it's wrong.
 
-**Grammar**: `data/grammar/<topic>.json`
 ```json
 {
-  "topic": "de ahí que + subjuntivo",
+  "topic": "Expresar y matizar la opinión",
+  "summary": "Shown on the topic card and at the top of the rule summary.",
   "fiche": {
-    "use": "Introduce una consecuencia de algo ya mencionado.",
-    "structure": "de ahí que + subjuntivo",
-    "pitfalls": ["No se usa con indicativo: *de ahí que es → de ahí que sea"],
-    "examples": ["Llovió toda la noche; de ahí que las calles estén inundadas."]
+    "rules": [
+      { "title": "Opinión negada → subjuntivo", "text": "**no creer que** + subjuntivo…", "examples": ["No creo que **tenga** razón."] }
+    ],
+    "pitfalls": ["*Creo que **sea** → Creo que **es**."]
   },
   "exercises": [
-    { "kind": "fill", "source": "class", "prompt": "No estudió nada; de ahí que ___ (suspender).", "answers": ["suspendiera", "suspendiese"] },
-    { "kind": "transform", "source": "generated", "prompt": "Reescribe con «de ahí que»: …", "answers": ["…"] }
+    {
+      "prompt": "No creo que la autora ___ objetiva.",
+      "options": ["es", "sea", "será"],
+      "answer": "sea",
+      "explanation": "**No creo que** niega la opinión → subjuntivo.",
+      "whyNot": { "es": "Solo con la opinión afirmativa.", "será": "…" },
+      "alsoAccepted": { }
+    },
+    {
+      "instruction": "Conjuga el verbo entre paréntesis.",
+      "prompt": "Es lógico que los ceutíes ___ (sentirse) preocupados.",
+      "answers": ["se sientan"],
+      "traps": { "se sienten": "Es indicativo: tras «es lógico que» va subjuntivo." },
+      "explanation": "Valoración → subjuntivo."
+    }
   ]
 }
 ```
 
-**Writing**: `data/writing/<exam-or-theme>.json`: prompts with a checklist, connectors,
-target C1 phrases and optional scaffolding exercises.
+- **Multiple choice**: an exercise with `options` + `answer`. `whyNot` gives the reason for each wrong option.
+  `alsoAccepted` lists options that are also correct, with a note on the nuance. They count as right.
+- **Typed answer** (fill the gap, correct the sentence, transform…): no `options`, and `answers` lists every
+  accepted answer. `traps` maps typical wrong answers to a specific explanation. If your answer isn't
+  listed and isn't a trap, you can mark it correct yourself.
+- `___` (3+ underscores) in `prompt` shows as a gap and is filled with the answer afterwards.
+- `label` (e.g. `"Corrige el error"`) and `instruction` are optional. `**bold**` works in all texts.
+- `"source": "class"` marks an exercise copied from class material (default `"generated"`).
+- Progress is tracked per exercise by its `prompt` text (or its `id` if given), with the same
+  spaced repetition as vocabulary: each round of 10 starts with what's due and what you got wrong.
+
+## Writing files
+
+One file per prompt in `data/writing/`, listed under `"writing"`. A prompt is split into `parts`,
+each with its own writing box:
+
+```json
+{
+  "title": "Presentación de un artículo de opinión",
+  "description": "…",
+  "notes": { "title": "Para enviar el lunes", "items": ["…"] },
+  "parts": [
+    {
+      "id": "reflexion",
+      "title": "Reflexión personal",
+      "minutes": 5,
+      "guidance": ["Tu posición", { "title": "A. El artículo", "items": ["¿Dónde…?"] }],
+      "phrases": ["A mi juicio,", "Si bien es cierto que …, no es menos cierto que"],
+      "checks": [ … ],
+      "model": "Example text. Use \n for a new paragraph."
+    }
+  ]
+}
+```
+
+`minutes` shows an estimated speaking time (130 words/min). Phrases are clickable and insert into the text.
+For a classic ~250-word essay, use a single part with a word-count check.
+
+**Checks** (shown live as ✓ / ✗ while you write):
+
+| Check | Example | Passes when |
+|---|---|---|
+| word count | `{ "label": "Máx. 10 palabras", "maxWords": 10 }` | within `minWords` / `maxWords` |
+| phrases | `{ "label": "Contraargumento", "anyOf": [["si bien"], ["sin embargo", "no obstante"]], "min": 1 }` | at least `min` of the entries are found. An entry can be a list of variants that counts once. Case and accents are ignored. |
+| pattern | `{ "label": "Tres preguntas", "pattern": "¿[^?]+\\?", "min": 3 }` | the regular expression matches at least `min` times |
+| mistake | `{ "label": "«No creo que» + indicativo", "avoid": "…", "max": 0 }` | shown as ⚠ only when it matches more than `max` times |
+| self-check | `{ "label": "Respondo al contraargumento", "self": true }` | you tick it |
+
+Add `"hint"` to any check to show advice while it fails. Drafts are saved automatically in this browser.
+**Copiar todo** copies every part, and **Borrar borrador** clears the page.
+

@@ -1,0 +1,182 @@
+{
+  "topic": "Recursos del artículo de opinión",
+  "summary": "Reconocer y nombrar los recursos con los que el autor expresa su opinión: léxico valorativo, modalizadores, ironía, preguntas retóricas, metáforas, contrastes, generalizaciones y conectores. Es la parte **3C** de la presentación.",
+  "fiche": {
+    "rules": [
+      {
+        "title": "Léxico valorativo",
+        "text": "Palabras que no solo describen, sino que **juzgan**: adjetivos, sustantivos y verbos con carga positiva o negativa.",
+        "examples": ["«un **paraperiodismo** que solo busca la viralidad»", "«**manosean** la inmigración»"]
+      },
+      {
+        "title": "Modalizadores: certeza y duda",
+        "text": "Expresiones que muestran el **grado de seguridad** del autor: sin duda, evidentemente, es indudable que (certeza); quizás, probablemente, es posible que (duda).",
+        "examples": ["«**Sin duda**, la estrategia fracasará a largo plazo.»", "«**Probablemente** funcione a corto plazo.»"]
+      },
+      {
+        "title": "Ironía",
+        "text": "Decir lo **contrario** de lo que se piensa (o un elogio aparente) para criticar. El lector debe reconocer la intención por el contexto.",
+        "examples": ["«Hay que reconocerles un mérito: su manejo de las redes es un auténtico **encaje de bolillos**.»"]
+      },
+      {
+        "title": "Pregunta retórica",
+        "text": "Pregunta que **no espera respuesta** porque la respuesta es obvia; sirve para implicar al lector e imponer una conclusión.",
+        "examples": ["«¿De verdad alguien cree que los ceutíes son un experimento?»"]
+      },
+      {
+        "title": "Metáfora",
+        "text": "Identificar una realidad con otra por su semejanza, para **crear una imagen**. Analiza siempre qué efecto produce.",
+        "examples": ["«**El fantasma del odio merodea**» (el odio = una amenaza invisible)", "«cuentas que **cabalgan a lomos de un algoritmo**»"]
+      },
+      {
+        "title": "Contraste / antítesis y quiasmo",
+        "text": "**Contraste**: oponer dos realidades (antes/ahora, ellos/nosotros). **Quiasmo**: repetir los mismos elementos en orden inverso (A-B / B-A).",
+        "examples": ["«Ceuta era una ciudad tranquila; hoy vive en un clima cuasibélico.» (contraste)", "«Era llevarse a los chavistas y dejarnos el petróleo, no llevarse el petróleo y dejarnos a los chavistas.» (quiasmo)"]
+      },
+      {
+        "title": "Generalización",
+        "text": "Atribuir una característica a **todo un grupo** (todos, siempre, nunca, los…). Puede ser un recurso del autor o algo que el autor denuncia en otros.",
+        "examples": ["«Los políticos **siempre** mienten cuando hablan de inmigración.»"]
+      },
+      {
+        "title": "Conectores argumentativos",
+        "text": "Organizan el razonamiento. **Adición**: además, asimismo. **Oposición**: sin embargo, no obstante, ahora bien. **Consecuencia**: por lo tanto, por consiguiente, de ahí que (+ subj.). **Conclusión**: en definitiva, en suma.",
+        "examples": ["«**Además**, la crisis coincide con el auge de la desinformación; **por consiguiente**, el terreno está abonado para el odio.»"]
+      }
+    ],
+    "pitfalls": [
+      "No te limites a **nombrar** el recurso: explica qué **efecto** produce y qué revela de la postura del autor.",
+      "Una misma frase puede contener varios recursos (una metáfora irónica, por ejemplo). Señala el que **domina** y menciona el otro.",
+      "**Aunque** no puede empezar una oración independiente como conector: «…; **sin embargo**, …», no «…; *aunque, …»."
+    ]
+  },
+  "exercises": [
+    {
+      "label": "¿Qué recurso es?",
+      "instruction": "¿Qué recurso predomina en este fragmento?",
+      "prompt": "«El fantasma del odio merodea por las calles de la ciudad.»",
+      "options": ["metáfora", "pregunta retórica", "ironía", "generalización"],
+      "answer": "metáfora",
+      "explanation": "El odio se presenta como un **fantasma que merodea**: una imagen de amenaza invisible que ronda la ciudad. Es una **metáfora** que anuncia el tono de alerta del artículo.",
+      "whyNot": {
+        "pregunta retórica": "No hay ninguna pregunta.",
+        "ironía": "No se dice lo contrario de lo que se piensa: la imagen es seria y alarmante.",
+        "generalización": "No se atribuye una característica a todo un grupo."
+      }
+    },
+    {
+      "label": "¿Qué recurso es?",
+      "instruction": "¿Qué recurso predomina en este fragmento?",
+      "prompt": "«¿De verdad alguien cree que los ceutíes son un experimento?»",
+      "options": ["pregunta retórica", "metáfora", "modalizador de certeza"],
+      "answer": "pregunta retórica",
+      "explanation": "La pregunta **no espera respuesta**: la respuesta obvia es «no». El autor la usa para implicar al lector e imponer su conclusión.",
+      "whyNot": {
+        "metáfora": "La idea de «experimento» es figurada, pero lo que estructura la frase es la pregunta sin respuesta.",
+        "modalizador de certeza": "«De verdad» refuerza la pregunta, pero no expresa la seguridad del autor sobre un hecho."
+      }
+    },
+    {
+      "label": "¿Qué recurso es?",
+      "instruction": "¿Qué recurso predomina en este fragmento?",
+      "prompt": "«Hay que reconocerles un mérito: su manejo de las redes es un auténtico encaje de bolillos.»",
+      "options": ["ironía", "metáfora", "léxico valorativo"],
+      "answer": "ironía",
+      "alsoAccepted": {
+        "metáfora": "Sí hay una metáfora (encaje de bolillos = trabajo minucioso), pero lo que domina es la ironía: el elogio aparente es en realidad una crítica."
+      },
+      "explanation": "El autor **finge admirar** la habilidad de la extrema derecha («hay que reconocerles un mérito»), pero en realidad la critica: es **ironía**. La metáfora del encaje de bolillos está al servicio de esa ironía.",
+      "whyNot": {
+        "léxico valorativo": "«Mérito» y «auténtico» son positivos en apariencia; justamente por eso el recurso clave es la ironía, no la valoración directa."
+      }
+    },
+    {
+      "label": "¿Qué recurso es?",
+      "instruction": "¿Qué recurso predomina en este fragmento?",
+      "prompt": "«Los políticos siempre mienten cuando hablan de inmigración.»",
+      "options": ["generalización", "conector argumentativo", "metáfora"],
+      "answer": "generalización",
+      "explanation": "**Los políticos** (todos) y **siempre**: se atribuye un comportamiento a todo un grupo, sin matices. Es una **generalización**.",
+      "whyNot": {
+        "conector argumentativo": "No hay ningún conector que relacione ideas.",
+        "metáfora": "«Mentir» se usa en sentido literal."
+      }
+    },
+    {
+      "label": "¿Qué recurso es?",
+      "instruction": "¿Qué recurso predomina en este fragmento?",
+      "prompt": "«Probablemente, la estrategia funcione a corto plazo; sin duda, fracasará a largo plazo.»",
+      "options": ["modalizadores", "pregunta retórica", "generalización"],
+      "answer": "modalizadores",
+      "explanation": "**Probablemente** (duda) y **sin duda** (certeza) muestran el grado de seguridad del autor. Al oponerlos, el autor matiza su postura y refuerza su predicción.",
+      "whyNot": {
+        "pregunta retórica": "No hay ninguna pregunta.",
+        "generalización": "Se habla de una estrategia concreta, no de todo un grupo."
+      }
+    },
+    {
+      "label": "¿Qué recurso es?",
+      "instruction": "¿Qué recurso predomina en este fragmento?",
+      "prompt": "«Ceuta era una ciudad tranquila; hoy vive en un clima cuasibélico.»",
+      "options": ["contraste", "metáfora", "quiasmo"],
+      "answer": "contraste",
+      "explanation": "La frase opone **antes** (era tranquila) y **ahora** (hoy, clima cuasibélico) para dramatizar el cambio: es un **contraste**.",
+      "whyNot": {
+        "metáfora": "«Cuasibélico» es léxico intenso, pero la estructura de la frase se basa en la oposición entre dos momentos.",
+        "quiasmo": "En un quiasmo se repiten los mismos elementos en orden inverso (A-B / B-A); aquí no hay repetición."
+      }
+    },
+    {
+      "label": "¿Qué recurso es?",
+      "instruction": "¿Qué recurso predomina en este fragmento?",
+      "prompt": "«Era llevarse a los chavistas y dejarnos el petróleo, no llevarse el petróleo y dejarnos a los chavistas.»",
+      "options": ["quiasmo", "contraste", "pregunta retórica", "generalización"],
+      "answer": "quiasmo",
+      "explanation": "Los mismos elementos (**los chavistas / el petróleo**) se repiten en **orden inverso**: A-B / B-A. Es un **quiasmo**, que aquí crea un juego de palabras humorístico.",
+      "whyNot": {
+        "contraste": "Hay una oposición, pero el nombre preciso del recurso es quiasmo: lo característico es la inversión del orden.",
+        "pregunta retórica": "No hay ninguna pregunta.",
+        "generalización": "No se atribuye una característica a todo un grupo."
+      }
+    },
+    {
+      "label": "¿Qué recurso es?",
+      "instruction": "¿Qué recurso predomina en este fragmento?",
+      "prompt": "«Este paraperiodismo tóxico y oportunista inunda las redes.»",
+      "options": ["léxico valorativo", "metáfora", "modalizadores"],
+      "answer": "léxico valorativo",
+      "alsoAccepted": {
+        "metáfora": "«Inunda» es metafórico, pero lo que domina la frase es la carga negativa de las palabras elegidas."
+      },
+      "explanation": "**Paraperiodismo**, **tóxico** y **oportunista** no describen, **juzgan**: es léxico valorativo negativo que revela la postura del autor.",
+      "whyNot": {
+        "modalizadores": "No hay expresiones de certeza o duda (sin duda, quizás…)."
+      }
+    },
+    {
+      "label": "Conector",
+      "instruction": "Escribe un conector de **oposición** adecuado.",
+      "prompt": "La autora reconoce que la situación es difícil; ___, critica duramente a quienes la aprovechan.",
+      "answers": ["sin embargo", "no obstante", "ahora bien", "aun así", "con todo"],
+      "traps": {
+        "además": "**Además** añade un argumento en la misma dirección; aquí se necesita **oposición**.",
+        "por lo tanto": "**Por lo tanto** expresa consecuencia, no oposición.",
+        "aunque": "**Aunque** es una conjunción: no puede ir entre punto y coma y coma introduciendo una oración independiente. Usa **sin embargo** o **no obstante**.",
+        "pero": "**Pero** expresa oposición, pero no se usa entre punto y coma y coma. Aquí hace falta un conector como **sin embargo**."
+      },
+      "explanation": "Tras punto y coma, y seguido de coma, necesitas un **conector** de oposición: **sin embargo, no obstante, ahora bien, aun así**."
+    },
+    {
+      "label": "Conector",
+      "instruction": "Escribe un conector de **consecuencia** adecuado.",
+      "prompt": "Las cuentas falsas generan emociones fuertes; ___, el algoritmo las difunde más.",
+      "answers": ["por lo tanto", "por consiguiente", "en consecuencia", "por ende", "así pues", "por eso", "por ello"],
+      "traps": {
+        "de ahí que": "**De ahí que** también expresa consecuencia, pero exige subjuntivo: «de ahí que el algoritmo las **difunda** más». Con el verbo en indicativo, necesitas **por lo tanto / por consiguiente**.",
+        "sin embargo": "**Sin embargo** expresa oposición, no consecuencia.",
+        "además": "**Además** añade un argumento; aquí la segunda idea es consecuencia de la primera."
+      },
+      "explanation": "La segunda idea es **consecuencia** de la primera: por lo tanto, por consiguiente, en consecuencia, así pues."
+    }
+  ]
+}

@@ -1,0 +1,191 @@
+{
+  "topic": "Expresar y matizar la opinión",
+  "summary": "Indicativo o subjuntivo tras los verbos de opinión, certeza, duda y valoración, y cómo introducir un contraargumento. Imprescindible para la **reflexión personal**.",
+  "fiche": {
+    "rules": [
+      {
+        "title": "Opinión afirmativa → indicativo",
+        "text": "**creer, pensar, considerar, opinar, parecer que** + indicativo. Afirmas lo que piensas.",
+        "examples": ["Creo que la autora **tiene** razón.", "Me parece que el artículo **exagera** un poco."]
+      },
+      {
+        "title": "Opinión negada → subjuntivo",
+        "text": "**no creer / no pensar / no considerar / no parecer que** + subjuntivo. Pones en duda lo que viene después.",
+        "examples": ["No creo que la autora **tenga** razón.", "No me parece que el artículo **sea** objetivo."]
+      },
+      {
+        "title": "Certeza → indicativo; certeza negada → subjuntivo",
+        "text": "**es evidente / es cierto / es indudable / está claro / no cabe duda de que** + indicativo. Si niegas la certeza (**no es cierto que, no está claro que**), pasa a subjuntivo.",
+        "examples": ["Está claro que las redes **amplifican** el discurso del odio.", "No es cierto que todos los inmigrantes **lleguen** de forma irregular."]
+      },
+      {
+        "title": "Duda y posibilidad → subjuntivo",
+        "text": "**dudar que, es posible / probable que, puede que** + subjuntivo. Con **quizás, tal vez, probablemente** puedes usar los dos modos (el subjuntivo marca más duda). **A lo mejor** va siempre con indicativo.",
+        "examples": ["Dudo que esta estrategia **funcione** a largo plazo.", "Quizás **tiene / tenga** razón.", "A lo mejor **gana** las elecciones."]
+      },
+      {
+        "title": "Valoración → subjuntivo",
+        "text": "**es lógico / normal / preocupante / inadmisible / lamentable que** y **me parece + adjetivo + que** van con subjuntivo, aunque el hecho sea real: lo que cuenta es que lo valoras.",
+        "examples": ["Es lógico que los ceutíes **se sientan** preocupados.", "Me parece inadmisible que se **manosee** la inmigración."]
+      },
+      {
+        "title": "Conceder y contraargumentar",
+        "text": "**aunque** + indicativo: reconoces un hecho como cierto. **aunque** + subjuntivo: lo concedes sin darle importancia, o es hipotético. **Si bien** va con indicativo. Fórmula muy útil para el contraargumento: **Si bien es cierto que…, no es menos cierto que…**",
+        "examples": ["Aunque la autora **tiene** datos sólidos, su conclusión es exagerada.", "Aunque **tenga** razón en algunos puntos, no comparto su tono.", "Si bien es cierto que la inmigración plantea retos, no es menos cierto que no debe instrumentalizarse."]
+      }
+    ],
+    "pitfalls": [
+      "*Creo que **sea** → Creo que **es**. La opinión afirmativa nunca lleva subjuntivo.",
+      "*No creo que **es** → No creo que **sea**.",
+      "**Me parece que** (opinión) + indicativo, pero **me parece + adjetivo + que** (valoración) + subjuntivo.",
+      "En una pregunta retórica negativa que busca tu acuerdo se suele usar indicativo: ¿No crees que **exagera**?",
+      "**De ahí que** (consecuencia) exige subjuntivo: de ahí que **sea** tan preocupante."
+    ]
+  },
+  "exercises": [
+    {
+      "prompt": "No creo que la autora ___ objetiva en este artículo.",
+      "options": ["es", "sea", "será"],
+      "answer": "sea",
+      "explanation": "**No creo que** niega la opinión, así que el verbo que sigue va en **subjuntivo**.",
+      "whyNot": {
+        "es": "Indicativo: solo es posible con la opinión afirmativa («Creo que **es** objetiva»).",
+        "será": "Futuro de indicativo: también exige opinión afirmativa («Creo que **será**…»)."
+      }
+    },
+    {
+      "prompt": "Es evidente que el algoritmo ___ los mensajes más emocionales.",
+      "options": ["favorece", "favorezca", "favoreciera"],
+      "answer": "favorece",
+      "explanation": "**Es evidente que** expresa certeza afirmativa → **indicativo**.",
+      "whyNot": {
+        "favorezca": "El subjuntivo aparece cuando se niega la certeza: «No es evidente que **favorezca**…».",
+        "favoreciera": "Imperfecto de subjuntivo: falla el modo (la certeza pide indicativo) y el tiempo (la oración principal está en presente)."
+      }
+    },
+    {
+      "prompt": "Me parece preocupante que algunos partidos ___ a placer la inmigración.",
+      "options": ["manoseen", "manosean", "manosearán"],
+      "answer": "manoseen",
+      "explanation": "**Me parece + adjetivo + que** es una **valoración** → subjuntivo, aunque el hecho sea real.",
+      "whyNot": {
+        "manosean": "Sería correcto con «Me parece **que**» sin adjetivo (opinión). Con un adjetivo valorativo (preocupante), el verbo pasa a subjuntivo.",
+        "manosearán": "El futuro de indicativo no es posible tras una valoración."
+      }
+    },
+    {
+      "prompt": "Dudo que este tipo de discurso ___ a largo plazo.",
+      "options": ["funcione", "funciona", "funcionará"],
+      "answer": "funcione",
+      "explanation": "**Dudar que** expresa duda → **subjuntivo**.",
+      "whyNot": {
+        "funciona": "Indicativo: sería correcto con «**No dudo** que funciona», porque ahí expresas certeza.",
+        "funcionará": "El futuro de indicativo tampoco es posible tras una expresión de duda."
+      }
+    },
+    {
+      "prompt": "A lo mejor la extrema derecha ___ en las próximas elecciones.",
+      "options": ["gana", "gane"],
+      "answer": "gana",
+      "explanation": "**A lo mejor** va siempre con **indicativo**, aunque exprese posibilidad.",
+      "whyNot": {
+        "gane": "Con **quizás** o **tal vez** podrías usar subjuntivo; con **a lo mejor**, no."
+      }
+    },
+    {
+      "prompt": "No cabe duda de que las redes sociales ___ un papel clave en la difusión del odio.",
+      "options": ["desempeñan", "desempeñen"],
+      "answer": "desempeñan",
+      "explanation": "**No cabe duda de que** = «es seguro que»: aunque tenga una negación, expresa **certeza** → indicativo.",
+      "whyNot": {
+        "desempeñen": "La negación de «no cabe duda» no niega la certeza, la refuerza. El subjuntivo aparecería con «Dudo que **desempeñen**…»."
+      }
+    },
+    {
+      "prompt": "Aunque la autora ___ razón en algunos puntos, su conclusión me parece exagerada.",
+      "options": ["tiene", "tenga"],
+      "answer": "tiene",
+      "alsoAccepted": {
+        "tenga": "Con subjuntivo concedes el punto sin darle importancia («puede que tenga razón, pero da igual»). Con **tiene** reconoces claramente que la tiene."
+      },
+      "explanation": "Las dos formas son correctas con matices distintos: **aunque + indicativo** presenta el hecho como cierto; **aunque + subjuntivo** lo concede restándole importancia."
+    },
+    {
+      "prompt": "¿No crees que el autor ___ un poco con sus metáforas?",
+      "options": ["exagera", "exagere"],
+      "answer": "exagera",
+      "alsoAccepted": {
+        "exagere": "Es posible, pero menos habitual: en una pregunta retórica que busca el acuerdo del interlocutor, lo normal es el indicativo."
+      },
+      "explanation": "En una **pregunta retórica negativa** («¿No crees que…?») das por hecha tu opinión y buscas el acuerdo del otro, por eso lo normal es el **indicativo**."
+    },
+    {
+      "instruction": "Conjuga el verbo entre paréntesis.",
+      "prompt": "Es lógico que los ceutíes ___ (sentirse) preocupados por la situación.",
+      "answers": ["se sientan"],
+      "traps": {
+        "se sienten": "Es indicativo. Tras una valoración (**es lógico que**) se usa el subjuntivo: **se sientan**.",
+        "sientan": "Falta el pronombre: **sentirse** es pronominal → **se sientan**.",
+        "sienten": "Falta el pronombre y el modo es incorrecto: → **se sientan** (subjuntivo, verbo pronominal)."
+      },
+      "explanation": "**Es lógico que** es una valoración → **subjuntivo**. Y **sentirse** es pronominal: **se sientan**."
+    },
+    {
+      "instruction": "Conjuga el verbo entre paréntesis.",
+      "prompt": "No es cierto que todos los inmigrantes ___ (llegar) de forma irregular.",
+      "answers": ["lleguen"],
+      "traps": {
+        "llegan": "Es indicativo. **No es cierto que** niega la certeza → subjuntivo: **lleguen**.",
+        "leguen": "Ortografía: llegar → **lleguen** (con doble l y con **gu** delante de e).",
+        "llegen": "Ortografía: delante de **e** la g necesita una u para conservar su sonido → **lleguen**."
+      },
+      "explanation": "**No es cierto que** = certeza negada → **subjuntivo**. Ojo a la ortografía: llegar → **lleguen**."
+    },
+    {
+      "instruction": "Conjuga el verbo entre paréntesis.",
+      "prompt": "Pienso que la autora ___ (querer) alertar al lector sobre el auge del odio.",
+      "answers": ["quiere"],
+      "traps": {
+        "quiera": "Es subjuntivo. La opinión **afirmativa** (pienso que) va con indicativo: **quiere**."
+      },
+      "explanation": "**Pienso que** es una opinión afirmativa → **indicativo**."
+    },
+    {
+      "instruction": "Conjuga el verbo entre paréntesis.",
+      "prompt": "La crisis se ha convertido en un arma electoral; de ahí que ___ (ser) tan difícil debatir con serenidad.",
+      "answers": ["sea"],
+      "traps": {
+        "es": "**De ahí que** expresa consecuencia pero exige siempre **subjuntivo**: **sea**. (Con «por eso» sí usarías indicativo: «por eso **es** tan difícil».)"
+      },
+      "explanation": "**De ahí que** introduce una consecuencia y va siempre con **subjuntivo**."
+    },
+    {
+      "label": "Corrige el error",
+      "instruction": "La frase tiene un error. Escríbela corregida.",
+      "prompt": "No pienso que el artículo es objetivo.",
+      "answers": ["No pienso que el artículo sea objetivo."],
+      "explanation": "**No pienso que** niega la opinión → subjuntivo: **sea**."
+    },
+    {
+      "label": "Corrige el error",
+      "instruction": "La frase tiene un error. Escríbela corregida.",
+      "prompt": "Creo que la autora tenga razón cuando habla del algoritmo.",
+      "answers": ["Creo que la autora tiene razón cuando habla del algoritmo."],
+      "explanation": "**Creo que** es una opinión afirmativa → indicativo: **tiene**."
+    },
+    {
+      "label": "Corrige el error",
+      "instruction": "La frase tiene un error. Escríbela corregida.",
+      "prompt": "Es posible que la situación empeora en los próximos meses.",
+      "answers": ["Es posible que la situación empeore en los próximos meses."],
+      "explanation": "**Es posible que** expresa posibilidad → subjuntivo: **empeore**."
+    },
+    {
+      "label": "Transforma",
+      "instruction": "Une las dos ideas con la estructura «Si bien es cierto que…, no es menos cierto que…».",
+      "prompt": "La inmigración plantea retos. Ningún partido debería instrumentalizarla.",
+      "answers": ["Si bien es cierto que la inmigración plantea retos, no es menos cierto que ningún partido debería instrumentalizarla."],
+      "explanation": "**Si bien es cierto que** (+ indicativo) concede el argumento contrario; **no es menos cierto que** introduce tu contraargumento con la misma fuerza. Es una fórmula ideal para la reflexión personal."
+    }
+  ]
+}

@@ -14,7 +14,9 @@ When the user uploads a vocab list:
 - Never change an existing entry's `word` (it's the progress ID) without flagging it to the user.
 - Validate afterwards: `python3 -c "import json,glob; [json.load(open(f)) for f in glob.glob('data/**/*.json', recursive=True)]"` and check for duplicate words across files.
 
-Grammar exercises: include the class exercises verbatim (`"source": "class"`) plus original ones testing the same rule with different vocabulary/context (`"source": "generated"`).
+Grammar: every exercise needs an `explanation`; every wrong option needs a `whyNot` reason; typed exercises should list likely wrong answers in `traps`. Use `alsoAccepted` rather than marking a genuinely valid alternative wrong. Grammar exercises: include the class exercises verbatim (`"source": "class"`) plus original ones testing the same rule with different vocabulary/context (`"source": "generated"`).
+
+Writing: when the user sends an assignment sheet, turn each section into a `part` with guidance, clickable phrases, automatic checks (anyOf / pattern / avoid) and self-checks for what software can't judge. Test every regex against the part's `model` in the browser: the model should pass its own checks except for placeholders like [fecha]. Remember `anyOf` ignores accents (so "cómo" also matches "como").
 
 ## Conventions
 
