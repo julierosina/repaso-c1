@@ -81,6 +81,7 @@ export function loadVocab() {
           id: raw.id || slugify(raw.word),
           word: raw.word.trim(),
           type: raw.type || '',
+          fr: raw.fr || '',
           definition: raw.definition || '',
           synonyms: asList(raw.synonyms),
           example: raw.example || '',

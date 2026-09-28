@@ -4,6 +4,7 @@
   "entries": [
     {
       "word": "llevarse a los chavistas",
+      "fr": "chasser les chavistes (du pouvoir)",
       "type": "expresión (contextual)",
       "definition": "Sacar del poder a los partidarios del régimen de Hugo Chávez y Nicolás Maduro.",
       "synonyms": ["derrocar al chavismo", "echar a los chavistas"],
@@ -13,6 +14,7 @@
     },
     {
       "word": "aparatoso golpe de mano",
+      "fr": "coup de force spectaculaire",
       "type": "sintagma nominal",
       "definition": "Acción rápida, por sorpresa y espectacular, llevada a cabo por la fuerza.",
       "synonyms": ["operación relámpago", "golpe de fuerza"],
@@ -23,6 +25,7 @@
     },
     {
       "word": "injerencia",
+      "fr": "ingérence",
       "type": "sustantivo femenino (a menudo en plural)",
       "definition": "Intervención de un país en los asuntos internos de otro Estado, o de alguien en asuntos que no le corresponden.",
       "synonyms": ["intromisión", "intervención"],
@@ -33,6 +36,7 @@
     },
     {
       "word": "excremento del diablo",
+      "fr": "l'excrément du diable (le pétrole)",
       "type": "expresión metafórica",
       "definition": "Metáfora con la que se designa el petróleo, visto a la vez como una gran riqueza y como fuente de corrupción, dependencia y desgracia.",
       "synonyms": ["el petróleo", "oro negro"],
@@ -44,6 +48,7 @@
     },
     {
       "word": "Gran Garrote",
+      "fr": "le Gros Bâton (la politique du « Big Stick »)",
       "type": "sustantivo (política exterior)",
       "definition": "Política exterior basada en la presión y en la amenaza del uso de la fuerza militar para imponer los propios intereses.",
       "synonyms": ["diplomacia de las cañoneras", "política de fuerza"],
@@ -55,6 +60,7 @@
     },
     {
       "word": "patio trasero",
+      "fr": "arrière-cour, chasse gardée",
       "type": "sintagma nominal (sentido figurado)",
       "definition": "Zona que una potencia considera bajo su influencia y control, como si le perteneciera.",
       "synonyms": ["zona de influencia", "esfera de influencia"],
@@ -65,6 +71,7 @@
     },
     {
       "word": "vasallaje",
+      "fr": "vassalité, assujettissement",
       "type": "sustantivo masculino",
       "definition": "Relación de sumisión y dependencia respecto de alguien más poderoso; en origen, el vínculo de dependencia propio del sistema feudal.",
       "synonyms": ["sumisión", "servidumbre"],
@@ -74,6 +81,7 @@
     },
     {
       "word": "quedarse con la tajada del león",
+      "fr": "se tailler la part du lion",
       "type": "locución verbal",
       "definition": "Quedarse con la parte mayor o más importante de un beneficio o de un reparto.",
       "synonyms": ["llevarse la mejor parte", "quedarse con la parte del león"],
@@ -85,6 +93,7 @@
     },
     {
       "word": "títere",
+      "fr": "marionnette, pantin",
       "type": "sustantivo masculino",
       "definition": "Muñeco que se mueve con hilos; en sentido figurado, persona o gobierno que actúa manejado por otro.",
       "synonyms": ["marioneta", "pelele"],
@@ -95,6 +104,7 @@
     },
     {
       "word": "garra imperial",
+      "fr": "la griffe impériale, l'emprise impérialiste",
       "type": "sintagma nominal (metáfora)",
       "definition": "Metáfora del poder agresivo y dominador que un imperio ejerce sobre otros países.",
       "synonyms": ["yugo imperial", "dominio imperialista"],

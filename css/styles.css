@@ -406,15 +406,6 @@ mark {
 .example { font-style: italic; }
 .example mark { font-style: normal; }
 
-.grade { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin-top: 24px; }
-.grade p { margin: 0; font-weight: 500; }
-.grade-buttons { display: flex; gap: 10px; }
-.grade-buttons .btn { flex-direction: column; gap: 2px; min-width: 140px; }
-.grade-buttons small { font-size: 0.75rem; opacity: 0.8; font-weight: 400; }
-.btn.good { background: var(--good-soft); color: var(--good); border-color: color-mix(in srgb, var(--good) 25%, transparent); }
-.btn.bad { background: var(--bad-soft); color: var(--bad); border-color: color-mix(in srgb, var(--bad) 25%, transparent); }
-.btn.good.suggested { box-shadow: 0 0 0 2px var(--good); }
-.btn.bad.suggested { box-shadow: 0 0 0 2px var(--bad); }
 
 /* ---------- Word list ---------- */
 
@@ -668,6 +659,71 @@ mark {
 .model summary { cursor: pointer; font-size: 0.9rem; font-weight: 500; color: hsl(var(--h) var(--strong-s) var(--strong-l)); }
 .model div { margin-top: 10px; padding: 14px 18px; border-radius: 10px; background: var(--surface-2); font-size: 0.95rem; }
 
+/* ---------- Vocabulary: French, short feedback, word tiles ---------- */
+
+.fr-tag {
+  display: inline-block;
+  margin-right: 8px;
+  padding: 1px 6px;
+  border-radius: 4px;
+  background: hsl(215 var(--soft-s) var(--soft-l));
+  color: hsl(215 var(--strong-s) var(--strong-l));
+  font: 600 0.68rem/1.5 Inter, system-ui, sans-serif;
+  letter-spacing: 0.06em;
+  vertical-align: 2px;
+}
+.fr-line { margin: 10px 0 0; font-size: 1.05rem; }
+.intro-card .solution { margin-top: 20px; }
+.intro-card .next-row { margin-top: 24px; }
+.word-card .fr-line { margin: 0; font-size: 0.93rem; }
+
+.mini-card {
+  margin-top: 14px;
+  padding: 14px 18px;
+  border-radius: 10px;
+  border-left: 3px solid hsl(var(--h) var(--solid-s) var(--solid-l));
+  background: var(--surface-2);
+}
+.mini-card p { margin: 6px 0 0; }
+.mini-card .mini-word { margin: 0; }
+.mini-card .mini-word strong { font-family: Fraunces, Georgia, serif; font-size: 1.15rem; margin-right: 10px; }
+.mini-card .q-sentence { font-size: 1.05rem; }
+.mini-fr { color: var(--muted); }
+
+.more { margin-top: 12px; }
+.more summary { cursor: pointer; font-size: 0.88rem; color: hsl(var(--h) var(--strong-s) var(--strong-l)); }
+.more .solution { margin-top: 12px; }
+
+.your-sentence { margin: 0 0 10px; font-style: italic; }
+.reveal .checks { margin-bottom: 8px; }
+
+.tiles-answer, .tiles-bank { display: flex; flex-wrap: wrap; gap: 8px; }
+.tiles-answer {
+  min-height: 56px;
+  margin-top: 20px;
+  padding: 10px;
+  border: 1px dashed var(--border);
+  border-radius: 10px;
+  background: var(--bg);
+}
+.tiles-answer.is-correct { border: 1px solid var(--good); background: var(--good-soft); }
+.tiles-answer.is-wrong { border: 1px solid var(--bad); background: var(--bad-soft); }
+.tiles-placeholder { align-self: center; color: var(--muted); font-size: 0.9rem; padding-left: 4px; }
+.tiles-bank { margin-top: 14px; }
+.tile {
+  padding: 7px 12px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface);
+  color: var(--text);
+  font: 1rem/1.3 Inter, system-ui, sans-serif;
+  cursor: pointer;
+  box-shadow: 0 1px 2px rgb(0 0 0 / 0.05);
+}
+.tile:hover:not(:disabled) { border-color: hsl(var(--h) var(--solid-s) var(--solid-l)); }
+.tile.placed { background: hsl(var(--h) var(--soft-s) var(--soft-l)); border-color: transparent; }
+.tile:disabled { cursor: default; }
+
 /* ---------- Small screens ---------- */
 
 @media (max-width: 640px) {
@@ -677,10 +733,8 @@ mark {
   .site-nav a { padding: 5px 9px; font-size: 0.86rem; }
   .page-head { padding: 24px 0 20px; }
   .panel, .q-card { padding: 20px; }
-  .q-actions .hint, .grade kbd { display: none; }
+  .q-actions .hint { display: none; }
   .q-actions .btn { flex: 1; }
-  .grade-buttons { width: 100%; }
-  .grade-buttons .btn { flex: 1; }
   .word-grid, .topic-grid, .fiche { grid-template-columns: 1fr; }
   .w-layout { grid-template-columns: 1fr; }
   .w-aside { position: static; }

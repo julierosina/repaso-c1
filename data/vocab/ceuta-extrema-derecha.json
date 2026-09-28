@@ -4,6 +4,7 @@
   "entries": [
     {
       "word": "laboratorio",
+      "fr": "laboratoire (terrain d'expérimentation)",
       "type": "sustantivo masculino (sentido figurado)",
       "definition": "Lugar donde se hacen experimentos científicos; en sentido figurado, lugar donde se ensayan ideas o estrategias antes de aplicarlas a mayor escala.",
       "synonyms": ["banco de pruebas", "campo de experimentación"],
@@ -13,6 +14,7 @@
     },
     {
       "word": "cuasibélico",
+      "fr": "de quasi-guerre, quasi guerrier",
       "type": "adjetivo",
       "definition": "Que parece propio de una guerra, aunque no lo sea realmente.",
       "synonyms": ["militarizado", "casi bélico"],
@@ -24,6 +26,7 @@
     },
     {
       "word": "el fantasma del odio merodea",
+      "fr": "le spectre de la haine rôde",
       "type": "expresión metafórica",
       "definition": "Imagen de una amenaza invisible que ronda un lugar y que se percibe en el ambiente, aunque no se vea.",
       "synonyms": ["el odio acecha", "el odio flota en el ambiente"],
@@ -35,6 +38,7 @@
     },
     {
       "word": "espolear la desgracia",
+      "fr": "attiser le malheur",
       "type": "locución verbal",
       "definition": "Avivar o agravar una situación dolorosa en lugar de aliviarla, como quien pica con las espuelas a un caballo para que corra más.",
       "synonyms": ["avivar el sufrimiento", "atizar"],
@@ -45,6 +49,7 @@
     },
     {
       "word": "españolidad a ultranza",
+      "fr": "espagnolité à outrance, nationalisme exacerbé",
       "type": "sintagma nominal",
       "definition": "Defensa extrema y sin matices de la identidad nacional de España.",
       "synonyms": ["nacionalismo exacerbado", "patriotismo radical"],
@@ -55,6 +60,7 @@
     },
     {
       "word": "encaje de bolillos",
+      "fr": "dentelle aux fuseaux ; fig. travail d'orfèvre",
       "type": "locución nominal",
       "definition": "Técnica artesanal de tejer con pequeños palillos de madera; en sentido figurado, algo muy complicado hecho con gran destreza.",
       "synonyms": ["filigrana", "trabajo minucioso"],
@@ -65,6 +71,7 @@
     },
     {
       "word": "manosear a placer la inmigración",
+      "fr": "instrumentaliser l'immigration à sa guise (litt. la tripoter à loisir)",
       "type": "expresión verbal",
       "definition": "Utilizar un tema a su antojo, de forma oportunista y sin respeto, como quien toca algo repetidamente y sin cuidado.",
       "synonyms": ["instrumentalizar", "utilizar a su antojo"],
@@ -76,6 +83,7 @@
     },
     {
       "word": "tótems electorales",
+      "fr": "totems électoraux",
       "type": "sintagma nominal (plural)",
       "definition": "Temas o símbolos que un partido convierte en objeto casi sagrado y explota estratégicamente para conseguir votos.",
       "synonyms": ["banderas electorales", "reclamos electorales"],
@@ -87,6 +95,7 @@
     },
     {
       "word": "cabalgar a lomos de un algoritmo",
+      "fr": "être porté par un algorithme (litt. chevaucher un algorithme)",
       "type": "expresión metafórica",
       "definition": "Avanzar y ganar difusión gracias al impulso de un sistema automático de recomendación, como un jinete montado sobre su caballo.",
       "synonyms": ["viralizarse gracias al algoritmo", "ser impulsado por el algoritmo"],
@@ -98,6 +107,7 @@
     },
     {
       "word": "paraperiodismo",
+      "fr": "pseudo-journalisme",
       "type": "sustantivo masculino",
       "definition": "Contenido que imita la forma de las noticias profesionales sin respetar su rigor ni su ética; información falsa o de mala calidad presentada como si fuera prensa.",
       "synonyms": ["pseudoperiodismo", "desinformación"],

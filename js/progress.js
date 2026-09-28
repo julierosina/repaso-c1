@@ -50,6 +50,18 @@ export function nextInterval(r) {
   return Math.max(4, Math.round((r.interval || 1) * (r.ease || 2.5)));
 }
 
+// A new word has been shown on its "Palabra nueva" card: it enters the schedule, due right away,
+// so it gets its first exercise after one or two other cards.
+export function introduce(key) {
+  const r = store[key] || (store[key] = { attempts: 0, correct: 0, byType: {} });
+  if (r.due != null) return;
+  Object.assign(r, { ease: 2.5, interval: 0, reps: 0, lapses: 0, due: Date.now(), introduced: new Date().toISOString() });
+  save(KEY, store);
+  const day = today();
+  day.newSeen++;
+  save(DAY_KEY, day);
+}
+
 // practice: free practice outside the schedule. A right answer doesn't push the item further
 // into the future (unless it was being relearnt); a wrong answer still counts.
 export function review(key, correct, kind, { practice = false } = {}) {

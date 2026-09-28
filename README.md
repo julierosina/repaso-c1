@@ -100,6 +100,7 @@ One file per list or unit works well (e.g. `data/vocab/unidad-3-salud.json`):
 | `source` | no | Where the list came from. Only for your reference. |
 | `topic` | recommended | Default topic for every entry in the file. Used for the filters and the colour of the tag. |
 | `entries[].word` | **yes** | The word or expression, as you want it shown. |
+| `entries[].fr` | recommended | French translation. Shown when you learn the word and after each answer, and used in two exercise types. |
 | `entries[].definition` | **yes** | Definition in Spanish. |
 | `entries[].synonyms` | recommended | List of 1–2 synonyms. The *Sinónimo* question checks your answer against these. |
 | `entries[].example` | recommended | One example sentence. The word is highlighted automatically. |
@@ -134,27 +135,31 @@ is attached to that ID, so:
 
 Open **Vocabulario** and a question is waiting: no settings to choose. It works like Anki:
 
-- **What comes next** is decided for you: reviews that are due first (most overdue first), then new
-  words (up to 20 new per day), then words you just missed.
-- **Spacing**: a right answer schedules the next review in 1 day, then 3 days, then roughly
-  7, 18, 45 days… (each interval × an "ease" factor). A wrong answer brings the word back in about a minute,
-  resets its interval and lowers its ease, so it comes back more often from then on. The ✓ button shows when you'll see the word next.
-- **Exercise type** changes automatically as a word matures, and never repeats the type used last time:
-  - new or recently missed → *Definición* (explain it) or *Sinónimo*
-  - seen once → also *¿Qué palabra es?* (definition → word) and *Completa la frase* (the example
-    sentence with the word blanked out and its first letters as a hint)
-  - well known → mostly *¿Qué palabra es?*, *Completa la frase* and *Frase de ejemplo* (use it yourself)
-- After each answer you see the full card (definition, synonyms, example, context, connotation) and decide
-  **✓ Sí** or **✗ A repasar** (keys `1` / `2`). Where the site can check the answer (synonym, word, gap),
-  it highlights its suggestion; you always have the final say.
-- When nothing is due you get **¡Todo al día!**. *Seguir practicando* keeps going with your weakest
-  words; in that free practice, right answers don't push words further into the future, but misses count.
-- **Status** in the word list: *Sin intentar* (never seen), *Por reforzar* (interval under 7 days),
-  *Dominado* (interval of 7 days or more).
-- Progress is stored **in this browser only**. A different browser or device starts from zero.
-  Clearing site data erases it. An export/import option will come with the Progress dashboard.
-
----
+- **New words** first appear on a *Palabra nueva* card: French translation, definition, synonyms,
+  example, context and connotation. After *Entendido*, the word comes back as an exercise a couple of cards later.
+  Up to 20 new words per day.
+- **What comes next** is decided for you: reviews that are due first, then new words, then words you just missed.
+- **Every answer is checked automatically** when you press Enter or pick an option. Missing accents are
+  accepted but pointed out. If a typed answer is marked wrong but you're sure it's right (e.g. another valid
+  form), click *Mi respuesta era correcta*.
+- **Exercises get harder as you learn the word**, and never repeat the type used last time:
+  - new or recently missed: multiple choice. Pick the French meaning, the word for a definition,
+    the missing words in the example sentence, or a synonym.
+  - seen once: French → Spanish, fill the gap in the sentence (with first letters as a hint),
+    definition → word, and put the example sentence back in order (word tiles).
+  - well known: fill the gap with no hint, write your own sentence with the word, French → Spanish,
+    definition → word, sentence order.
+- **Your own sentence** is checked for what software can check: it uses the word (any form),
+  has at least 6 words, and isn't the example copied. Compare the meaning with the example shown.
+- **Feedback is short**: right or wrong, the word, its French, and the completed sentence. The full card is
+  one click away (*Ver la ficha completa*).
+- **Spacing**: a right answer schedules the next review in 1 day, then 3 days, then roughly 7, 18, 45 days…
+  A wrong answer brings the word back in about a minute and makes it come back more often from then on.
+- When nothing is due you get **¡Todo al día!**. *Seguir practicando* keeps going with your weakest words.
+  In that free practice, right answers don't push words further into the future, but misses count.
+- **Status** in the word list: *Sin intentar* (not introduced yet), *Por reforzar* (interval under 7 days),
+  *Dominado* (7 days or more).
+- Progress is stored **in this browser only**. A different browser or device, or clearing site data, starts from zero.
 
 ## Grammar files
 
