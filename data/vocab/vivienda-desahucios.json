@@ -1,0 +1,118 @@
+{
+  "source": "Clase — «Maricarmen, la vejez vulnerable contra el abuso buitre»",
+  "topic": "Vivienda y desahucios",
+  "entries": [
+    {
+      "word": "desahucio",
+      "fr": "expulsion locative",
+      "type": "sustantivo masculino",
+      "definition": "Expulsión de una persona de la vivienda que ocupa, ordenada por un juez, normalmente por no pagar el alquiler o la hipoteca.",
+      "synonyms": ["desalojo", "expulsión"],
+      "example": "Tras cuarenta años en el mismo piso, la anciana recibió la orden de desahucio.",
+      "context": "La expulsión de Maricarmen de su piso por decisión judicial.",
+      "connotation": "Descriptiva: término jurídico que nombra el hecho.",
+      "notes": "Verbo: desahuciar. En el lenguaje jurídico español también se habla de «lanzamiento».",
+      "accept": ["desahucios"]
+    },
+    {
+      "word": "fondo buitre",
+      "fr": "fonds vautour",
+      "type": "sustantivo masculino",
+      "definition": "Sociedad de inversión que compra a bajo precio deudas o viviendas en dificultades para obtener grandes beneficios a costa de los afectados.",
+      "synonyms": ["especulador", "fondo especulativo"],
+      "example": "Un fondo buitre compró el edificio y triplicó los alquileres.",
+      "context": "Empresas inmobiliarias como Urbagestión, que compró el piso de Maricarmen.",
+      "connotation": "Muy negativa y crítica: la imagen del buitre presenta a estas empresas como aves carroñeras que se aprovechan de los más débiles.",
+      "notes": "Plural: fondos buitre. En el título («el abuso buitre»), «buitre» funciona como adjetivo.",
+      "accept": ["fondos buitre"]
+    },
+    {
+      "word": "atropello",
+      "fr": "abus, injustice flagrante (litt. le fait de renverser un piéton)",
+      "type": "sustantivo masculino",
+      "definition": "Injusticia o abuso cometido contra alguien sin respetar sus derechos.",
+      "synonyms": ["abuso", "injusticia"],
+      "example": "Echar a una anciana de su casa es un atropello intolerable.",
+      "context": "Lo ocurrido con Maricarmen.",
+      "connotation": "Expresa indignación.",
+      "notes": "Sentido literal: acción de atropellar a alguien con un vehículo."
+    },
+    {
+      "word": "voracidad",
+      "fr": "voracité, avidité",
+      "type": "sustantivo femenino",
+      "definition": "Deseo excesivo e insaciable de obtener algo, especialmente dinero o beneficios.",
+      "synonyms": ["codicia", "avidez"],
+      "example": "La voracidad de los fondos de inversión dispara el precio de la vivienda.",
+      "context": "La búsqueda de beneficios de las empresas inmobiliarias.",
+      "connotation": "Negativa: critica la actitud del mercado inmobiliario.",
+      "notes": "Adjetivo: voraz (que come con ansia; que lo consume todo)."
+    },
+    {
+      "word": "desaprensivo",
+      "fr": "sans scrupules",
+      "type": "adjetivo",
+      "definition": "Que actúa sin escrúpulos, sin preocuparse por las consecuencias de sus actos para los demás.",
+      "synonyms": ["sin escrúpulos", "desalmado"],
+      "example": "Una empresa desaprensiva no dudó en dejar a una anciana en la calle.",
+      "context": "Calificativo para la empresa que desaloja a Maricarmen.",
+      "connotation": "Negativa y acusadora.",
+      "accept": ["desaprensiva", "desaprensivos", "desaprensivas"]
+    },
+    {
+      "word": "poner en jaque",
+      "fr": "mettre en échec, mettre en difficulté (comme le roi aux échecs)",
+      "type": "locución verbal",
+      "definition": "Colocar a alguien o algo en una situación de peligro o dificultad que lo obliga a reaccionar, como al rey amenazado en el ajedrez.",
+      "synonyms": ["poner en aprietos", "amenazar"],
+      "example": "Casos como este ponen en jaque la política de vivienda.",
+      "context": "El caso de Maricarmen pone «en jaque» a la sociedad y a la política.",
+      "connotation": "Muestra la gravedad de la situación (metáfora del ajedrez).",
+      "notes": "También: estar en jaque, tener en jaque a alguien.",
+      "accept": ["en jaque", "jaque"]
+    },
+    {
+      "word": "prender la indignación",
+      "fr": "allumer l'indignation, déclencher la colère",
+      "type": "locución verbal",
+      "definition": "Provocar o despertar un fuerte sentimiento de rabia ante una injusticia, como quien enciende un fuego.",
+      "synonyms": ["desatar la indignación", "encender los ánimos"],
+      "example": "La imagen de la anciana desalojada prendió la indignación en las redes.",
+      "connotation": "Fuerte y emocional (metáfora del fuego).",
+      "notes": "Prender: encender, empezar a arder («prender una hoguera», «el fuego prendió»)."
+    },
+    {
+      "word": "mogollón",
+      "fr": "un tas, plein de, une foule (fam.)",
+      "type": "sustantivo masculino (coloquial)",
+      "definition": "Gran cantidad de algo o de personas; mucho.",
+      "synonyms": ["montón", "multitud"],
+      "example": "Un mogollón de vecinos se concentró ante el portal para impedir el desalojo.",
+      "context": "«El mogollón conmocionado»: la gran cantidad de personas que reaccionaron con indignación ante el caso.",
+      "connotation": "Coloquial.",
+      "notes": "Muy frecuente en España en registro informal: «un mogollón de gente», «me gusta mogollón». En un texto formal solo como recurso estilístico."
+    },
+    {
+      "word": "empeño",
+      "fr": "acharnement, obstination ; détermination",
+      "type": "sustantivo masculino",
+      "definition": "Esfuerzo, insistencia o determinación para conseguir algo.",
+      "synonyms": ["tesón", "obstinación"],
+      "example": "La empresa puso todo su empeño en echarla del piso.",
+      "context": "La insistencia y la obstinación de la empresa para conseguir el desahucio de Maricarmen.",
+      "connotation": "Negativa en este caso, porque destaca la insistencia de la empresa en expulsarla. En otros contextos es positiva («estudia con empeño»).",
+      "notes": "Construcciones: poner empeño en algo, tener empeño en + infinitivo, con empeño."
+    },
+    {
+      "word": "vapuleo",
+      "fr": "raclée, malmenage ; fig. éreintement",
+      "type": "sustantivo masculino",
+      "definition": "Acción de golpear o maltratar a alguien con dureza; en sentido figurado, crítica o trato muy duro.",
+      "synonyms": ["paliza", "maltrato"],
+      "example": "Tras años de vapuleo judicial, la inquilina estaba agotada.",
+      "context": "El conjunto de dificultades que Maricarmen tuvo que soportar.",
+      "connotation": "Negativa: insiste en la violencia y el sufrimiento.",
+      "notes": "Verbo: vapulear."
+    }
+  ]
+}
