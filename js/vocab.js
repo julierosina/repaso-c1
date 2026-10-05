@@ -233,7 +233,7 @@ export async function renderVocab(root) {
     root.innerHTML = `
       <div class="quiz">
         ${topBar()}
-        <article class="panel q-card intro-card">
+        <article class="panel q-card intro-card" style="--h:${hueFor(e.topicId)}">
           <div class="q-meta"><span class="qtype">Palabra nueva</span>${topicTag(e.topicId, e.topic)}</div>
           <h2 class="q-word">${esc(e.word)}</h2>
           ${e.type ? `<p class="q-pos">${esc(e.type)}</p>` : ''}
@@ -293,7 +293,7 @@ export async function renderVocab(root) {
     root.innerHTML = `
       <div class="quiz">
         ${topBar()}
-        <article class="panel q-card">
+        <article class="panel q-card" style="--h:${hueFor(e.topicId)}">
           <div class="q-meta">
             <span class="qtype">${t.label}</span>
             ${topicTag(e.topicId, e.topic)}

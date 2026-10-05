@@ -8,6 +8,9 @@ import { norm, stripAccents } from './text.js';
 // Average speaking rate used to estimate how long a part takes to say aloud.
 const WORDS_PER_MIN = 130;
 
+// Each part of a prompt gets its own colour, to make the page easier to scan.
+const PART_HUES = [12, 38, 172, 215, 262, 330, 140];
+
 const draftKey = id => `c1esp:writing:v1:${id}`;
 
 function loadDraft(id) {
@@ -292,7 +295,7 @@ function partHTML(part, n, draft) {
       : `<li class="g-group"><strong>${fmt(g.title)}</strong><ul>${(g.items || []).map(it => `<li>${fmt(it)}</li>`).join('')}</ul></li>`
   );
   return `
-    <section class="panel w-part" id="part-${part.id}">
+    <section class="panel w-part" id="part-${part.id}" style="--h:${PART_HUES[n % PART_HUES.length]}">
       <header class="w-head">
         <span class="w-num">${n + 1}</span>
         <h2>${esc(part.title)}</h2>
