@@ -1,0 +1,102 @@
+{
+  "source": "Artículo — «Palabras para el fin del mundo»",
+  "topic": "Palabras para el fin del mundo",
+  "entries": [
+    {
+      "word": "ausencia de porvenir",
+      "fr": "l'absence d'avenir",
+      "type": "sintagma nominal",
+      "definition": "Falta de futuro y de perspectivas; sensación de que no queda nada que esperar.",
+      "synonyms": ["falta de futuro", "falta de perspectivas"],
+      "example": "La ausencia de porvenir inquieta a toda una generación.",
+      "notes": "«Porvenir» es una palabra culta para el futuro que evoca un horizonte de expectativas.",
+      "accept": ["la ausencia de porvenir"]
+    },
+    {
+      "word": "descenso órfico",
+      "fr": "la descente orphique",
+      "type": "sintagma nominal (alusión mitológica)",
+      "definition": "Alusión al mito de Orfeo, que bajó al inframundo para rescatar a Eurídice y la perdió; por extensión, una experiencia penosa en un lugar sombrío.",
+      "synonyms": ["viaje al inframundo"],
+      "example": "Escuchar los discursos de la ONU se describe como un descenso órfico al inframundo.",
+      "related": ["catábasis"],
+      "accept": ["el descenso órfico"]
+    },
+    {
+      "word": "grieta",
+      "fr": "fissure, lézarde ; fig. fracture",
+      "type": "sustantivo femenino",
+      "definition": "Abertura larga y estrecha en una superficie sólida; en sentido figurado, división o fractura.",
+      "synonyms": ["fisura", "brecha"],
+      "example": "Las grietas del orden mundial son cada vez más profundas.",
+      "accept": ["grietas", "las grietas"]
+    },
+    {
+      "word": "raciocinio",
+      "fr": "le raisonnement, la faculté de raisonner",
+      "type": "sustantivo masculino",
+      "definition": "Facultad de razonar, de pensar y de formar juicios mediante la razón.",
+      "synonyms": ["razón", "juicio"],
+      "example": "El orador apeló al raciocinio de los dirigentes, sin demasiado éxito.",
+      "accept": ["el raciocinio"]
+    },
+    {
+      "word": "catábasis",
+      "fr": "la catabase",
+      "type": "sustantivo femenino",
+      "definition": "Descenso a los infiernos o al mundo de los muertos; término de la mitología clásica.",
+      "synonyms": ["descenso a los infiernos"],
+      "example": "La catábasis de los discursos catastrofistas ya no moviliza a nadie.",
+      "notes": "Del griego katábasis, «bajada». No cambia en plural: las catábasis.",
+      "related": ["descenso órfico"],
+      "accept": ["la catábasis"]
+    },
+    {
+      "word": "pavor",
+      "fr": "l'effroi, la terreur",
+      "type": "sustantivo masculino",
+      "definition": "Miedo intenso, casi paralizante.",
+      "synonyms": ["terror", "espanto"],
+      "example": "El pavor informado de una minoría no basta para cambiar las políticas.",
+      "accept": ["el pavor"]
+    },
+    {
+      "word": "tecnoligarcas",
+      "fr": "les techno-oligarques (magnats de la tech)",
+      "type": "sustantivo masculino plural (neologismo)",
+      "definition": "Magnates de las grandes empresas tecnológicas con un enorme poder económico y político.",
+      "synonyms": ["magnates tecnológicos", "oligarcas digitales"],
+      "example": "Los tecnoligarcas concentran un poder que hace una década era impensable.",
+      "notes": "Neologismo formado con «tecnología» y «oligarcas».",
+      "accept": ["los tecnoligarcas", "tecnoligarca"]
+    },
+    {
+      "word": "esgrimir",
+      "fr": "brandir (un argument), faire valoir",
+      "type": "verbo",
+      "definition": "Utilizar un argumento o una idea como si fuera un arma para defender una postura.",
+      "synonyms": ["blandir", "aducir"],
+      "example": "Lula esgrimió argumentos firmes ante la Asamblea General.",
+      "notes": "Sentido propio: manejar un arma blanca. De la misma familia que «esgrima» (l'escrime)."
+    },
+    {
+      "word": "cansancio",
+      "fr": "la fatigue, la lassitude",
+      "type": "sustantivo masculino",
+      "definition": "Fatiga, agotamiento; en sentido figurado, hartazgo ante algo que se repite.",
+      "synonyms": ["fatiga", "agotamiento"],
+      "example": "El cansancio ante el lenguaje alarmista frena la reacción social.",
+      "accept": ["el cansancio"]
+    },
+    {
+      "word": "matonismo",
+      "fr": "les manières de caïd, l'intimidation brutale",
+      "type": "sustantivo masculino",
+      "definition": "Actitud de quien intimida a los demás con arrogancia, con la fuerza o con amenazas.",
+      "synonyms": ["chulería", "prepotencia"],
+      "example": "El matonismo de algunos líderes consigue la atención que la diplomacia ya no logra.",
+      "notes": "De «matón»: persona que intimida a los demás.",
+      "accept": ["el matonismo"]
+    }
+  ]
+}

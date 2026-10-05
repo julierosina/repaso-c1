@@ -10,6 +10,8 @@ When the user uploads a vocab list:
 - Synonyms should be genuinely interchangeable in at least one common context; the quiz auto-checks against them.
 - For reflexive/phrasal headwords, add `accept` variants (e.g. `"desbordar"` for `"desbordarse"`).
 - If the material has context / connotation columns, map them to `context` and `connotation` (fix typos, keep the user's meaning).
+- When two entries (in any file) mean nearly the same thing, add `related` on both so neither becomes a wrong option in the other's multiple choice.
+- When the user supplies their own example sentences, keep them verbatim.
 - Reuse existing topic names exactly (check other files) unless the material is a new topic.
 - Never change an existing entry's `word` (it's the progress ID) without flagging it to the user.
 - Validate afterwards: `python3 -c "import json,glob; [json.load(open(f)) for f in glob.glob('data/**/*.json', recursive=True)]"` and check for duplicate words across files.

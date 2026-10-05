@@ -1,0 +1,101 @@
+{
+  "source": "Artículo — «Santa Marta: el retorno a la guerra y crisis urbana»",
+  "topic": "Santa Marta: guerra y crisis urbana",
+  "entries": [
+    {
+      "word": "guerra de los Escudos de las Américas",
+      "fr": "la guerre des « Boucliers des Amériques »",
+      "type": "sintagma nominal (nombre propio)",
+      "definition": "Coalición militar entre Estados Unidos y varios países latinoamericanos, lanzada en marzo de 2026 contra el crimen organizado y el narcotráfico.",
+      "synonyms": ["coalición militar contra el narcotráfico"],
+      "example": "La guerra de los Escudos de las Américas ha reforzado la cooperación militar entre Washington y Bogotá.",
+      "accept": ["la guerra de los Escudos de las Américas"]
+    },
+    {
+      "word": "Doctrina Donroe",
+      "fr": "la « doctrine Donroe »",
+      "type": "sintagma nominal (neologismo)",
+      "definition": "Juego de palabras entre «Monroe» y «Donald» para designar la prolongación de la influencia estadounidense en América Latina.",
+      "synonyms": ["intervencionismo estadounidense", "nueva doctrina Monroe"],
+      "example": "La \"Doctrina Donroe\" actualiza la injerencia estadounidense en América Latina.",
+      "connotation": "Irónica y crítica: se usa para denunciar la injerencia de Estados Unidos.",
+      "notes": "Alude a la doctrina Monroe (1823), «América para los americanos», con la que Estados Unidos justificó su influencia en el continente.",
+      "accept": ["la Doctrina Donroe"]
+    },
+    {
+      "word": "paramilitarismo",
+      "fr": "le paramilitarisme",
+      "type": "sustantivo masculino",
+      "definition": "Fenómeno de los grupos armados ilegales formados por civiles que actúan como un ejército sin pertenecer a las fuerzas del Estado.",
+      "synonyms": ["milicias ilegales", "grupos armados ilegales"],
+      "example": "El paramilitarismo sigue condicionando la vida de los barrios populares.",
+      "notes": "También: las estructuras paramilitares (los grupos y redes que lo forman). Adjetivo: paramilitar.",
+      "accept": ["el paramilitarismo", "estructuras paramilitares", "las estructuras paramilitares"]
+    },
+    {
+      "word": "paro armado",
+      "fr": "« grève armée » : interdiction de circuler imposée par des groupes armés",
+      "type": "sustantivo masculino",
+      "definition": "Prohibición temporal que imponen los grupos armados ilegales a la población civil de desplazarse o de realizar sus actividades cotidianas.",
+      "synonyms": ["confinamiento forzado", "toque de queda impuesto"],
+      "example": "Durante el paro armado, los comercios cerraron y nadie salió a la calle.",
+      "notes": "Expresión propia de Colombia.",
+      "accept": ["un paro armado"]
+    },
+    {
+      "word": "hacer gala de",
+      "fr": "faire étalage de, se targuer de",
+      "type": "locución verbal",
+      "definition": "Presumir de algo, mostrarlo con orgullo.",
+      "synonyms": ["presumir de", "alardear de"],
+      "example": "El presidente suele hacer gala de su mano dura contra el crimen organizado.",
+      "notes": "Hacer gala de + sustantivo: «hace gala de su generosidad»."
+    },
+    {
+      "word": "inteligencia",
+      "fr": "le renseignement (les services de renseignement)",
+      "type": "sustantivo femenino",
+      "definition": "Servicios secretos encargados del espionaje y de la obtención de información.",
+      "synonyms": ["servicios secretos", "servicios de información"],
+      "example": "La inteligencia estadounidense colaboró en el operativo.",
+      "notes": "Falso amigo: en este sentido no es «l'intelligence», sino «le renseignement».",
+      "accept": ["la inteligencia"]
+    },
+    {
+      "word": "desapariciones forzadas",
+      "fr": "les disparitions forcées",
+      "type": "sintagma nominal (femenino plural)",
+      "definition": "Detenciones realizadas por agentes del Estado, o con su consentimiento, que después niegan haberlas hecho u ocultan dónde está la persona.",
+      "synonyms": ["detenciones clandestinas"],
+      "example": "Las desapariciones forzadas aumentaron tras la ofensiva militar.",
+      "accept": ["las desapariciones forzadas", "desaparición forzada"]
+    },
+    {
+      "word": "amedrentar",
+      "fr": "intimider, terroriser",
+      "type": "verbo",
+      "definition": "Asustar, intimidar o atemorizar a alguien.",
+      "synonyms": ["intimidar", "atemorizar"],
+      "example": "Los hombres armados recorrían el barrio para amedrentar a los vecinos."
+    },
+    {
+      "word": "desabastecimiento",
+      "fr": "pénurie, rupture d'approvisionnement",
+      "type": "sustantivo masculino",
+      "definition": "Falta generalizada de productos, recursos o servicios básicos.",
+      "synonyms": ["escasez", "carestía"],
+      "example": "El desabastecimiento de alimentos afectó sobre todo a los barrios populares.",
+      "accept": ["un desabastecimiento", "el desabastecimiento"]
+    },
+    {
+      "word": "necropolítica",
+      "fr": "la nécropolitique",
+      "type": "sustantivo femenino",
+      "definition": "Poder del Estado para decidir quién vive y quién muere.",
+      "synonyms": ["política de la muerte"],
+      "example": "La necropolítica convierte la muerte de los presuntos enemigos en un espectáculo.",
+      "notes": "Concepto del filósofo Achille Mbembe, que prolonga la «biopolítica» de Michel Foucault.",
+      "accept": ["la necropolítica"]
+    }
+  ]
+}

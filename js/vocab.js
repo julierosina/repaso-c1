@@ -34,8 +34,9 @@ const LEVELS = [
 // ---------- Building one exercise ----------
 
 // Up to `n` distinct wrong options, preferring words from the same topic.
+// Words marked as `related` (near-synonyms) are never offered as wrong options for each other.
 function distractors(e, entries, value, correct, n = 3) {
-  const others = entries.filter(x => x !== e);
+  const others = entries.filter(x => x !== e && !e.related.includes(x.word) && !x.related.includes(e.word));
   const pool = [...shuffle(others.filter(x => x.topicId === e.topicId)), ...shuffle(others.filter(x => x.topicId !== e.topicId))];
   const taken = new Set([norm(correct), ...(e.synonyms || []).map(norm)]);
   const out = [];

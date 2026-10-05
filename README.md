@@ -109,6 +109,7 @@ One file per list or unit works well (e.g. `data/vocab/unidad-3-salud.json`):
 | `entries[].type` | no | Part of speech, e.g. `"verbo"`, `"locución adverbial"`. Shown as a small hint. |
 | `entries[].topic` | no | Overrides the file's `topic` for this one entry. |
 | `entries[].accept` | no | Extra answers accepted in the *¿Qué palabra es?* question, e.g. `["gato por liebre"]`. |
+| `entries[].related` | no | Near-synonyms in other entries, e.g. `["catábasis"]` for «descenso órfico», so they never appear as each other's wrong options in multiple choice. |
 | `entries[].notes` | no | Any extra note (register, regional use, false friends…). |
 | `entries[].id` | no | Only needed if the same word appears twice (e.g. two meanings). See below. |
 

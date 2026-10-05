@@ -89,6 +89,7 @@ export function loadVocab() {
           connotation: raw.connotation || '',
           notes: raw.notes || '',
           accept: asList(raw.accept),
+          related: asList(raw.related),
           topic,
           topicId: slugify(topic),
           source: data.source || path,
