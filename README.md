@@ -150,6 +150,9 @@ Open **Vocabulario** and a question is waiting: no settings to choose. It works 
     and definition → word.
   - well known: fill the gap with no hint, write your own sentence with the word, French → Spanish,
     definition → word.
+- **After a mistake you type the correct answer** before moving on (accents included), so the right form
+  sticks. This applies to every exercise whose answer is Spanish. It doesn't apply to "pick the French meaning"
+  or to your own sentence, which has no single answer.
 - **Your own sentence** is checked for what software can check: it uses the word (any form),
   has at least 6 words, and isn't the example copied. Compare the meaning with the example shown.
 - **Feedback is short**: right or wrong, the word, its French, and the completed sentence. The full card is

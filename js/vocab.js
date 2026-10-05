@@ -338,7 +338,11 @@ export async function renderVocab(root) {
       if (b.dataset.opt === q.correct) b.classList.add('is-correct');
       else if (b.dataset.opt === opt) b.classList.add('is-wrong');
     });
-    feedback({ correct, verdict: correct ? '¡Correcto!' : `No. La respuesta era <strong>${esc(q.correct)}</strong>.` });
+    feedback({
+      correct,
+      verdict: correct ? '¡Correcto!' : `No. La respuesta era <strong>${esc(q.correct)}</strong>.`,
+      retype: correct || q.type === 'elige-fr' ? null : [q.correct],
+    });
   }
 
   function checkText(answer) {
@@ -349,7 +353,7 @@ export async function renderVocab(root) {
     form.querySelectorAll('input, textarea, button').forEach(el => (el.disabled = true));
     form.querySelector('.q-actions').hidden = true;
 
-    if (!answer) return feedback({ correct: false, verdict: `Sin respuesta. ${q.answers ? `Era <strong>${esc(q.answers[0])}</strong>.` : ''}` });
+    if (!answer) return feedback({ correct: false, verdict: `Sin respuesta. ${q.answers ? `Era <strong>${esc(q.answers[0])}</strong>.` : ''}`, retype: q.answers });
 
     if (q.type === 'frase') {
       const words = answer.split(/\s+/).filter(Boolean).length;
@@ -377,14 +381,16 @@ export async function renderVocab(root) {
         correct: false,
         canOverride: true,
         verdict: `Es la palabra correcta, pero no la forma que pide la frase: <strong>${esc(q.gap.answer)}</strong>.`,
+        retype: q.answers,
       });
     }
-    feedback({ correct: false, canOverride: true, verdict: `Tu respuesta: <strong>${esc(answer)}</strong>. Era <strong>${esc(q.answers[0])}</strong>.` });
+    feedback({ correct: false, canOverride: true, verdict: `Tu respuesta: <strong>${esc(answer)}</strong>. Era <strong>${esc(q.answers[0])}</strong>.`, retype: q.answers });
   }
 
   // ----- Feedback: short, focused on this word -----
 
-  function feedback({ correct, verdict, extra = '', canOverride = false }) {
+  // retype: after a wrong answer, the accepted answers you must type before moving on.
+  function feedback({ correct, verdict, extra = '', canOverride = false, retype = null }) {
     answered = true;
     const { q, scheduled } = current;
     const e = q.entry;
@@ -405,24 +411,54 @@ export async function renderVocab(root) {
         ${focus}
       </div>
       <details class="more"><summary>Ver la ficha completa</summary>${fullCard(e)}</details>
+      ${retype ? `
+        <form class="retype" autocomplete="off">
+          <label for="retype-input">Escribe la respuesta correcta para continuar: <strong>${esc(retype[0])}</strong></label>
+          <div class="retype-row">
+            <input id="retype-input" name="retype" type="text" spellcheck="false" autocapitalize="off">
+            <button type="submit" class="btn primary">OK <kbd>↵</kbd></button>
+          </div>
+          <p class="retype-msg" aria-live="polite"></p>
+        </form>` : ''}
       <div class="next-row">
         ${canOverride ? '<button type="button" class="btn ghost" data-override>Mi respuesta era correcta</button>' : ''}
         <button type="button" class="btn primary" data-next>Siguiente <kbd>↵</kbd></button>
       </div>`;
 
+    const nextBtn = box.querySelector('[data-next]');
+    const retypeForm = box.querySelector('.retype');
+    const goNext = () => {
+      progress.review(e.key, state, q.type, { practice: !scheduled });
+      remember(e.key);
+      next();
+    };
+    nextBtn.addEventListener('click', goNext);
+
     box.querySelector('[data-override]')?.addEventListener('click', ev => {
       state = true;
       box.querySelector('.verdict-slot').innerHTML = '<p class="verdict verdict-good">✓ Marcada como correcta.</p>';
       ev.currentTarget.remove();
-      box.querySelector('[data-next]').focus();
+      retypeForm?.remove();
+      nextBtn.hidden = false;
+      nextBtn.focus();
     });
-    const nextBtn = box.querySelector('[data-next]');
-    nextBtn.addEventListener('click', () => {
-      progress.review(e.key, state, q.type, { practice: !scheduled });
-      remember(e.key);
-      next();
-    });
-    nextBtn.focus({ preventScroll: true });
+
+    if (retypeForm) {
+      // Siguiente only appears once the correct answer has been typed (or the answer is overruled).
+      nextBtn.hidden = true;
+      const input = retypeForm.elements.retype;
+      const msg = retypeForm.querySelector('.retype-msg');
+      retypeForm.addEventListener('submit', ev => {
+        ev.preventDefault();
+        const r = compare(input.value, retype);
+        if (r.result === 'exact') return goNext();
+        msg.textContent = r.result === 'accents' ? 'Casi: revisa las tildes.' : 'Todavía no. Escríbela tal como aparece arriba.';
+        input.select();
+      });
+      input.focus({ preventScroll: true });
+    } else {
+      nextBtn.focus({ preventScroll: true });
+    }
     box.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
   }
 
