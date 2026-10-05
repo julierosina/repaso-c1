@@ -20,15 +20,14 @@ const TYPES = {
   hueco: { label: 'Completa la frase', prompt: 'Escribe lo que falta, en la forma adecuada', kind: 'text' },
   'hueco-libre': { label: 'Completa la frase', prompt: 'Escribe lo que falta, en la forma adecuada. Esta vez, sin pistas', kind: 'text' },
   inversa: { label: '¿Qué palabra es?', prompt: 'Escribe la palabra o expresión que corresponde a esta definición', kind: 'text' },
-  ordena: { label: 'Ordena la frase', prompt: 'Toca las palabras en el orden correcto para reconstruir la frase', kind: 'order' },
   frase: { label: 'Tu propia frase', prompt: `Escribe una frase propia (${MIN_OWN_SENTENCE_WORDS} palabras o más) que use`, kind: 'text' },
 };
 
 // Multiple choice while a word is new, recall next, then production (index = correct reviews in a row).
 const LEVELS = [
   ['elige-fr', 'elige-palabra', 'elige-hueco', 'elige-sinonimo'],
-  ['fr-es', 'hueco', 'inversa', 'ordena'],
-  ['hueco-libre', 'frase', 'fr-es', 'inversa', 'ordena'],
+  ['fr-es', 'hueco', 'inversa'],
+  ['hueco-libre', 'frase', 'fr-es', 'inversa'],
 ];
 
 // ---------- Building one exercise ----------
@@ -49,8 +48,6 @@ function distractors(e, entries, value, correct, n = 3) {
   }
   return out.length === n ? out : null;
 }
-
-const tokensOf = s => String(s).trim().split(/\s+/);
 
 // Returns a ready-to-show question, or null when this word can't support that exercise type.
 function build(type, e, entries) {
@@ -79,13 +76,6 @@ function build(type, e, entries) {
     case 'hueco-libre':
       q.gap = cloze(e.example, e.word);
       return q.gap ? Object.assign(q, { answers: [q.gap.answer] }) : null;
-    case 'ordena': {
-      const tokens = e.example ? tokensOf(e.example) : [];
-      if (tokens.length < 5 || tokens.length > 14) return null;
-      let bank = shuffle(tokens.map((t, i) => ({ t, i })));
-      while (bank.every((b, k) => b.i === k)) bank = shuffle(bank);
-      return Object.assign(q, { tokens, bank });
-    }
     case 'frase':
       return q;
   }
@@ -279,22 +269,12 @@ export async function renderVocab(root) {
       const n = q.gap.answer.split(/\s+/).length;
       const hint = q.type === 'hueco' ? clozeHint(q.gap.answer) : q.type === 'hueco-libre' ? `${n} ${n === 1 ? 'palabra' : 'palabras'}` : '…';
       prompt = gapSentence(q.gap, `<span class="blank">${esc(hint)}</span>`);
-    } else if (q.type === 'ordena') {
-      prompt = `<p class="q-pos">Frase con <strong>${esc(e.word)}</strong>${e.fr ? ` (${esc(e.fr)})` : ''}</p>`;
     }
 
     let input = '';
     if (t.kind === 'choice') {
       input = `<div class="options">${q.options.map((o, k) => `
         <button type="button" class="option" data-opt="${esc(o)}"><kbd>${k + 1}</kbd><span>${esc(o)}</span></button>`).join('')}</div>`;
-    } else if (t.kind === 'order') {
-      input = `
-        <div class="tiles-answer" data-answer aria-label="Tu frase"></div>
-        <div class="tiles-bank" data-bank>${q.bank.map((b, k) => `<button type="button" class="tile" data-k="${k}">${esc(b.t)}</button>`).join('')}</div>
-        <div class="q-actions">
-          <button type="button" class="btn ghost" data-reset>Empezar de nuevo</button>
-          <button type="button" class="btn primary" data-check disabled>Comprobar</button>
-        </div>`;
     } else {
       const area = q.type === 'frase'
         ? `<textarea name="answer" rows="3" placeholder="Escribe tu frase…" spellcheck="false"></textarea>`
@@ -327,8 +307,6 @@ export async function renderVocab(root) {
 
     if (t.kind === 'choice') {
       root.querySelectorAll('.option').forEach(b => b.addEventListener('click', () => checkChoice(b.dataset.opt)));
-    } else if (t.kind === 'order') {
-      setupTiles();
     } else {
       const form = root.querySelector('.q-form');
       const field = form.elements.answer;
@@ -404,48 +382,6 @@ export async function renderVocab(root) {
     feedback({ correct: false, canOverride: true, verdict: `Tu respuesta: <strong>${esc(answer)}</strong>. Era <strong>${esc(q.answers[0])}</strong>.` });
   }
 
-  function setupTiles() {
-    const { q } = current;
-    const answerEl = root.querySelector('[data-answer]');
-    const bankEl = root.querySelector('[data-bank]');
-    const checkBtn = root.querySelector('[data-check]');
-    const placed = [];
-
-    const refresh = () => {
-      answerEl.innerHTML = placed.map((k, pos) => `<button type="button" class="tile placed" data-pos="${pos}">${esc(q.bank[k].t)}</button>`).join('')
-        || '<span class="tiles-placeholder">Toca las palabras de abajo…</span>';
-      bankEl.querySelectorAll('.tile').forEach(b => (b.hidden = placed.includes(Number(b.dataset.k))));
-      checkBtn.disabled = placed.length !== q.bank.length;
-      if (!checkBtn.disabled) checkBtn.focus({ preventScroll: true });
-    };
-    bankEl.addEventListener('click', ev => {
-      const b = ev.target.closest('.tile');
-      const k = Number(b?.dataset.k);
-      if (!b || answered || placed.includes(k)) return;
-      placed.push(k);
-      refresh();
-    });
-    answerEl.addEventListener('click', ev => {
-      const b = ev.target.closest('.tile');
-      if (!b || answered) return;
-      placed.splice(Number(b.dataset.pos), 1);
-      refresh();
-    });
-    root.querySelector('[data-reset]').addEventListener('click', () => {
-      placed.length = 0;
-      refresh();
-    });
-    checkBtn.addEventListener('click', () => {
-      const built = placed.map(k => q.bank[k].t).join(' ');
-      const correct = built === q.tokens.join(' ');
-      root.querySelectorAll('.tile').forEach(b => (b.disabled = true));
-      root.querySelector('.q-actions').hidden = true;
-      answerEl.classList.add(correct ? 'is-correct' : 'is-wrong');
-      feedback({ correct, verdict: correct ? '¡Correcto!' : 'El orden no es correcto. La frase era:' });
-    });
-    refresh();
-  }
-
   // ----- Feedback: short, focused on this word -----
 
   function feedback({ correct, verdict, extra = '', canOverride = false }) {
@@ -456,7 +392,7 @@ export async function renderVocab(root) {
 
     let focus;
     if (q.gap) focus = gapSentence(q.gap, `<mark>${esc(q.gap.answer)}</mark>`);
-    else if (e.example && (q.type === 'ordena' || q.type === 'frase')) focus = `<p class="example">${highlight(e.example, e.word)}</p>`;
+    else if (e.example && q.type === 'frase') focus = `<p class="example">${highlight(e.example, e.word)}</p>`;
     else focus = e.definition ? `<p>${esc(e.definition)}</p>` : '';
 
     const box = root.querySelector('.reveal');

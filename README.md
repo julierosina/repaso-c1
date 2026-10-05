@@ -147,9 +147,9 @@ Open **Vocabulario** and a question is waiting: no settings to choose. It works 
   - new or recently missed: multiple choice. Pick the French meaning, the word for a definition,
     the missing words in the example sentence, or a synonym.
   - seen once: French → Spanish, fill the gap in the sentence (with first letters as a hint),
-    definition → word, and put the example sentence back in order (word tiles).
+    and definition → word.
   - well known: fill the gap with no hint, write your own sentence with the word, French → Spanish,
-    definition → word, sentence order.
+    definition → word.
 - **Your own sentence** is checked for what software can check: it uses the word (any form),
   has at least 6 words, and isn't the example copied. Compare the meaning with the example shown.
 - **Feedback is short**: right or wrong, the word, its French, and the completed sentence. The full card is

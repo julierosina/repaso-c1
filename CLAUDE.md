@@ -24,7 +24,7 @@ Writing: when the user sends an assignment sheet, turn each section into a `part
 
 - UI text is in Spanish; README is in English.
 - Vocab practice is a no-settings spaced-repetition stream (simplified SM-2 in `js/progress.js`; card/exercise-type selection in `js/vocab.js`). Keep it zero-config, and every exercise auto-checked (the user doesn't want self-grading). Feedback stays short (word, French, focus line) with the full card behind a toggle.
-- Examples should be 5–14 words where possible, so the sentence-order exercise can use them, and must contain the headword so the gap exercises work.
+- Examples must contain the headword so the gap exercises work.
 - Progress keys are `<section>:<id>` in localStorage key `c1esp:progress:v1` (see `js/progress.js`). Don't change the key format without a migration.
 - Colours derive from `--h` (hue) per section/topic; see tokens at top of `css/styles.css`.
 - Preview locally with `python3 -m http.server 8000` (`.claude/launch.json` has a `site` config).
