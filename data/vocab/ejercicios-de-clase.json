@@ -1,0 +1,238 @@
+{
+  "source": "Clase — ejercicios de vocabulario",
+  "topic": "Ejercicios de clase",
+  "entries": [
+    {
+      "word": "corear",
+      "fr": "scander, reprendre en chœur",
+      "type": "verbo",
+      "definition": "Cantar o gritar algo varias personas a la vez; también, repetir lo que dice otro para mostrar adhesión.",
+      "synonyms": ["gritar a coro", "entonar"],
+      "example": "Los manifestantes coreaban consignas contra el Gobierno frente al Parlamento."
+    },
+    {
+      "word": "aupado",
+      "fr": "porté, hissé (au pouvoir)",
+      "type": "participio / adjetivo",
+      "definition": "Llevado a una posición alta o de poder gracias al apoyo de otros.",
+      "synonyms": ["encumbrado", "respaldado"],
+      "example": "Aupado por el voto joven, el candidato ganó las elecciones.",
+      "notes": "Participio de aupar (levantar, subir a alguien). Muy frecuente en prensa: «aupado al poder», «aupado por las encuestas».",
+      "accept": ["aupada", "aupados", "aupar"]
+    },
+    {
+      "word": "avivado",
+      "fr": "attisé, ravivé",
+      "type": "participio / adjetivo",
+      "definition": "Hecho más intenso, como un fuego al que se añade leña; dicho de un sentimiento o un conflicto, reforzado.",
+      "synonyms": ["atizado", "intensificado"],
+      "example": "El debate, avivado por las redes sociales, se volvió cada vez más agresivo.",
+      "notes": "Participio de avivar.",
+      "related": ["espolear la desgracia"],
+      "accept": ["avivada", "avivados", "avivar"]
+    },
+    {
+      "word": "jerga",
+      "fr": "jargon ; argot",
+      "type": "sustantivo femenino",
+      "definition": "Lenguaje especial que usan entre sí las personas de una misma profesión o de un mismo grupo social.",
+      "synonyms": ["argot", "jerigonza"],
+      "example": "Los jóvenes usan una jerga que sus padres no siempre entienden.",
+      "accept": ["la jerga"]
+    },
+    {
+      "word": "despojo",
+      "fr": "spoliation, dépossession ; (au pluriel) restes, dépouilles",
+      "type": "sustantivo masculino",
+      "definition": "Acción de quitar a alguien lo que tiene, con violencia o de forma injusta; en plural, restos o sobras.",
+      "synonyms": ["expolio", "usurpación"],
+      "example": "Las comunidades indígenas denuncian el despojo de sus tierras.",
+      "related": ["saquear"],
+      "accept": ["el despojo", "despojos"]
+    },
+    {
+      "word": "poso",
+      "fr": "dépôt, marc ; fig. trace, empreinte",
+      "type": "sustantivo masculino",
+      "definition": "Sedimento que queda en el fondo de un recipiente; en sentido figurado, huella que deja algo en alguien.",
+      "synonyms": ["sedimento", "huella"],
+      "example": "La guerra dejó un poso de amargura en toda una generación.",
+      "accept": ["el poso"]
+    },
+    {
+      "word": "impostar",
+      "fr": "affecter, feindre (une voix, une attitude)",
+      "type": "verbo",
+      "definition": "Fingir o falsear una actitud, un tono o un sentimiento; en canto, colocar la voz para que suene con plenitud.",
+      "synonyms": ["fingir", "simular"],
+      "example": "El político impostó una emoción que nadie se creyó.",
+      "notes": "Adjetivo muy usado: impostado (falso, fingido): «una sonrisa impostada».",
+      "accept": ["impostado", "impostada"]
+    },
+    {
+      "word": "marcar su propio rumbo",
+      "fr": "tracer sa propre voie",
+      "type": "locución verbal",
+      "definition": "Decidir con independencia la dirección que se quiere seguir, sin depender de otros.",
+      "synonyms": ["seguir su propio camino", "actuar con independencia"],
+      "example": "La nueva generación de artistas quiere marcar su propio rumbo."
+    },
+    {
+      "word": "a su juicio",
+      "fr": "selon lui / selon elle, à son avis",
+      "type": "locución adverbial",
+      "definition": "Según la opinión de la persona de la que se habla.",
+      "synonyms": ["en su opinión", "según él"],
+      "example": "A su juicio, la reforma llega demasiado tarde.",
+      "notes": "También a mi juicio, a tu juicio… Muy útil para presentar la opinión de un autor: «A juicio de la autora, …».",
+      "accept": ["a mi juicio", "a juicio de"]
+    },
+    {
+      "word": "salir en defensa de alguien",
+      "fr": "prendre la défense de quelqu'un",
+      "type": "locución verbal",
+      "definition": "Proteger públicamente con argumentos a una persona que está siendo atacada o criticada.",
+      "synonyms": ["dar la cara por alguien", "respaldar a alguien"],
+      "example": "Varios escritores salieron en defensa de la periodista despedida.",
+      "accept": ["salir en defensa de"]
+    },
+    {
+      "word": "no surgir de la nada",
+      "fr": "ne pas venir de nulle part",
+      "type": "locución verbal",
+      "definition": "Tener causas o antecedentes previos; no aparecer de repente sin explicación.",
+      "synonyms": ["tener raíces profundas", "no ser casual"],
+      "example": "El auge de la extrema derecha no surge de la nada.",
+      "accept": ["surgir de la nada"]
+    },
+    {
+      "word": "apuntalar un trabajo",
+      "fr": "étayer un travail",
+      "type": "locución verbal",
+      "definition": "Reforzar un trabajo o un argumento con datos y pruebas para darle solidez, como se sostiene un muro con puntales.",
+      "synonyms": ["fundamentar", "respaldar"],
+      "example": "Necesitas más fuentes para apuntalar tu trabajo de fin de grado.",
+      "notes": "Apuntalar: poner puntales a un muro o a un edificio para que no se caiga.",
+      "accept": ["apuntalar"]
+    },
+    {
+      "word": "glotofobia",
+      "fr": "la glottophobie",
+      "type": "sustantivo femenino",
+      "definition": "Discriminación de las personas por su manera de hablar: su acento, su lengua o su variedad lingüística.",
+      "synonyms": ["discriminación lingüística"],
+      "example": "Burlarse del acento andaluz es una forma de glotofobia.",
+      "notes": "Término acuñado por el sociolingüista francés Philippe Blanchet.",
+      "accept": ["la glotofobia"]
+    },
+    {
+      "word": "gestarse",
+      "fr": "se préparer, se tramer, mûrir",
+      "type": "verbo pronominal",
+      "definition": "Formarse o desarrollarse algo poco a poco antes de manifestarse, como un ser vivo en el vientre materno.",
+      "synonyms": ["fraguarse", "incubarse"],
+      "example": "La crisis se gestó durante años sin que nadie la viera venir.",
+      "accept": ["gestar"]
+    },
+    {
+      "word": "hallarse",
+      "fr": "se trouver",
+      "type": "verbo pronominal",
+      "definition": "Estar en un lugar o en una situación determinada.",
+      "synonyms": ["encontrarse", "estar"],
+      "example": "El país se halla en una situación económica muy delicada.",
+      "notes": "Registro culto, muy frecuente en textos escritos.",
+      "accept": ["hallar"]
+    },
+    {
+      "word": "saquear",
+      "fr": "piller, mettre à sac",
+      "type": "verbo",
+      "definition": "Robar con violencia todo lo que se encuentra en un lugar, especialmente durante una guerra o un disturbio.",
+      "synonyms": ["expoliar", "desvalijar"],
+      "example": "Durante los disturbios, varios grupos saquearon las tiendas del centro.",
+      "related": ["despojo"]
+    },
+    {
+      "word": "repeler",
+      "fr": "repousser ; répugner",
+      "type": "verbo",
+      "definition": "Rechazar o hacer retroceder un ataque o a un agresor; también, causar rechazo o asco.",
+      "synonyms": ["rechazar", "repugnar"],
+      "example": "El ejército logró repeler el ataque en pocas horas."
+    },
+    {
+      "word": "esparcir",
+      "fr": "répandre, éparpiller",
+      "type": "verbo",
+      "definition": "Separar y extender por distintos lugares cosas que estaban juntas; también, divulgar una noticia.",
+      "synonyms": ["dispersar", "diseminar"],
+      "example": "El viento esparció las cenizas por todo el valle."
+    },
+    {
+      "word": "hundirse",
+      "fr": "couler, sombrer ; s'effondrer",
+      "type": "verbo pronominal",
+      "definition": "Irse al fondo del agua; en sentido figurado, derrumbarse o fracasar por completo.",
+      "synonyms": ["naufragar", "derrumbarse"],
+      "example": "El barco se hundió a pocas millas de la costa.",
+      "accept": ["hundir"]
+    },
+    {
+      "word": "contienda",
+      "fr": "conflit, affrontement ; compétition (électorale)",
+      "type": "sustantivo femenino",
+      "definition": "Enfrentamiento, guerra o lucha entre dos o más partes; también, competición electoral.",
+      "synonyms": ["conflicto", "enfrentamiento"],
+      "example": "La contienda electoral se ha vuelto especialmente tensa.",
+      "accept": ["la contienda"]
+    },
+    {
+      "word": "aldea",
+      "fr": "hameau, petit village",
+      "type": "sustantivo femenino",
+      "definition": "Pueblo pequeño, con pocos habitantes y generalmente sin ayuntamiento propio.",
+      "synonyms": ["pueblo", "caserío"],
+      "example": "Se crio en una aldea gallega de apenas cien habitantes.",
+      "notes": "«La aldea global»: el mundo interconectado por los medios de comunicación (McLuhan).",
+      "accept": ["la aldea"]
+    },
+    {
+      "word": "brote",
+      "fr": "pousse, bourgeon ; foyer (d'épidémie), flambée",
+      "type": "sustantivo masculino",
+      "definition": "Primera aparición de una planta o de una hoja; en sentido figurado, aparición repentina de una enfermedad o de un fenómeno.",
+      "synonyms": ["retoño", "estallido"],
+      "example": "Las autoridades sanitarias detectaron un nuevo brote de gripe aviar.",
+      "accept": ["el brote"]
+    },
+    {
+      "word": "tripulación",
+      "fr": "l'équipage",
+      "type": "sustantivo femenino",
+      "definition": "Conjunto de personas que trabajan a bordo de un barco o de un avión.",
+      "synonyms": ["personal de a bordo", "dotación"],
+      "example": "Toda la tripulación fue rescatada tras el naufragio.",
+      "accept": ["la tripulación"]
+    },
+    {
+      "word": "gentilicio",
+      "fr": "gentilé (nom des habitants d'un lieu)",
+      "type": "sustantivo masculino",
+      "definition": "Palabra que indica el lugar de origen de una persona, como madrileño, porteño o canario.",
+      "synonyms": ["demónimo"],
+      "example": "«Ceutí» es el gentilicio de los habitantes de Ceuta.",
+      "accept": ["el gentilicio"]
+    },
+    {
+      "word": "hacienda",
+      "fr": "le fisc, le Trésor public ; domaine agricole",
+      "type": "sustantivo femenino",
+      "definition": "Conjunto de bienes de una persona; en España, organismo del Estado que recauda los impuestos; en América Latina, gran finca agrícola.",
+      "synonyms": ["fisco", "finca"],
+      "example": "Este año tengo que pagar mucho a Hacienda.",
+      "notes": "Con mayúscula, la administración fiscal: «Hacienda somos todos».",
+      "accept": ["la hacienda"]
+    }
+  ]
+}
