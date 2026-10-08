@@ -62,6 +62,17 @@ export function highlight(text, word) {
     .join('');
 }
 
+// Checks for a sentence the learner wrote with `word`: what software can verify, not the meaning.
+// Returns [[ok, labelHTML], ...].
+export function sentenceChecks(answer, word, example, minWords = 6) {
+  const words = String(answer).split(/\s+/).filter(Boolean).length;
+  return [
+    [containsWord(answer, word) !== false, `Usa «${escapeHTML(word)}» (en cualquier forma)`],
+    [words >= minWords, `Tiene al menos ${minWords} palabras (${words})`],
+    [norm(answer) !== norm(example), 'Es una frase tuya, no el ejemplo copiado'],
+  ];
+}
+
 // Split a sentence around the shortest stretch that contains every stem of `word`,
 // e.g. "…las compañías se [quedaron con la tajada del león] de…". null if not found.
 export function cloze(text, word) {

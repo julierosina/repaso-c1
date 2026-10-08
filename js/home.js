@@ -6,7 +6,7 @@ const SECTIONS = [
   { id: 'vocab', title: 'Vocabulario', text: 'Definiciones, sinónimos y frases de ejemplo, por temas.', ready: true },
   { id: 'grammar', title: 'Gramática', text: 'Fichas y ejercicios, con la explicación de cada respuesta.', ready: true },
   { id: 'writing', title: 'Expresión escrita', text: 'Prepara textos y presentaciones con comprobaciones automáticas.', ready: true },
-  { id: 'exam', title: 'Modo examen', text: 'Mezcla de todo, con las respuestas al final.' },
+  { id: 'exam', title: 'Modo examen', text: 'Ejercicios de 5 palabras al azar: sinónimos o frases, corregidos al final.', ready: true },
 ];
 
 export async function renderHome(root) {

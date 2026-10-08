@@ -15,6 +15,7 @@ When the user uploads a vocab list:
 - Reuse existing topic names exactly (check other files) unless the material is a new topic.
 - Never change an existing entry's `word` (it's the progress ID) without flagging it to the user.
 - Validate afterwards: `python3 -c "import json,glob; [json.load(open(f)) for f in glob.glob('data/**/*.json', recursive=True)]"` and check for duplicate words across files.
+- Before committing any vocab change, run `python3 scripts/check_vocab_ids.py`: it must print OK. The user's progress must never be lost when words are added.
 
 Grammar: every exercise needs an `explanation`; every wrong option needs a `whyNot` reason; typed exercises should list likely wrong answers in `traps`. Use `alsoAccepted` rather than marking a genuinely valid alternative wrong. Grammar exercises: include the class exercises verbatim (`"source": "class"`) plus original ones testing the same rule with different vocabulary/context (`"source": "generated"`).
 
@@ -28,4 +29,5 @@ Writing: when the user sends an assignment sheet, turn each section into a `part
 - Progress keys are `<section>:<id>` in localStorage key `c1esp:progress:v1` (see `js/progress.js`). Don't change the key format without a migration.
 - Sans-serif fonts only: Plus Jakarta Sans (`--font-display`) for headings, Inter for text. No serif fonts anywhere.
 - Colours derive from `--h` (hue) per section/topic; see tokens at top of `css/styles.css`. The user wants the site colourful: vocab question cards take their topic's hue, writing parts each get their own. White text on a coloured fill must use `--fill-l` (not `--solid-l`) to stay readable.
+- Browser testing: the in-app browser may hold the user's real progress at localhost:8000. Before seeding or clearing anything, back up every `c1esp:*` localStorage key and restore it exactly when done. Never just clear it.
 - Preview locally with `python3 -m http.server 8000` (`.claude/launch.json` has a `site` config).

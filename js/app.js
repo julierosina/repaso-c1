@@ -4,6 +4,7 @@ import { renderHome } from './home.js';
 import { renderVocab, renderVocabList } from './vocab.js';
 import { renderGrammarHome, renderGrammarTopic, renderGrammarPractice } from './grammar.js';
 import { renderWritingHome, renderWritingPrompt } from './writing.js';
+import { renderExam } from './exam.js';
 import { loadVocab, loadGrammar, loadWriting } from './data.js';
 import { esc } from './ui.js';
 
@@ -17,6 +18,7 @@ const routes = {
   grammar: renderGrammarHome,
   'grammar/practica': root => renderGrammarPractice(root, null),
   writing: renderWritingHome,
+  exam: renderExam,
 };
 
 // Routes with an id in them: #/grammar/<tema>, #/grammar/<tema>/practica, #/writing/<tema>
@@ -29,7 +31,6 @@ function dynamicRoute(path) {
 }
 
 const COMING_SOON = {
-  exam: ['Modo examen', 'Una mezcla de vocabulario, gramática y redacción, con las respuestas al final.'],
   progress: ['Progreso', 'Qué dominas, qué necesitas reforzar y qué te falta por ver.'],
 };
 

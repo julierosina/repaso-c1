@@ -768,6 +768,53 @@ mark {
 .your-sentence { margin: 0 0 10px; font-style: italic; }
 .reveal .checks { margin-bottom: 8px; }
 
+/* ---------- Exam ---------- */
+
+.exam-card .btn { margin-top: 4px; }
+.exam-clock { margin: 12px 0 0; font-size: 0.9rem; color: var(--muted); font-variant-numeric: tabular-nums; }
+.exam-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; }
+.exam-item { padding: 20px 24px; border-left: 5px solid hsl(var(--h) var(--solid-s) var(--solid-l)); }
+.exam-item.is-correct { border-left-color: var(--good); }
+.exam-item.is-wrong { border-left-color: var(--bad); }
+.exam-q { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 12px; }
+.exam-q > div { flex: 1; }
+.exam-num {
+  width: 30px;
+  height: 30px;
+  flex: none;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: hsl(var(--h) var(--solid-s) var(--fill-l));
+  color: var(--on-solid);
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+.exam-word { font-size: 1.35rem; }
+.exam-item .q-pos { margin-top: 2px; }
+.exam-item input, .exam-item textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--bg);
+  color: var(--text);
+  font: inherit;
+  resize: vertical;
+}
+.exam-item input:focus, .exam-item textarea:focus {
+  outline: none;
+  border-color: hsl(var(--h) var(--solid-s) var(--solid-l));
+  box-shadow: 0 0 0 3px hsl(var(--h) var(--solid-s) var(--solid-l) / 0.15);
+}
+.exam-item [readonly] { opacity: 0.85; }
+.exam-result { margin-top: 12px; display: grid; gap: 8px; justify-items: start; }
+.exam-result .verdict { margin: 0; width: 100%; }
+.exam-solution { margin: 0; font-size: 0.93rem; }
+.exam-solution .label { margin-right: 6px; }
+.exam-score { display: flex; align-items: baseline; flex-wrap: wrap; gap: 6px 16px; margin-bottom: 16px; padding: 18px 24px; }
+.exam-score strong { font-family: var(--font-display); font-size: 2rem; }
+
 /* ---------- Small screens ---------- */
 
 @media (max-width: 640px) {

@@ -4,7 +4,7 @@ A small static site for revising C1 Spanish: vocabulary, grammar, writing and pr
 Plain HTML/CSS/JavaScript, no build step. All content lives in JSON files under `data/`,
 and your progress is saved in your browser (localStorage).
 
-**Status:** Vocabulary, Grammar and Writing are built. Practice exam and the Progress dashboard come next.
+**Status:** Vocabulary, Grammar, Writing and a first exam mode are built. The Progress dashboard comes next.
 
 ---
 
@@ -44,7 +44,10 @@ css/styles.css          all styling (colours per section/topic are defined at th
 js/
   app.js                router + data-error banner
   home.js               home page
-  vocab.js              vocabulary quiz, summary and word list
+  vocab.js              vocabulary practice and word list
+  grammar.js            grammar topics, rule summaries and practice
+  writing.js            writing prompts with live checks
+  exam.js               exam mode: random 5-word tests
   data.js               loads + checks the data files
   progress.js           per-item progress in localStorage
   text.js               answer comparison (accents, word forms)
@@ -52,6 +55,10 @@ js/
 data/
   index.json            ← lists every content file the site should load
   vocab/*.json          vocabulary lists
+  grammar/*.json        grammar topics
+  writing/*.json        writing prompts
+scripts/
+  check_vocab_ids.py    checks a vocabulary change keeps every studied word's progress
 ```
 
 ---
@@ -122,6 +129,10 @@ is attached to that ID, so:
 - Changing the `word` itself starts that word's progress from zero.
 - If the same word appears twice, give one of them an `"id"`, e.g. `"id": "plantilla-modelo"`.
   Otherwise the site warns about a duplicate and skips the second one.
+- **Adding words or whole new lists never touches the progress of words you've already studied.**
+  To double-check a change before committing it, run `python3 scripts/check_vocab_ids.py`: it lists any
+  studied word whose ID would disappear (renamed, deleted, or its file removed from `index.json`).
+  To rename a word and keep its progress, add `"id": "<old id>"` to it.
 
 ### JSON gotchas
 
@@ -164,6 +175,18 @@ Open **Vocabulario** and a question is waiting: no settings to choose. It works 
 - **Status** in the word list: *Sin intentar* (not introduced yet), *Por reforzar* (interval under 7 days),
   *Dominado* (7 days or more).
 - Progress is stored **in this browser only**. A different browser or device, or clearing site data, starts from zero.
+
+## Exam mode
+
+**Modo examen** generates a test of 5 random words from all your vocabulary lists:
+
+- **Sinónimos**: write a synonym for each word. Answers are checked against the entry's synonyms
+  (missing accents are flagged but accepted). If yours is valid but not listed, mark it correct.
+- **Frases de ejemplo**: write your own sentence with each word. Checked for what software can check
+  (uses the word in any form, at least 6 words, not the example copied). The example is shown to compare with.
+
+Nothing is corrected until you click **Corregir**, like in an exam. A clock shows the time taken. Exam
+results don't change your spaced-repetition schedule. *Otras 5 palabras* draws a new set.
 
 ## Grammar files
 

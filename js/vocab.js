@@ -5,7 +5,7 @@
 import { loadVocab } from './data.js';
 import * as progress from './progress.js';
 import { esc, hueFor, topicTag, statusBadge, shuffle } from './ui.js';
-import { compare, containsWord, highlight, cloze, clozeHint, norm } from './text.js';
+import { compare, containsWord, highlight, cloze, clozeHint, norm, sentenceChecks } from './text.js';
 
 // New words introduced per day (the rest wait until tomorrow, or until you ask for more).
 const NEW_PER_DAY = 20;
@@ -356,12 +356,7 @@ export async function renderVocab(root) {
     if (!answer) return feedback({ correct: false, verdict: `Sin respuesta. ${q.answers ? `Era <strong>${esc(q.answers[0])}</strong>.` : ''}`, retype: q.answers });
 
     if (q.type === 'frase') {
-      const words = answer.split(/\s+/).filter(Boolean).length;
-      const checks = [
-        [containsWord(answer, e.word) !== false, `Usa «${esc(e.word)}» (en cualquier forma)`],
-        [words >= MIN_OWN_SENTENCE_WORDS, `Tiene al menos ${MIN_OWN_SENTENCE_WORDS} palabras (${words})`],
-        [norm(answer) !== norm(e.example), 'Es una frase tuya, no el ejemplo copiado'],
-      ];
+      const checks = sentenceChecks(answer, e.word, e.example, MIN_OWN_SENTENCE_WORDS);
       const correct = checks.every(([ok]) => ok);
       return feedback({
         correct,
