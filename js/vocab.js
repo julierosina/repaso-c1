@@ -5,7 +5,7 @@
 import { loadVocab } from './data.js';
 import * as progress from './progress.js';
 import { esc, hueFor, topicTag, statusBadge, shuffle } from './ui.js';
-import { compare, containsWord, highlight, cloze, clozeHint, norm, sentenceChecks } from './text.js';
+import { compare, containsWord, highlight, cloze, clozeOneWord, clozeHint, norm, sentenceChecks } from './text.js';
 
 // New words introduced per day (the rest wait until tomorrow, or until you ask for more).
 const NEW_PER_DAY = 20;
@@ -16,6 +16,7 @@ const TYPES = {
   'elige-palabra': { label: '¿Qué palabra es?', prompt: 'Elige la palabra o expresión que corresponde a la definición', kind: 'choice' },
   'elige-hueco': { label: 'Completa la frase', prompt: 'Elige lo que falta en la frase', kind: 'choice' },
   'elige-sinonimo': { label: 'Sinónimo', prompt: 'Elige un sinónimo', kind: 'choice' },
+  'sinonimo-escrito': { label: 'Sinónimo', prompt: 'Escribe un sinónimo de', kind: 'text' },
   'fr-es': { label: 'Del francés al español', prompt: '¿Cómo se dice en español?', kind: 'text' },
   hueco: { label: 'Completa la frase', prompt: 'Escribe lo que falta, en la forma adecuada', kind: 'text' },
   'hueco-libre': { label: 'Completa la frase', prompt: 'Escribe lo que falta, en la forma adecuada. Esta vez, sin pistas', kind: 'text' },
@@ -27,8 +28,12 @@ const TYPES = {
 const LEVELS = [
   ['elige-fr', 'elige-palabra', 'elige-hueco', 'elige-sinonimo'],
   ['fr-es', 'hueco', 'inversa'],
-  ['hueco-libre', 'frase', 'fr-es', 'inversa'],
+  ['hueco-libre', 'frase', 'sinonimo-escrito', 'fr-es', 'inversa'],
 ];
+
+// Harder production exercises, mixed in at every level about one time in four.
+const HARD = ['sinonimo-escrito', 'frase'];
+const HARD_CHANCE = 0.25;
 
 // ---------- Building one exercise ----------
 
@@ -74,8 +79,11 @@ function build(type, e, entries) {
       return e.definition ? Object.assign(q, { answers: [e.word, ...e.accept] }) : null;
     case 'hueco':
     case 'hueco-libre':
-      q.gap = cloze(e.example, e.word);
+      // Typed gaps blank one word of an expression; the rest of it stays visible.
+      q.gap = clozeOneWord(cloze(e.example, e.word), e.word);
       return q.gap ? Object.assign(q, { answers: [q.gap.answer] }) : null;
+    case 'sinonimo-escrito':
+      return e.synonyms.length ? Object.assign(q, { answers: e.synonyms }) : null;
     case 'frase':
       return q;
   }
@@ -93,6 +101,10 @@ function makeQuestion(e, entries) {
     }
     return null;
   };
+  if (Math.random() < HARD_CHANCE) {
+    const hard = tryTypes(HARD);
+    if (hard) return hard;
+  }
   return tryTypes(level) || tryTypes(Object.keys(TYPES));
 }
 
@@ -259,7 +271,7 @@ export async function renderVocab(root) {
     const t = TYPES[q.type];
 
     let prompt = '';
-    if (q.type === 'elige-fr' || q.type === 'elige-sinonimo' || q.type === 'frase') {
+    if (['elige-fr', 'elige-sinonimo', 'sinonimo-escrito', 'frase'].includes(q.type)) {
       prompt = `<h2 class="q-word">${esc(e.word)}</h2>${e.type ? `<p class="q-pos">${esc(e.type)}</p>` : ''}`;
     } else if (q.type === 'elige-palabra' || q.type === 'inversa') {
       prompt = `<p class="q-definition">${esc(e.definition)}</p>`;
@@ -368,14 +380,25 @@ export async function renderVocab(root) {
       });
     }
 
+    if (q.type === 'sinonimo-escrito' && norm(answer) === norm(e.word)) {
+      return feedback({ correct: false, verdict: 'Es la misma palabra: hace falta un sinónimo.', retype: q.answers });
+    }
     const r = compare(answer, q.answers);
     if (r.result === 'exact') return feedback({ correct: true, verdict: '¡Correcto!' });
     if (r.result === 'accents') return feedback({ correct: true, verdict: `¡Correcto! Ojo a las tildes: <strong>${esc(r.match)}</strong>` });
-    if (q.gap && containsWord(answer, e.word)) {
+    if (q.gap && containsWord(answer, q.gap.answer)) {
       return feedback({
         correct: false,
         canOverride: true,
         verdict: `Es la palabra correcta, pero no la forma que pide la frase: <strong>${esc(q.gap.answer)}</strong>.`,
+        retype: q.answers,
+      });
+    }
+    if (q.type === 'sinonimo-escrito') {
+      return feedback({
+        correct: false,
+        canOverride: true,
+        verdict: `«${esc(answer)}» no está en la lista de sinónimos: <strong>${q.answers.map(esc).join(' · ')}</strong>. Si el tuyo también vale, márcalo como correcto.`,
         retype: q.answers,
       });
     }
@@ -393,6 +416,7 @@ export async function renderVocab(root) {
 
     let focus;
     if (q.gap) focus = gapSentence(q.gap, `<mark>${esc(q.gap.answer)}</mark>`);
+    else if (q.type === 'sinonimo-escrito') focus = `<p><span class="label">Sinónimos</span> ${e.synonyms.map(esc).join(' · ')}</p>`;
     else if (e.example && q.type === 'frase') focus = `<p class="example">${highlight(e.example, e.word)}</p>`;
     else focus = e.definition ? `<p>${esc(e.definition)}</p>` : '';
 

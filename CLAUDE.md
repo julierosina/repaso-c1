@@ -24,7 +24,7 @@ Writing: when the user sends an assignment sheet, turn each section into a `part
 ## Conventions
 
 - UI text is in Spanish; README is in English.
-- Vocab practice is a no-settings spaced-repetition stream (simplified SM-2 in `js/progress.js`; card/exercise-type selection in `js/vocab.js`). Keep it zero-config, and every exercise auto-checked (the user doesn't want self-grading). Feedback stays short (word, French, focus line) with the full card behind a toggle. After a wrong answer whose answer is Spanish, the user must retype the correct answer before Siguiente appears.
+- Vocab practice is a no-settings spaced-repetition stream (simplified SM-2 in `js/progress.js`; card/exercise-type selection in `js/vocab.js`). Keep it zero-config, and every exercise auto-checked (the user doesn't want self-grading). Feedback stays short (word, French, focus line) with the full card behind a toggle. After a wrong answer whose answer is Spanish, the user must retype the correct answer before Siguiente appears. Harder production exercises (typed synonym, own sentence) are mixed in at every level (`HARD_CHANCE`). Typed gaps blank one word of a multi-word expression (`clozeOneWord`).
 - Examples must contain the headword so the gap exercises work.
 - Progress keys are `<section>:<id>` in localStorage key `c1esp:progress:v1` (see `js/progress.js`). Don't change the key format without a migration.
 - Sans-serif fonts only: Plus Jakarta Sans (`--font-display`) for headings, Inter for text. No serif fonts anywhere.

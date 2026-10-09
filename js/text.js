@@ -101,6 +101,25 @@ export function cloze(text, word) {
   };
 }
 
+// Narrow a cloze to a single word of a multi-word expression (picked at random among the
+// expression's meaningful words), so the rest of the expression stays visible as context.
+export function clozeOneWord(gap, word) {
+  if (!gap) return null;
+  const stems = stemsOf(word);
+  const parts = gap.answer.split(/(\p{L}+)/u); // odd indexes are words
+  const candidates = [];
+  for (let i = 1; i < parts.length; i += 2) {
+    if (stems.some(st => stripAccents(parts[i].toLowerCase()).startsWith(st))) candidates.push(i);
+  }
+  if (parts.filter((_, i) => i % 2 === 1).length < 2 || !candidates.length) return gap;
+  const i = candidates[Math.floor(Math.random() * candidates.length)];
+  return {
+    before: gap.before + parts.slice(0, i).join(''),
+    answer: parts[i],
+    after: parts.slice(i + 1).join('') + gap.after,
+  };
+}
+
 // "quedaron con la tajada del león" -> "q… con la t… del l…"
 export function clozeHint(answer) {
   return answer
