@@ -1,0 +1,114 @@
+{
+  "source": "Artículo — «Una universidad, de nuevo, le falla a una víctima»",
+  "topic": "Una universidad, de nuevo, le falla a una víctima",
+  "entries": [
+    {
+      "word": "arquitectura de impunidad",
+      "fr": "architecture d'impunité (système qui garantit l'absence de sanction)",
+      "type": "sintagma nominal (metáfora)",
+      "definition": "Estructura o conjunto de mecanismos que permiten que los responsables de algo no sean castigados.",
+      "synonyms": ["sistema de impunidad", "entramado de impunidad"],
+      "example": "Los fallos de la institución revelan una auténtica arquitectura de impunidad.",
+      "context": "El conjunto de fallos institucionales que permitió que la violencia sexual quedara prácticamente sin consecuencias.",
+      "connotation": "Metáfora que presenta la impunidad como algo construido y estructural, no como un hecho aislado."
+    },
+    {
+      "word": "alzar la voz",
+      "fr": "élever la voix, protester publiquement",
+      "type": "locución verbal",
+      "definition": "Protestar o expresar públicamente una oposición.",
+      "synonyms": ["levantar la voz", "protestar"],
+      "example": "Cada vez más empleados se atreven a alzar la voz contra el acoso.",
+      "context": "Ninguno de los estudiantes del grupo de Snapchat denunció o intentó detener la agresión.",
+      "connotation": "Expresión figurada que enfatiza la pasividad y el silencio de los testigos."
+    },
+    {
+      "word": "informe mutilado",
+      "fr": "rapport tronqué (litt. mutilé)",
+      "type": "sintagma nominal",
+      "definition": "Documento oficial incompleto o alterado, al que le faltan partes importantes.",
+      "synonyms": ["informe incompleto", "documento amputado"],
+      "example": "El periodista reveló que la comisión había publicado un informe mutilado.",
+      "context": "El informe policial omitió afirmaciones fundamentales de la víctima sobre la violación.",
+      "connotation": "Muy crítica: «mutilado» tiene una fuerte connotación negativa y sugiere una alteración grave.",
+      "accept": ["un informe mutilado"]
+    },
+    {
+      "word": "archivar el caso",
+      "fr": "classer l'affaire (sans suite)",
+      "type": "locución verbal (jurídica)",
+      "definition": "Cerrar un procedimiento judicial sin continuar con él.",
+      "synonyms": ["cerrar la investigación", "sobreseer la causa"],
+      "example": "La fiscalía decidió archivar el caso por falta de pruebas.",
+      "context": "El fiscal decidió no continuar con la investigación porque consideró que había consentimiento.",
+      "connotation": "Léxico jurídico que, en este contexto, refuerza la crítica a la respuesta institucional.",
+      "accept": ["archivar la causa"]
+    },
+    {
+      "word": "asumir consecuencias",
+      "fr": "assumer les conséquences, en payer le prix",
+      "type": "locución verbal",
+      "definition": "Cargar con los efectos de una situación o de una decisión.",
+      "synonyms": ["pagar el precio", "cargar con las consecuencias"],
+      "example": "Al final, fue la víctima quien tuvo que asumir las consecuencias.",
+      "context": "La víctima tuvo que abandonar la universidad y perdió el dinero de su matrícula, mientras los agresores recibieron sanciones menores.",
+      "connotation": "Produce un contraste irónico: quien sufrió la agresión terminó pagando un precio mayor.",
+      "notes": "Lo más frecuente es con artículo: asumir las consecuencias. También significa aceptar la responsabilidad de los propios actos.",
+      "accept": ["asumir las consecuencias"]
+    },
+    {
+      "word": "encender la chispa",
+      "fr": "mettre le feu aux poudres, être l'étincelle",
+      "type": "locución verbal (metáfora)",
+      "definition": "Provocar o iniciar algo que después se desarrolla.",
+      "synonyms": ["desencadenar", "detonar"],
+      "example": "Un pequeño reportaje encendió la chispa de una investigación mucho mayor.",
+      "context": "El reportaje de The Cornell Daily Sun provocó una atención mediática mucho mayor sobre el caso y contribuyó a la reapertura de la causa.",
+      "connotation": "Metáfora que compara una noticia con una chispa que inicia un proceso más amplio: una pequeña acción puede provocar un cambio importante.",
+      "related": ["prender la indignación"]
+    },
+    {
+      "word": "no admitir matices ni negociaciones",
+      "fr": "ne souffrir aucune nuance ni aucun compromis",
+      "type": "locución verbal",
+      "definition": "No permitir posiciones intermedias ni compromisos.",
+      "synonyms": ["ser innegociable", "no tener término medio"],
+      "example": "Para el editorial, la seguridad de los estudiantes no admite matices ni negociaciones.",
+      "context": "La seguridad de los estudiantes debe ser una prioridad absoluta.",
+      "connotation": "Expresa certeza y refuerza el carácter categórico de la tesis.",
+      "accept": ["no admitir matices"]
+    },
+    {
+      "word": "sopesar",
+      "fr": "peser, soupeser (le pour et le contre)",
+      "type": "verbo",
+      "definition": "Comparar o valorar diferentes factores antes de tomar una decisión.",
+      "synonyms": ["ponderar", "valorar"],
+      "example": "La universidad no puede sopesar la seguridad de sus alumnos frente a su prestigio.",
+      "context": "La seguridad de los estudiantes no debe compararse con el prestigio de la universidad.",
+      "connotation": "Presenta la decisión institucional como una cuestión moral."
+    },
+    {
+      "word": "la vergüenza debe cambiar de bando",
+      "fr": "la honte doit changer de camp",
+      "type": "expresión metafórica",
+      "definition": "Idea de que la culpa y el oprobio tienen que recaer sobre los agresores y no sobre las víctimas.",
+      "synonyms": ["la culpa es del agresor"],
+      "example": "Tras el caso Pelicot, muchas activistas repiten que la vergüenza debe cambiar de bando.",
+      "context": "El editorial utiliza esta idea del caso Pelicot para defender que la culpa y la vergüenza deben recaer sobre los agresores y no sobre las víctimas.",
+      "connotation": "Expresión metafórica que resume el mensaje moral del artículo.",
+      "notes": "Cambiar de bando: dejar un grupo, partido, equipo o causa para unirse al bando contrario. En Francia se popularizó como «que la honte change de camp».",
+      "accept": ["la vergüenza tiene que cambiar de bando", "que la vergüenza cambie de bando"]
+    },
+    {
+      "word": "resonancia universal",
+      "fr": "portée universelle, retentissement universel",
+      "type": "sintagma nominal",
+      "definition": "Repercusión o relevancia que va más allá del caso concreto.",
+      "synonyms": ["alcance universal", "repercusión global"],
+      "example": "Aunque ocurrió en Estados Unidos, el caso tiene una resonancia universal.",
+      "context": "Aunque los hechos ocurrieron en Estados Unidos, el problema afecta a instituciones de todo el mundo.",
+      "connotation": "Amplía el caso particular y lo convierte en un problema global."
+    }
+  ]
+}

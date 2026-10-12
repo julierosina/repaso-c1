@@ -5,7 +5,8 @@
     "vocab/vivienda-desahucios.json",
     "vocab/santa-marta-guerra.json",
     "vocab/palabras-fin-del-mundo.json",
-    "vocab/ejercicios-de-clase.json"
+    "vocab/ejercicios-de-clase.json",
+    "vocab/universidad-falla-victima.json"
   ],
   "grammar": [
     "grammar/opinion-y-matices.json",
