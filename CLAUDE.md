@@ -7,7 +7,7 @@ Static C1 Spanish revision site (plain HTML/CSS/JS ES modules, no build). Conten
 When the user uploads a vocab list:
 - Create a new file `data/vocab/<unidad-o-tema>.json` (or append to the matching existing one) and add it to `data/index.json`.
 - Generate `fr` (French translation: the natural French equivalent, with a short gloss in parentheses for figurative expressions), `definition`, 1–2 `synonyms`, one `example`, and `type` yourself: natural, accurate, C1-appropriate peninsular Spanish (note regional variants in `notes`). Definitions must not contain the headword itself (it breaks the "¿Qué palabra es?" question).
-- Synonyms should be genuinely interchangeable in at least one common context; the quiz auto-checks against them.
+- Synonyms should be genuinely interchangeable in at least one common context; the quiz auto-checks against them. Use common, high-frequency words the user is likely to know: they practise recalling the synonyms, and rare ones (e.g. «jerigonza», «carestía») don't help. The user picked their known synonyms for every existing word; don't replace those without asking. An empty `synonyms` list is intentional (no synonym exercises for that word).
 - For reflexive/phrasal headwords, add `accept` variants (e.g. `"desbordar"` for `"desbordarse"`).
 - If the material has context / connotation columns, map them to `context` and `connotation` (fix typos, keep the user's meaning).
 - When two entries (in any file) mean nearly the same thing, add `related` on both so neither becomes a wrong option in the other's multiple choice.
