@@ -1,0 +1,119 @@
+{
+  "source": "Artículo — «El Gran Reemplazo europeo» (Máriam Martínez-Bascuñán, El País)",
+  "topic": "El Gran Reemplazo europeo",
+  "entries": [
+    {
+      "word": "reconvenir",
+      "fr": "réprimander, rappeler à l'ordre",
+      "type": "verbo",
+      "definition": "Censurar o reprender a alguien por lo que ha hecho o dicho.",
+      "synonyms": ["criticar"],
+      "example": "Bruselas reconvino a varios gobiernos por vulnerar el Estado de derecho.",
+      "context": "La UE sancionó a Estados que habían vulnerado los derechos fundamentales (Hungría, Polonia).",
+      "connotation": "Evoca la autoridad moral de la UE y sus instrumentos jurídicos para sancionar las vulneraciones de los derechos humanos protegidos por los tratados.",
+      "notes": "Se conjuga como venir: reconvino, reconvinieron."
+    },
+    {
+      "word": "desmanes iliberales",
+      "fr": "les dérives / excès illibéraux",
+      "type": "sintagma nominal (plural)",
+      "definition": "Abusos de un gobierno contrarios a las libertades y al Estado de derecho.",
+      "synonyms": ["abusos autoritarios", "abusos de poder"],
+      "example": "La Comisión criticó los desmanes iliberales de algunos gobiernos europeos.",
+      "context": "Actuaciones de algunos gobiernos europeos contrarias al Estado de derecho.",
+      "connotation": "Expresión peyorativa que condena esas derivas antidemocráticas.",
+      "notes": "Desmán: atropello, abuso de autoridad, exceso. Iliberal: contrario a la democracia liberal.",
+      "related": ["atropello"]
+    },
+    {
+      "word": "respaldo",
+      "fr": "le soutien, l'appui",
+      "type": "sustantivo masculino",
+      "definition": "Ayuda o protección que alguien da a una persona o a una idea; también, garantía.",
+      "synonyms": ["apoyo", "protección", "ayuda"],
+      "example": "La primera ministra italiana dio su respaldo a su homóloga danesa.",
+      "context": "Apoyo político de Giorgia Meloni (primera ministra italiana, de extrema derecha) a Mette Frederiksen (primera ministra danesa, socialdemócrata) en sus críticas a la política migratoria española.",
+      "connotation": "Apunta las alianzas y los apoyos políticos que pueden influir en el panorama político de la UE.",
+      "related": ["salir en defensa de alguien", "cerrar filas con alguien", "aupado", "firmar"]
+    },
+    {
+      "word": "acervos nacionales",
+      "fr": "les patrimoines nationaux",
+      "type": "sintagma nominal (plural)",
+      "definition": "Conjunto de valores o bienes acumulados por tradición o herencia.",
+      "synonyms": ["patrimonio nacional", "patrimonio cultural", "tradiciones nacionales"],
+      "example": "Algunos líderes invocan los acervos nacionales para justificar su discurso identitario.",
+      "context": "Patrimonios culturales nacionales utilizados para definir la identidad colectiva, aquí la «herencia cultural cristiana», por ejemplo.",
+      "connotation": "Negativa: denuncia el uso de la identidad cultural para justificar un giro nacionalista e iliberal.",
+      "notes": "Acervo: conjunto de bienes o valores que pertenecen a un grupo (el acervo cultural de un país).",
+      "accept": ["acervo nacional"]
+    },
+    {
+      "word": "cercenar",
+      "fr": "amputer, rogner",
+      "type": "verbo",
+      "definition": "Recortar o reducir algo, especialmente derechos o libertades; en sentido literal, cortar los extremos de algo.",
+      "synonyms": ["limitar", "reducir"],
+      "example": "La nueva ley cercena los derechos de los inmigrantes.",
+      "context": "Restricción de los derechos individuales de los inmigrantes, en contraste con la política de regularización española.",
+      "connotation": "Negativa: denuncia la limitación de los derechos fundamentales."
+    },
+    {
+      "word": "tener guasa",
+      "fr": "c'est le comble ; ça ne manque pas de sel",
+      "type": "locución verbal (coloquial)",
+      "definition": "Resultar irónico, absurdo o contradictorio, hasta el punto de provocar burla o indignación.",
+      "synonyms": ["ser irónico", "ser absurdo"],
+      "example": "Tiene guasa que el país más laico de Europa defienda la herencia cristiana.",
+      "context": "Contradicción en el discurso de Frederiksen: defiende la herencia cultural cristiana de Europa, aunque Dinamarca es uno de los países más secularizados del mundo.",
+      "connotation": "Ironía y tono crítico.",
+      "notes": "Muy coloquial, propio de España. Guasa: burla, ironía. Casi siempre en tercera persona: «tiene guasa que…».",
+      "accept": ["tiene guasa"]
+    },
+    {
+      "word": "firmar",
+      "fr": "signer ; fig. souscrire à, cautionner",
+      "type": "verbo (sentido figurado)",
+      "definition": "Poner el nombre y la rúbrica al pie de un documento; en sentido figurado, apoyar o hacer propia una idea o una postura.",
+      "synonyms": ["apoyar", "respaldar"],
+      "example": "Varios dirigentes firmaron esa defensa de la cristiandad europea.",
+      "context": "Se utiliza en sentido figurado para indicar que Meloni y Frederiksen respaldan una defensa de la cristiandad para criticar la política migratoria española.",
+      "connotation": "Subraya la responsabilidad política de quienes defienden esa posición.",
+      "related": ["respaldo", "aupado", "salir en defensa de alguien"]
+    },
+    {
+      "word": "pactar a solas",
+      "fr": "conclure un accord en solo, en cachette",
+      "type": "locución verbal",
+      "definition": "Llegar a un acuerdo en privado, sin la participación de otras personas.",
+      "synonyms": ["acordar en secreto"],
+      "example": "El gobierno pactó a solas con Washington, sin consultar a sus socios.",
+      "context": "El pacto entre Dinamarca y los Estados Unidos a propósito de Groenlandia, negociado por Frederiksen sin contar con todos los socios europeos.",
+      "connotation": "Destaca la hipocresía de Frederiksen, que criticó a España por actuar unilateralmente aunque ella misma había hecho lo mismo con Groenlandia."
+    },
+    {
+      "word": "cerrar filas con alguien",
+      "fr": "faire bloc avec quelqu'un, serrer les rangs",
+      "type": "locución verbal",
+      "definition": "Unirse para apoyar o defender a alguien.",
+      "synonyms": ["unirse"],
+      "example": "Los socios europeos cerraron filas con Dinamarca frente a las amenazas.",
+      "context": "Los europeos mostraron su solidaridad con Dinamarca frente a las amenazas de Trump sobre Groenlandia.",
+      "connotation": "Metáfora de origen militar que expresa unidad y solidaridad.",
+      "related": ["salir en defensa de alguien", "respaldo"],
+      "accept": ["cerrar filas"]
+    },
+    {
+      "word": "el gran reemplazo",
+      "fr": "le grand remplacement",
+      "type": "sintagma nominal (teoría conspirativa)",
+      "definition": "Teoría conspirativa según la cual existiría un plan para sustituir a la población europea mediante la inmigración.",
+      "synonyms": ["teoría del reemplazo"],
+      "example": "El editorial denuncia que la idea del gran reemplazo se esté normalizando.",
+      "context": "Relación con la concepción identitaria de Europa, que se contrapone a la protección universal de los derechos humanos.",
+      "connotation": "Referencia polémica, utilizada de forma crítica para denunciar la normalización de discursos identitarios y excluyentes en la política europea.",
+      "notes": "Traducción de «le Grand Remplacement», expresión popularizada por el escritor francés Renaud Camus.",
+      "accept": ["gran reemplazo"]
+    }
+  ]
+}

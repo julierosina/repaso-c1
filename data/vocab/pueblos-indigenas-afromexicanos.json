@@ -1,0 +1,122 @@
+{
+  "source": "Artículo — «Pueblos indígenas y afromexicanos» (Elena Poniatowska, La Jornada)",
+  "topic": "Pueblos indígenas y afromexicanos",
+  "entries": [
+    {
+      "word": "sociedad apartada",
+      "fr": "une société à l'écart, isolée",
+      "type": "sintagma nominal",
+      "definition": "Grupo que vive aislado, al margen del resto de la población.",
+      "synonyms": ["comunidad marginada", "grupo excluido"],
+      "example": "Durante siglos, esas comunidades vivieron como una sociedad apartada del resto del país.",
+      "context": "Las comunidades afromexicanas viven excluidas de las influencias del conjunto de la población mexicana.",
+      "connotation": "Denuncia la marginación de las comunidades indígenas y afromexicanas y su falta de integración en la sociedad mexicana.",
+      "accept": ["una sociedad apartada"]
+    },
+    {
+      "word": "reconocimiento constitucional",
+      "related": ["asentado"],
+      "fr": "la reconnaissance constitutionnelle",
+      "type": "sintagma nominal",
+      "definition": "Hecho de que la ley fundamental de un país admita oficialmente la existencia y los derechos de un grupo.",
+      "synonyms": ["reconocimiento oficial", "reconocimiento legal"],
+      "example": "Los pueblos afromexicanos lograron el reconocimiento constitucional tras años de lucha.",
+      "context": "La Constitución mexicana reconoce oficialmente los derechos de los pueblos indígenas y afromexicanos.",
+      "connotation": "Destaca los avances legales en el reconocimiento de los derechos de los pueblos indígenas y afromexicanos.",
+      "accept": ["el reconocimiento constitucional"]
+    },
+    {
+      "word": "rendir fruto",
+      "fr": "porter ses fruits",
+      "type": "locución verbal",
+      "definition": "Producir resultados positivos.",
+      "synonyms": ["dar resultado", "tener éxito", "dar frutos", "funcionar"],
+      "example": "Tras años de esfuerzo, la campaña por fin empezó a rendir fruto.",
+      "context": "La iniciativa de la senadora tuvo éxito: permitió avanzar en el reconocimiento oficial de los derechos de las comunidades afromexicanas en la Constitución en 2024.",
+      "connotation": "Positiva: subraya el éxito de una lucha política y jurídica.",
+      "accept": ["rendir frutos"]
+    },
+    {
+      "word": "versos en topada",
+      "fr": "joute de vers (duel poétique chanté)",
+      "type": "sintagma nominal",
+      "definition": "Estrofas improvisadas que se lanzan dos músicos o grupos rivales en un duelo musical tradicional.",
+      "synonyms": ["duelo poético", "batalla de versos"],
+      "example": "En la fiesta del pueblo, dos grupos se enfrentaron con versos en topada.",
+      "context": "Justas poéticas en las comunidades afromexicanas en las que los participantes intercambian versos amorosos.",
+      "connotation": "Destaca la riqueza y la singularidad cultural de las comunidades afromexicanas.",
+      "notes": "La topada es un duelo poético-musical tradicional de México en el que los músicos se responden con versos improvisados."
+    },
+    {
+      "word": "embolsarse",
+      "fr": "empocher, s'approprier",
+      "type": "verbo pronominal",
+      "definition": "Quedarse con algo, sobre todo dinero o bienes, de manera indebida.",
+      "synonyms": ["quedarse con", "robar"],
+      "example": "Algunos turistas se embolsaban vasijas antiguas como si fueran recuerdos.",
+      "context": "Los visitantes se apropian de objetos culturales de Oaxaca.",
+      "connotation": "Denuncia el saqueo del patrimonio cultural mexicano.",
+      "notes": "En el texto: «embolsarse vasijas». Sentido literal: meter algo en una bolsa.",
+      "related": ["saquear", "despojo", "quedarse con la tajada del león"],
+      "accept": ["embolsarse vasijas", "embolsar"]
+    },
+    {
+      "word": "dizque",
+      "fr": "soi-disant, prétendument",
+      "type": "adverbio (coloquial, México y otros países de América)",
+      "definition": "Supuestamente, según dicen; expresa duda o ironía sobre lo que se afirma.",
+      "synonyms": ["al parecer", "en teoría"],
+      "example": "Se llevaron las vasijas a su casa, dizque para protegerlas.",
+      "context": "Los visitantes afirman llevarse las vasijas a sus casas con la excusa de conservarlas.",
+      "connotation": "Denuncia la hipocresía de quienes expolian el patrimonio cultural mexicano.",
+      "notes": "Contracción de «dice que». Muy frecuente en el español de México; en España suena coloquial o regional. En el texto: «dizque para protegerlas».",
+      "accept": ["dizque para protegerlas"]
+    },
+    {
+      "word": "repleta",
+      "fr": "remplie, pleine à craquer",
+      "type": "adjetivo",
+      "definition": "Llena por completo de algo.",
+      "synonyms": ["llena"],
+      "example": "La tumba estaba repleta de joyas y objetos de gran valor.",
+      "context": "Gran cantidad de objetos arqueológicos de gran valor histórico y cultural descubiertos en la tumba 7 de Monte Albán.",
+      "connotation": "Destaca la riqueza del patrimonio cultural indígena.",
+      "accept": ["repleto", "repletos", "repletas"]
+    },
+    {
+      "word": "asentado",
+      "related": ["reconocimiento constitucional"],
+      "fr": "établi, inscrit (dans la loi)",
+      "type": "participio / adjetivo",
+      "definition": "Establecido y fijado de manera oficial y clara.",
+      "synonyms": ["establecido", "reconocido", "fijado"],
+      "example": "Ese principio quedó asentado en la Constitución.",
+      "context": "Los derechos de los pueblos indígenas están reconocidos oficialmente por la ley mexicana.",
+      "connotation": "Transmite una idea de estabilidad y seguridad jurídica.",
+      "notes": "Participio de asentar.",
+      "accept": ["asentada", "asentados", "asentadas", "asentar"]
+    },
+    {
+      "word": "paisano",
+      "fr": "compatriote, personne du même pays ou de la même région",
+      "type": "sustantivo masculino",
+      "definition": "Persona que procede del mismo lugar o de la misma región que otra.",
+      "synonyms": ["compatriota", "del mismo pueblo"],
+      "example": "Aunque no es indígena, la escritora se siente paisana de esas comunidades.",
+      "context": "Aunque no pertenece a las comunidades indígenas ni afromexicanas, la persona se siente unida a ellas porque viene de la misma región.",
+      "connotation": "Destaca un sentimiento de pertenencia a una misma tierra, a pesar de las diferencias étnicas.",
+      "accept": ["paisana", "paisanos", "paisanas"]
+    },
+    {
+      "word": "recopilar canciones",
+      "fr": "recueillir des chansons",
+      "type": "locución verbal",
+      "definition": "Reunir y guardar temas musicales de distintas fuentes para conservarlos y transmitirlos.",
+      "synonyms": ["recoger canciones", "compilar canciones", "coleccionar canciones"],
+      "example": "Una investigadora pasó años recopilando canciones tradicionales de la costa.",
+      "context": "Reunir canciones tradicionales afromexicanas para preservarlas y darlas a conocer.",
+      "connotation": "Resalta la importancia de preservar el patrimonio musical afromexicano y dar a conocer sus tradiciones culturales.",
+      "accept": ["recopilar"]
+    }
+  ]
+}

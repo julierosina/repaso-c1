@@ -12,6 +12,7 @@
     },
     {
       "word": "aupado",
+      "related": ["respaldo", "firmar"],
       "fr": "porté, hissé (au pouvoir)",
       "type": "participio / adjetivo",
       "definition": "Llevado a una posición alta o de poder gracias al apoyo de otros.",
@@ -47,7 +48,7 @@
       "definition": "Acción de quitar a alguien lo que tiene, con violencia o de forma injusta; en plural, restos o sobras.",
       "synonyms": ["usurpación", "robo"],
       "example": "Las comunidades indígenas denuncian el despojo de sus tierras.",
-      "related": ["saquear"],
+      "related": ["saquear", "embolsarse"],
       "accept": ["el despojo", "despojos"]
     },
     {
@@ -89,6 +90,7 @@
     },
     {
       "word": "salir en defensa de alguien",
+      "related": ["respaldo", "cerrar filas con alguien", "firmar"],
       "fr": "prendre la défense de quelqu'un",
       "type": "locución verbal",
       "definition": "Proteger públicamente con argumentos a una persona que está siendo atacada o criticada.",
@@ -151,7 +153,7 @@
       "definition": "Robar con violencia todo lo que se encuentra en un lugar, especialmente durante una guerra o un disturbio.",
       "synonyms": ["robar", "pillar"],
       "example": "Durante los disturbios, varios grupos saquearon las tiendas del centro.",
-      "related": ["despojo"]
+      "related": ["despojo", "embolsarse"]
     },
     {
       "word": "repeler",
