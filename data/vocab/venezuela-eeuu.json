@@ -13,15 +13,28 @@
       "connotation": "Juego de palabras construido como un quiasmo: se invierte el orden de «llevarse» y «dejarnos» con «los chavistas» y «el petróleo»."
     },
     {
-      "word": "aparatoso golpe de mano",
-      "fr": "coup de force spectaculaire",
-      "type": "sintagma nominal",
-      "definition": "Acción rápida, por sorpresa y espectacular, llevada a cabo por la fuerza.",
+      "word": "golpe de mano",
+      "id": "aparatoso-golpe-de-mano",
+      "fr": "coup de main, coup de force",
+      "type": "locución nominal",
+      "definition": "Acción rápida y por sorpresa, llevada a cabo por la fuerza.",
       "synonyms": ["golpe de fuerza", "ataque sorpresa"],
       "example": "Buena parte de la prensa latinoamericana describió la operación de Washington como un aparatoso golpe de mano.",
       "context": "Designa la intervención estadounidense para sacar a Maduro del poder.",
-      "connotation": "Negativa: insiste en el uso de la fuerza y en el carácter espectacular de la acción («aparatoso»).",
-      "accept": ["golpe de mano"]
+      "connotation": "Negativa: insiste en el uso de la fuerza.",
+      "notes": "En el texto: «aparatoso golpe de mano» (ver «aparatoso»).",
+      "accept": ["un golpe de mano", "aparatoso golpe de mano"]
+    },
+    {
+      "word": "aparatoso",
+      "fr": "spectaculaire, impressionnant (souvent avec excès)",
+      "type": "adjetivo",
+      "definition": "Que llama mucho la atención por su espectacularidad o por su exageración.",
+      "synonyms": ["espectacular", "llamativo"],
+      "example": "El accidente fue muy aparatoso, pero nadie resultó herido.",
+      "context": "Califica el golpe de mano estadounidense contra Maduro: una operación muy espectacular.",
+      "connotation": "Insiste en el carácter espectacular, casi teatral, de la acción.",
+      "accept": ["aparatosa", "aparatosos", "aparatosas"]
     },
     {
       "word": "injerencia",

@@ -165,7 +165,7 @@ Open **Vocabulario** and a question is waiting: no settings to choose. It works 
     Spanish word, or write your own sentence with it. A typed synonym is checked against the word's
     list; if yours is valid but not listed, click *Mi respuesta era correcta*.
 - **Expressions in typed gaps**: only one word of the expression is blanked (chosen at random), the
-  rest stays visible, e.g. «…como un aparatoso ___ de mano». Multiple-choice gaps keep the whole expression.
+  rest stays visible, e.g. «…como un aparatoso golpe de ___». Multiple-choice gaps keep the whole expression.
 - **After a mistake you type the correct answer** before moving on (accents included), so the right form
   sticks. This applies to every exercise whose answer is Spanish. It doesn't apply to "pick the French meaning"
   or to your own sentence, which has no single answer.

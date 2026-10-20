@@ -71,16 +71,15 @@
       "notes": "Se usa sobre todo en construcciones como «hacer encaje de bolillos» o «ser un encaje de bolillos»."
     },
     {
-      "word": "manosear a placer la inmigración",
-      "fr": "instrumentaliser l'immigration à sa guise (litt. la tripoter à loisir)",
-      "type": "expresión verbal",
-      "definition": "Utilizar un tema a su antojo, de forma oportunista y sin respeto, como quien toca algo repetidamente y sin cuidado.",
-      "synonyms": ["instrumentalizar", "manipular la inmigración"],
-      "example": "Durante la campaña, algunos partidos manosean a placer la inmigración para arañar votos.",
+      "word": "manosear",
+      "id": "manosear-a-placer-la-inmigracion",
+      "fr": "tripoter ; fig. instrumentaliser",
+      "type": "verbo",
+      "definition": "Tocar algo una y otra vez y sin cuidado; en sentido figurado, utilizar un tema a su antojo, de forma oportunista y sin respeto.",
+      "synonyms": ["instrumentalizar", "manipular"],
+      "example": "Durante la campaña, algunos partidos manosean el tema de la inmigración para arañar votos.",
       "context": "La derecha radical usa la inmigración de forma interesada, solo por los votos que puede conseguir.",
-      "connotation": "Negativa: sugiere falta de respeto y oportunismo político.",
-      "notes": "Manosear: tocar algo repetidamente con las manos. A placer: cuanto uno quiere, a su antojo.",
-      "accept": ["manosear a placer"]
+      "connotation": "Negativa: sugiere falta de respeto y oportunismo político."
     },
     {
       "word": "tótems electorales",
