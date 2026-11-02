@@ -81,6 +81,9 @@ export function loadVocab() {
           id: raw.id || slugify(raw.word),
           word: raw.word.trim(),
           type: raw.type || '',
+          // Nouns: gender ('m' / 'f') from "gender" or from the type ("sustantivo femenino"), and number.
+          gender: (raw.gender || (/sustantivo\s+(masculino|femenino)/i.exec(raw.type || '') || [])[1] || '').charAt(0).toLowerCase() || null,
+          plural: /(masculino|femenino)\s+plural/i.test(raw.type || ''),
           fr: raw.fr || '',
           definition: raw.definition || '',
           synonyms: asList(raw.synonyms),

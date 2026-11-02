@@ -16,6 +16,7 @@ const TYPES = {
   'elige-palabra': { label: '¿Qué palabra es?', prompt: 'Elige la palabra o expresión que corresponde a la definición', kind: 'choice' },
   'elige-hueco': { label: 'Completa la frase', prompt: 'Elige lo que falta en la frase', kind: 'choice' },
   'elige-sinonimo': { label: 'Sinónimo', prompt: 'Elige un sinónimo', kind: 'choice' },
+  genero: { label: 'Género', prompt: '¿Masculino o femenino? Elige el artículo', kind: 'choice' },
   'sinonimo-escrito': { label: 'Sinónimo', prompt: 'Escribe un sinónimo de', kind: 'text' },
   'fr-es': { label: 'Del francés al español', prompt: '¿Cómo se dice en español?', kind: 'text' },
   hueco: { label: 'Completa la frase', prompt: 'Escribe lo que falta, en la forma adecuada', kind: 'text' },
@@ -34,6 +35,48 @@ const LEVELS = [
 // Harder production exercises, mixed in at every level about one time in four.
 const HARD = ['sinonimo-escrito', 'frase'];
 const HARD_CHANCE = 0.25;
+
+// Two practice streams share this code: the main Vocabulario one, and «Palabras», which only uses
+// single words (no expressions) to practise gender (el / la) and synonyms, with its own progress.
+const MODES = {
+  vocab: { levels: LEVELS, hard: HARD, intro: true, newPerDay: NEW_PER_DAY },
+  palabras: {
+    levels: [
+      ['genero', 'elige-sinonimo'],
+      ['genero', 'sinonimo-escrito', 'elige-sinonimo'],
+      ['sinonimo-escrito', 'genero'],
+    ],
+    hard: [],
+    intro: false,
+    newPerDay: Infinity,
+    title: 'Palabras · género y sinónimos',
+  },
+};
+
+export const isSingleWord = e => !/\s/.test(e.word.trim());
+export const palabrasEntries = entries => entries.filter(isSingleWord).map(e => ({ ...e, key: 'palabras:' + e.id }));
+
+// ---------- Gender ----------
+
+export const article = e => (!e.gender ? '' : e.plural ? (e.gender === 'f' ? 'las' : 'los') : e.gender === 'f' ? 'la' : 'el');
+const withArticle = e => (e.gender ? `${article(e)} ${e.word}` : e.word);
+
+// Endings that usually tell the gender; the first match wins, so «-ción» is checked before «-ón».
+const GENDER_ENDINGS = [
+  ['ción', 'f'], ['sión', 'f'], ['dad', 'f'], ['tad', 'f'], ['tud', 'f'], ['umbre', 'f'], ['sis', 'f'], ['itis', 'f'],
+  ['aje', 'm'], ['ismo', 'm'], ['miento', 'm'], ['ón', 'm'], ['or', 'm'], ['o', 'm'], ['a', 'f'],
+];
+
+function genderHint(e) {
+  const w = (e.plural ? e.word.replace(/s$/, '') : e.word).toLowerCase();
+  const name = `<strong>${esc(withArticle(e))}</strong>`;
+  const kind = g => (g === 'f' ? 'femeninas' : 'masculinas');
+  const hit = GENDER_ENDINGS.find(([end]) => w.endsWith(end));
+  if (!hit) return `Las palabras terminadas en -${esc(w.slice(-1))} pueden ser de los dos géneros: memoriza ${name}.`;
+  const [end, g] = hit;
+  if (g === e.gender) return `Pista: las palabras en -${end} suelen ser ${kind(g)}.`;
+  return `Ojo, excepción: las palabras en -${end} suelen ser ${kind(g)}, pero se dice ${name}.`;
+}
 
 // ---------- Building one exercise ----------
 
@@ -65,6 +108,8 @@ function build(type, e, entries) {
   switch (type) {
     case 'elige-fr':
       return choice(e.fr, x => x.fr);
+    case 'genero':
+      return e.gender ? Object.assign(q, { correct: article(e), options: e.plural ? ['los', 'las'] : ['el', 'la'] }) : null;
     case 'elige-palabra':
       return e.definition ? choice(e.word, x => x.word) : null;
     case 'elige-sinonimo':
@@ -90,9 +135,9 @@ function build(type, e, entries) {
   return null;
 }
 
-function makeQuestion(e, entries) {
+function makeQuestion(e, entries, cfg) {
   const r = progress.get(e.key);
-  const level = LEVELS[Math.min(r?.reps || 0, LEVELS.length - 1)];
+  const level = cfg.levels[Math.min(r?.reps || 0, cfg.levels.length - 1)];
   const tryTypes = list => {
     const varied = shuffle(list.filter(t => t !== r?.lastType));
     for (const t of [...varied, ...list.filter(t => t === r?.lastType)]) {
@@ -101,8 +146,8 @@ function makeQuestion(e, entries) {
     }
     return null;
   };
-  if (Math.random() < HARD_CHANCE) {
-    const hard = tryTypes(HARD);
+  if (cfg.hard.length && Math.random() < HARD_CHANCE) {
+    const hard = tryTypes(cfg.hard);
     if (hard) return hard;
   }
   return tryTypes(level) || tryTypes(Object.keys(TYPES));
@@ -112,7 +157,7 @@ function makeQuestion(e, entries) {
 
 // Due reviews first (most overdue first), then new words, then words being relearnt.
 // With `practice`, when nothing is due it keeps going with the words you've struggled with most.
-function nextCard(entries, recent, { practice, extraNew }) {
+function nextCard(entries, recent, { practice, extraNew }, cfg) {
   const now = Date.now();
   const r = e => progress.get(e.key);
   const last = recent[recent.length - 1];
@@ -124,7 +169,7 @@ function nextCard(entries, recent, { practice, extraNew }) {
   if (c) return { entry: c, scheduled: true };
 
   const fresh = entries.filter(e => !progress.isScheduled(e.key));
-  if (fresh.length && (extraNew || progress.today().newSeen < NEW_PER_DAY)) {
+  if (fresh.length && (extraNew || progress.today().newSeen < cfg.newPerDay)) {
     return { entry: fresh[Math.floor(Math.random() * fresh.length)], isNew: true };
   }
 
@@ -142,13 +187,13 @@ function nextCard(entries, recent, { practice, extraNew }) {
   return null;
 }
 
-function counts(entries) {
+function counts(entries, cfg) {
   const now = Date.now();
   const day = progress.today();
   const fresh = entries.filter(e => !progress.isScheduled(e.key)).length;
   return {
     due: entries.filter(e => progress.isDue(e.key, now)).length,
-    newLeft: Math.min(fresh, Math.max(0, NEW_PER_DAY - day.newSeen)),
+    newLeft: Math.min(fresh, Math.max(0, cfg.newPerDay - day.newSeen)),
     freshTotal: fresh,
     done: day.reviewed,
   };
@@ -185,8 +230,12 @@ function fullCard(e) {
 
 // ---------- Practice stream ----------
 
-export async function renderVocab(root) {
-  const { entries } = await loadVocab();
+export const renderPalabras = root => renderVocab(root, 'palabras');
+
+export async function renderVocab(root, modeName = 'vocab') {
+  const cfg = MODES[modeName];
+  const all = (await loadVocab()).entries;
+  const entries = modeName === 'palabras' ? palabrasEntries(all) : all;
   if (!entries.length) {
     root.innerHTML = `<section class="page-head"><p class="eyebrow">Vocabulario</p><h1>Aún no hay palabras</h1>
       <p class="lede">Añade una lista en <code>data/vocab/</code> (el README explica cómo).</p></section>`;
@@ -212,11 +261,11 @@ export async function renderVocab(root) {
 
   function next() {
     answered = false;
-    const pick = nextCard(entries, recent, mode);
+    const pick = nextCard(entries, recent, mode, cfg);
     if (!pick) return caughtUp();
     current = pick;
-    if (pick.isNew) return intro();
-    current.q = makeQuestion(pick.entry, entries);
+    if (pick.isNew && cfg.intro) return intro();
+    current.q = makeQuestion(pick.entry, entries, cfg);
     show();
   }
 
@@ -226,8 +275,9 @@ export async function renderVocab(root) {
   }
 
   function topBar() {
-    const c = counts(entries);
+    const c = counts(entries, cfg);
     return `
+      ${cfg.title ? `<p class="quiz-title">${cfg.title}</p>` : ''}
       <div class="quiz-top">
         <div class="counters">
           <span class="counter c-due"><strong>${c.due}</strong> por repasar</span>
@@ -247,7 +297,7 @@ export async function renderVocab(root) {
         ${topBar()}
         <article class="panel q-card intro-card" style="--h:${hueFor(e.topicId)}">
           <div class="q-meta"><span class="qtype">Palabra nueva</span>${topicTag(e.topicId, e.topic)}</div>
-          <h2 class="q-word">${esc(e.word)}</h2>
+          <h2 class="q-word">${esc(withArticle(e))}</h2>
           ${e.type ? `<p class="q-pos">${esc(e.type)}</p>` : ''}
           ${frLine(e)}
           ${fullCard({ ...e, fr: '' })}
@@ -271,7 +321,9 @@ export async function renderVocab(root) {
     const t = TYPES[q.type];
 
     let prompt = '';
-    if (['elige-fr', 'elige-sinonimo', 'sinonimo-escrito', 'frase'].includes(q.type)) {
+    if (q.type === 'genero') {
+      prompt = `<h2 class="q-word">${esc(e.word)}</h2>`;
+    } else if (['elige-fr', 'elige-sinonimo', 'sinonimo-escrito', 'frase'].includes(q.type)) {
       prompt = `<h2 class="q-word">${esc(e.word)}</h2>${e.type ? `<p class="q-pos">${esc(e.type)}</p>` : ''}`;
     } else if (q.type === 'elige-palabra' || q.type === 'inversa') {
       prompt = `<p class="q-definition">${esc(e.definition)}</p>`;
@@ -350,6 +402,15 @@ export async function renderVocab(root) {
       if (b.dataset.opt === q.correct) b.classList.add('is-correct');
       else if (b.dataset.opt === opt) b.classList.add('is-wrong');
     });
+    if (q.type === 'genero') {
+      const said = `<strong>${esc(withArticle(q.entry))}</strong>`;
+      return feedback({
+        correct,
+        verdict: correct ? `¡Correcto! Se dice ${said}.` : `No. Se dice ${said}.`,
+        extra: `<p class="gender-hint">${genderHint(q.entry)}</p>`,
+        retype: correct ? null : [withArticle(q.entry)],
+      });
+    }
     feedback({
       correct,
       verdict: correct ? '¡Correcto!' : `No. La respuesta era <strong>${esc(q.correct)}</strong>.`,
@@ -426,7 +487,7 @@ export async function renderVocab(root) {
       <div class="verdict-slot"><p class="verdict verdict-${correct ? 'good' : 'bad'}">${correct ? '✓' : '✗'} ${verdict}</p></div>
       ${extra}
       <div class="mini-card">
-        <p class="mini-word"><strong>${esc(e.word)}</strong>${e.fr ? ` <span class="fr-tag">FR</span><span class="mini-fr">${esc(e.fr)}</span>` : ''}</p>
+        <p class="mini-word"><strong>${esc(withArticle(e))}</strong>${e.fr ? ` <span class="fr-tag">FR</span><span class="mini-fr">${esc(e.fr)}</span>` : ''}</p>
         ${focus}
       </div>
       <details class="more"><summary>Ver la ficha completa</summary>${fullCard(e)}</details>
@@ -483,7 +544,7 @@ export async function renderVocab(root) {
 
   function caughtUp() {
     current = null;
-    const c = counts(entries);
+    const c = counts(entries, cfg);
     const upcoming = entries.map(e => progress.get(e.key)?.due).filter(Boolean).sort((a, b) => a - b);
     const limitHit = c.freshTotal > 0 && c.newLeft === 0;
 
@@ -496,7 +557,7 @@ export async function renderVocab(root) {
           <p class="lede">
             ${c.done ? `Has hecho ${c.done} ${c.done === 1 ? 'ejercicio' : 'ejercicios'} hoy.` : ''}
             ${upcoming.length ? `Próximo repaso: ${when(upcoming[0])}.` : ''}
-            ${limitHit ? `<br>Ya has aprendido ${NEW_PER_DAY} palabras nuevas hoy; quedan ${c.freshTotal} para los próximos días.` : ''}
+            ${limitHit ? `<br>Ya has aprendido ${cfg.newPerDay} palabras nuevas hoy; quedan ${c.freshTotal} para los próximos días.` : ''}
           </p>
           <div class="actions">
             ${limitHit ? '<button type="button" class="btn primary" data-more>Aprender más palabras nuevas</button>' : ''}

@@ -1,23 +1,29 @@
 import { loadVocab } from './data.js';
 import * as progress from './progress.js';
 import { statusBar } from './ui.js';
+import { palabrasEntries } from './vocab.js';
 
 const SECTIONS = [
   { id: 'vocab', title: 'Vocabulario', text: 'Definiciones, sinónimos y frases de ejemplo, por temas.', ready: true },
+  { id: 'palabras', title: 'Palabras', text: 'Solo palabras sueltas: ¿el o la? y sinónimos.', ready: true },
   { id: 'grammar', title: 'Gramática', text: 'Fichas y ejercicios, con la explicación de cada respuesta.', ready: true },
   { id: 'writing', title: 'Expresión escrita', text: 'Prepara textos y presentaciones con comprobaciones automáticas.', ready: true },
   { id: 'exam', title: 'Modo examen', text: 'Ejercicios de 5 palabras al azar: sinónimos o frases, corregidos al final.', ready: true },
 ];
 
 export async function renderHome(root) {
-  let vocabStats = '';
-  try {
-    const { entries } = await loadVocab();
-    const c = progress.summarize(entries.map(e => e.key));
-    const due = entries.filter(e => progress.isDue(e.key)).length;
-    vocabStats = `
+  const stats = {};
+  const statsFor = list => {
+    const c = progress.summarize(list.map(e => e.key));
+    const due = list.filter(e => progress.isDue(e.key)).length;
+    return `
       ${statusBar(c)}
       <p class="card-stats"><strong>${due}</strong> por repasar · ${c.new} nuevas · ${c.mastered} dominadas</p>`;
+  };
+  try {
+    const { entries } = await loadVocab();
+    stats.vocab = statsFor(entries);
+    stats.palabras = statsFor(palabrasEntries(entries));
   } catch {
     /* data problems are shown in the notice area */
   }
@@ -34,7 +40,7 @@ export async function renderHome(root) {
           <span class="section-dot"></span>
           <h2>${s.title}</h2>
           <p>${s.text}</p>
-          ${s.id === 'vocab' ? vocabStats : s.ready ? '' : '<p class="soon-label">Próximamente</p>'}
+          ${stats[s.id] || (s.ready ? '' : '<p class="soon-label">Próximamente</p>')}
         </a>`).join('')}
     </div>`;
 }

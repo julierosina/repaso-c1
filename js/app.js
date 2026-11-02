@@ -1,7 +1,7 @@
 // Hash router: #/vocab, #/vocab/lista, … Hash routes work on GitHub Pages without any server config.
 
 import { renderHome } from './home.js';
-import { renderVocab, renderVocabList } from './vocab.js';
+import { renderVocab, renderVocabList, renderPalabras } from './vocab.js';
 import { renderGrammarHome, renderGrammarTopic, renderGrammarPractice } from './grammar.js';
 import { renderWritingHome, renderWritingPrompt } from './writing.js';
 import { renderExam } from './exam.js';
@@ -15,6 +15,7 @@ const routes = {
   '': renderHome,
   vocab: renderVocab,
   'vocab/lista': renderVocabList,
+  palabras: renderPalabras,
   grammar: renderGrammarHome,
   'grammar/practica': root => renderGrammarPractice(root, null),
   writing: renderWritingHome,

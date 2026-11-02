@@ -181,6 +181,22 @@ Open **Vocabulario** and a question is waiting: no settings to choose. It works 
   *Dominado* (7 days or more).
 - Progress is stored **in this browser only**. A different browser or device, or clearing site data, starts from zero.
 
+## Palabras (gender and synonyms)
+
+The **Palabras** tab practises only the single words from your lists (no expressions or idioms), with two
+kinds of exercise:
+
+- **Género**: a noun without its article: pick *el* or *la* (*los* / *las* for plural nouns). The feedback
+  gives a rule of thumb from the ending (-ción, -dad, -sis… feminine; -aje, -ismo, -miento… masculine)
+  or flags the word as an exception. After a mistake you retype the word with its article.
+- **Sinónimo**: multiple choice, then typing a synonym as the word matures.
+
+It has its own spaced-repetition progress, separate from Vocabulario, and no limit on new words per day.
+Nouns also show their article in Vocabulario's feedback.
+
+The gender comes from the entry's `type` ("sustantivo masculino", "sustantivo femenino plural"…). To set it
+explicitly, add `"gender": "m"` or `"gender": "f"`.
+
 ## Exam mode
 
 **Modo examen** generates a test of 5 random words from all your vocabulary lists:

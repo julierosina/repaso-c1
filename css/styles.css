@@ -63,6 +63,7 @@
 }
 
 [data-section="vocab"] { --h: 172; }
+[data-section="palabras"] { --h: 330; }
 [data-section="grammar"] { --h: 262; }
 [data-section="writing"] { --h: 12; }
 [data-section="exam"] { --h: 38; }
@@ -333,6 +334,9 @@ main { padding-bottom: 96px; outline: none; }
 .c-new { --h: 172; }
 .c-done { --h: 145; }
 .counter { background: hsl(var(--h) var(--soft-s) var(--soft-l)); color: hsl(var(--h) var(--strong-s) var(--strong-l)); }
+
+.quiz-title { margin: 0 0 12px; font-family: var(--font-display); font-weight: 700; font-size: 1.1rem; color: hsl(var(--h) var(--strong-s) var(--strong-l)); }
+.gender-hint { margin: 0 0 4px; font-size: 0.93rem; }
 
 .practice-note {
   margin: -8px 0 16px;

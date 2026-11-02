@@ -94,7 +94,7 @@ export function review(key, correct, kind, { practice = false } = {}) {
 
   const day = today();
   day.reviewed++;
-  if (wasNew) day.newSeen++;
+  if (wasNew && key.startsWith('vocab:')) day.newSeen++;
   save(DAY_KEY, day);
 }
 
