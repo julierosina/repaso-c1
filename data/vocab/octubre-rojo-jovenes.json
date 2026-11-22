@@ -1,0 +1,134 @@
+{
+  "source": "Artículo — «Octubre rojo: los jóvenes europeos convierten las calles en un campo de batalla político para ganar el futuro» (Adhik Arrilucea, Público)",
+  "topic": "Octubre rojo: los jóvenes europeos en la calle",
+  "entries": [
+    {
+      "word": "toque de queda",
+      "fr": "couvre-feu",
+      "type": "locución nominal (masculino)",
+      "definition": "Prohibición legal de circular por la calle durante determinadas horas, normalmente de noche.",
+      "synonyms": ["restricción de movilidad nocturna"],
+      "example": "El Gobierno francés decretó toques de queda nocturnos en varias zonas de París.",
+      "context": "El Gobierno francés decretó la restricción de movilidad nocturna en varias zonas de París.",
+      "connotation": "Denotación formal: medida gubernamental.",
+      "notes": "Plural: toques de queda. «Decretar / imponer / levantar el toque de queda».",
+      "accept": ["toques de queda", "toques de queda nocturnos"]
+    },
+    {
+      "word": "genealogía",
+      "fr": "généalogie (origines, filiation)",
+      "type": "sustantivo femenino",
+      "definition": "Origen, historia o antecedentes de una serie de hechos o de ideas; en sentido propio, serie de los antepasados de una persona.",
+      "synonyms": ["origen", "historia"],
+      "example": "Cada país tiene su propia genealogía de protestas por el derecho a la vivienda.",
+      "context": "Cada país tiene su propia evolución histórica de protestas vinculadas al derecho a la vivienda.",
+      "connotation": "Metáfora: las manifestaciones nacen de una «herencia» de luchas anteriores.",
+      "accept": ["genealogías"]
+    },
+    {
+      "word": "chispa",
+      "related": ["encender la chispa"],
+      "fr": "étincelle (élément déclencheur)",
+      "type": "sustantivo femenino",
+      "definition": "Partícula encendida que salta del fuego; en sentido figurado, causa inicial que desencadena una reacción o un movimiento.",
+      "synonyms": ["detonante", "desencadenante"],
+      "example": "Las movilizaciones en España fueron la chispa que encendió las protestas en otros países europeos.",
+      "context": "Las movilizaciones en España sirven de detonante para otros países europeos.",
+      "connotation": "Metáfora: igual que el fuego, las manifestaciones se propagan.",
+      "accept": ["chispas"]
+    },
+    {
+      "word": "tienda de campaña",
+      "fr": "tente",
+      "type": "locución nominal (femenino)",
+      "definition": "Refugio portátil de tela que se monta con palos y cuerdas para dormir al aire libre.",
+      "synonyms": ["carpa"],
+      "example": "Los manifestantes instalaron tiendas de campaña en la plaza mayor.",
+      "context": "Los manifestantes organizaron acampadas en el espacio público. En el artículo sobre la «generación inquilina», muchos jóvenes viven en tiendas de campaña.",
+      "connotation": "Símbolo físico de la ocupación del espacio público (o de la precariedad, cuando se vive en ellas).",
+      "notes": "En América Latina se dice más «carpa». Acampada: protesta en la que se instalan tiendas en un lugar público (15M).",
+      "accept": ["tiendas de campaña"]
+    },
+    {
+      "word": "intemperie vital",
+      "fr": "précarité existentielle (litt. « intempérie vitale »)",
+      "type": "sintagma nominal (metáfora)",
+      "definition": "Sentimiento profundo de desprotección e incertidumbre ante la propia existencia, como quien vive sin techo, expuesto al frío y a la lluvia.",
+      "synonyms": ["desamparo", "desprotección"],
+      "example": "Muchos jóvenes describen una intemperie vital: sin casa, sin contrato estable y sin futuro claro.",
+      "context": "Sentirse abandonado por el sistema, sin protección ni estabilidad material.",
+      "connotation": "Metáfora que insiste en el malestar psicológico de los jóvenes.",
+      "notes": "A la intemperie: al aire libre, sin ninguna protección contra el frío o la lluvia."
+    },
+    {
+      "word": "agotamiento",
+      "related": ["cansancio"],
+      "fr": "épuisement",
+      "type": "sustantivo masculino",
+      "definition": "Estado de cansancio extremo, físico o moral; también, hecho de consumirse por completo un recurso.",
+      "synonyms": ["cansancio", "fatiga"],
+      "example": "Entre los jóvenes se percibe un agotamiento colectivo y una falta de fe en el futuro.",
+      "context": "La juventud sufre una falta de fe en el futuro.",
+      "connotation": "Connotación de crisis colectiva.",
+      "notes": "Verbo: agotar. «El agotamiento de los recursos naturales»."
+    },
+    {
+      "word": "ascensor social",
+      "fr": "ascenseur social",
+      "type": "sintagma nominal (metáfora)",
+      "definition": "Mecanismo por el cual una persona sube de nivel económico y profesional respecto de su familia.",
+      "synonyms": ["movilidad social"],
+      "example": "Para muchos jóvenes, el ascensor social se ha averiado: estudiar ya no garantiza un buen trabajo.",
+      "context": "La creencia tradicional de que tener estudios asegura un mejor nivel de vida.",
+      "connotation": "Metáfora: el «ascensor» simboliza la movilidad social vertical.",
+      "notes": "Se dice que el ascensor social «está averiado» o «se ha parado».",
+      "accept": ["el ascensor social"]
+    },
+    {
+      "word": "gozar",
+      "fr": "jouir (de), bénéficier (de)",
+      "type": "verbo (gozar de algo)",
+      "definition": "Disfrutar de un derecho, de una ventaja o de una situación favorable.",
+      "synonyms": ["disfrutar", "tener"],
+      "example": "Tampoco los adultos de otras generaciones gozan de una situación económica fácil.",
+      "context": "En el texto: «ni gozan». Los adultos de otras generaciones tampoco tienen una situación económica fácil.",
+      "connotation": "Denotación formal: poseer un derecho.",
+      "notes": "Se construye con «de»: gozar de buena salud, gozar de un privilegio.",
+      "accept": ["gozar de", "gozan"]
+    },
+    {
+      "word": "modo de acumulación",
+      "fr": "mode d'accumulation",
+      "type": "sintagma nominal (concepto económico)",
+      "definition": "Forma en que una economía organiza la producción y genera y concentra la riqueza.",
+      "synonyms": ["modelo económico"],
+      "example": "La autora vincula la precariedad juvenil con el actual modo de acumulación capitalista.",
+      "context": "La estructura básica del modelo económico capitalista.",
+      "connotation": "Concepto económico y sociológico (de origen marxista).",
+      "accept": ["modos de acumulación"]
+    },
+    {
+      "word": "poner de relieve",
+      "fr": "mettre en relief, souligner",
+      "type": "locución verbal",
+      "definition": "Destacar o hacer visible un hecho importante.",
+      "synonyms": ["destacar", "subrayar"],
+      "example": "La investigadora pone de relieve que el protagonismo de los jóvenes se debe al momento histórico actual.",
+      "context": "En el texto: «pone de relieve». La investigadora subraya que el papel protagonista de los jóvenes se debe al momento histórico actual.",
+      "connotation": "Conector discursivo para introducir una idea importante.",
+      "accept": ["pone de relieve", "poner algo de relieve"]
+    },
+    {
+      "word": "lecturas en clave",
+      "fr": "lectures selon une grille (féministe, écologiste…)",
+      "type": "sintagma nominal (plural)",
+      "definition": "Interpretaciones de un fenómeno desde un prisma teórico determinado (feminista, ecológico, económico…).",
+      "synonyms": ["interpretaciones", "perspectivas"],
+      "example": "Los ciclos de protesta anteriores se organizaron en torno a lecturas en clave feminista o ecologista.",
+      "context": "Los ciclos de protesta anteriores se organizaban según perspectivas feministas o ecológicas.",
+      "connotation": "Metáfora analítica: identifica distintos discursos sociales.",
+      "notes": "«En clave» no varía: lecturas en clave feminista, en clave económica. Leer algo en clave de humor.",
+      "accept": ["lectura en clave", "lecturas en claves", "en clave"]
+    }
+  ]
+}

@@ -1,0 +1,111 @@
+{
+  "source": "Artículo — «De la generación indignada a la generación inquilina»",
+  "topic": "De la generación indignada a la generación inquilina",
+  "entries": [
+    {
+      "word": "inquilino",
+      "fr": "locataire",
+      "type": "sustantivo masculino (femenino: inquilina); también adjetivo",
+      "definition": "Persona que vive en una casa o un piso alquilado y paga una renta a su propietario.",
+      "synonyms": ["arrendatario", "locatario"],
+      "example": "La actual es una generación inquilina: casi nadie puede comprarse una casa.",
+      "context": "La generación actual es una generación de inquilinos.",
+      "connotation": "Neutral.",
+      "notes": "Lo contrario es el propietario o casero. En España se usa mucho más «inquilino» que «locatario».",
+      "accept": ["inquilina", "inquilinos", "inquilinas"]
+    },
+    {
+      "word": "desalojar",
+      "related": ["desahucio"],
+      "fr": "expulser, évacuer",
+      "type": "verbo (desalojar a alguien)",
+      "definition": "Hacer salir a una persona de su vivienda o de un lugar, a menudo por la fuerza.",
+      "synonyms": ["desahuciar", "echar"],
+      "example": "Carmen fue desalojada de su piso tras no poder pagar el alquiler.",
+      "context": "Carmen fue desahuciada de su vivienda.",
+      "connotation": "Acción brutal.",
+      "notes": "También: hacer salir a la gente de un lugar por seguridad («desalojar el edificio»). Sustantivo: el desalojo.",
+      "accept": ["desalojar a alguien", "desalojada", "desalojado"]
+    },
+    {
+      "word": "coetáneo",
+      "fr": "contemporain (de la même époque)",
+      "type": "adjetivo y sustantivo",
+      "definition": "Que vive o existe en la misma época que otra persona o cosa.",
+      "synonyms": ["contemporáneo"],
+      "example": "La autora cita a varios coetáneos que también estudian la crisis de la vivienda.",
+      "context": "Un autor que comparte el área de especialización de otro y escribe en la misma época.",
+      "connotation": "Positiva.",
+      "accept": ["coetánea", "coetáneos", "coetáneas"]
+    },
+    {
+      "word": "zetas",
+      "fr": "les « Z », la génération Z",
+      "type": "sustantivo plural (coloquial; los zetas / las zetas)",
+      "definition": "Personas de la generación Z, nacidas aproximadamente entre finales de los noventa y principios de los años 2010.",
+      "synonyms": ["centennials"],
+      "example": "Los zetas son la primera generación que ha crecido con un móvil en la mano.",
+      "context": "Personas nacidas en los años 2000.",
+      "connotation": "Humorística, jerga adolescente.",
+      "notes": "Del nombre de la letra Z. Igual que «millennials» para la generación anterior.",
+      "accept": ["zeta", "los zetas"]
+    },
+    {
+      "word": "en la estela de",
+      "fr": "dans le sillage de",
+      "type": "locución preposicional",
+      "definition": "Como continuación de algo anterior o siguiendo su ejemplo.",
+      "synonyms": ["tras", "siguiendo el ejemplo de"],
+      "example": "En la estela de la Primavera Árabe, surgieron movimientos de protesta en toda Europa.",
+      "context": "Como continuación de la Primavera Árabe…",
+      "connotation": "Permite conectar ideas y datos.",
+      "notes": "Estela: rastro que deja un barco en el agua o un avión en el cielo.",
+      "accept": ["en la estela", "estela"]
+    },
+    {
+      "word": "encadenar",
+      "fr": "enchaîner (priver de liberté ; aussi : enchaîner des contrats)",
+      "type": "verbo",
+      "definition": "Atar con cadenas; en sentido figurado, privar de libertad o atar a una situación. También: unir una cosa tras otra.",
+      "synonyms": ["atar", "esclavizar"],
+      "example": "Los alquileres abusivos encadenan a los jóvenes a trabajos que no quieren.",
+      "context": "Privar de libertad.",
+      "connotation": "Negativa, sentido figurado.",
+      "notes": "«Encadenar contratos temporales» = enlazar uno tras otro, algo muy frecuente entre los jóvenes."
+    },
+    {
+      "word": "beca",
+      "fr": "bourse (d'études)",
+      "type": "sustantivo femenino",
+      "definition": "Ayuda económica que se concede a alguien para que pueda estudiar o investigar.",
+      "synonyms": ["ayuda", "subvención"],
+      "example": "Muchos jóvenes necesitan una beca del Estado para poder vivir mientras estudian.",
+      "context": "Muchos jóvenes necesitan becas o subvenciones del Estado para vivir.",
+      "connotation": "Neutral.",
+      "notes": "Becario/becaria: persona que tiene una beca, y también, en España, quien hace prácticas en una empresa.",
+      "accept": ["becas"]
+    },
+    {
+      "word": "alentar",
+      "fr": "encourager, stimuler",
+      "type": "verbo (irregular: aliento, alienta)",
+      "definition": "Animar a alguien o estimular una acción, darle fuerza para continuar.",
+      "synonyms": ["animar", "impulsar", "estimular"],
+      "example": "Estas victorias pueden alentar nuevos movimientos de resistencia.",
+      "context": "Animar nuevos movimientos de resistencia.",
+      "connotation": "Positiva.",
+      "notes": "Diptonga como «pensar»: yo aliento, ella alienta, ellos alientan."
+    },
+    {
+      "word": "envejecer",
+      "fr": "vieillir",
+      "type": "verbo",
+      "definition": "Hacerse viejo o mayor; en sentido figurado, perder actualidad o quedarse anticuado.",
+      "synonyms": ["hacerse mayor", "quedarse anticuado"],
+      "example": "La nueva política ha envejecido demasiado rápido: ya no responde a los problemas de los jóvenes.",
+      "context": "La nueva política ha envejecido, ha cambiado demasiado rápido.",
+      "connotation": "Negativa.",
+      "notes": "Se conjuga como «conocer»: envejezco. Sustantivo: el envejecimiento (de la población)."
+    }
+  ]
+}

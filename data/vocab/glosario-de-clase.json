@@ -1,0 +1,81 @@
+{
+  "source": "Clase — glosario de una presentación",
+  "topic": "Glosario de clase",
+  "entries": [
+    {
+      "word": "por defecto",
+      "fr": "par défaut",
+      "type": "locución adverbial",
+      "definition": "De forma automática, cuando no se elige otra opción.",
+      "synonyms": ["automáticamente"],
+      "example": "El sistema guarda los archivos por defecto en la carpeta de descargas.",
+      "notes": "También «por defecto» = por debajo de la cifra exacta, frente a «por exceso» (redondear por defecto)."
+    },
+    {
+      "word": "retroceso",
+      "fr": "recul, régression",
+      "type": "sustantivo masculino",
+      "definition": "Vuelta atrás o empeoramiento respecto de una situación anterior.",
+      "synonyms": ["regresión", "paso atrás"],
+      "example": "La nueva ley supone un grave retroceso en los derechos de las mujeres.",
+      "accept": ["retrocesos"]
+    },
+    {
+      "word": "palanca de presión",
+      "fr": "levier de pression, moyen de pression",
+      "type": "locución nominal",
+      "definition": "Ventaja, recurso o argumento que una parte puede utilizar para influir en la otra durante una negociación o un conflicto.",
+      "synonyms": ["medida de presión", "baza"],
+      "example": "Las sanciones económicas son la principal palanca de presión de Europa en la negociación.",
+      "accept": ["palancas de presión", "una palanca de presión"]
+    },
+    {
+      "word": "especular",
+      "fr": "spéculer, faire des suppositions",
+      "type": "verbo",
+      "definition": "Pensar, razonar o formular hipótesis sobre algo sin tener certeza ni pruebas definitivas.",
+      "synonyms": ["suponer", "hacer conjeturas"],
+      "example": "Los periodistas especulan sobre las verdaderas razones de su dimisión.",
+      "notes": "En economía: comprar algo para revenderlo más caro («especular con la vivienda»)."
+    },
+    {
+      "word": "ahorcamiento",
+      "fr": "pendaison",
+      "type": "sustantivo masculino",
+      "definition": "Ejecución o muerte de una persona colgada por el cuello con una cuerda, en la horca.",
+      "synonyms": ["ejecución en la horca"],
+      "example": "Las organizaciones de derechos humanos condenaron el ahorcamiento de los dos opositores.",
+      "notes": "Verbo: ahorcar. «Morir ahorcado».",
+      "accept": ["ahorcamientos"]
+    },
+    {
+      "word": "socavar",
+      "fr": "saper, ébranler",
+      "type": "verbo",
+      "definition": "Debilitar progresivamente una institución, una persona, una idea o un sistema, erosionando su base o su credibilidad.",
+      "synonyms": ["debilitar", "minar"],
+      "example": "Los continuos escándalos socavan la confianza de los ciudadanos en sus instituciones.",
+      "notes": "Sentido literal: excavar por debajo de algo, dejándolo sin apoyo."
+    },
+    {
+      "word": "contundente",
+      "fr": "catégorique, percutant",
+      "type": "adjetivo",
+      "definition": "Firme y rotundo, que no deja lugar a dudas; también, que produce un fuerte efecto.",
+      "synonyms": ["rotundo", "firme"],
+      "example": "La respuesta del Gobierno fue contundente: no habrá ninguna negociación.",
+      "notes": "Un objeto contundente es el que golpea y causa daño sin cortar (un arma contundente).",
+      "accept": ["contundentes"]
+    },
+    {
+      "word": "seguir sobre la mesa",
+      "fr": "rester sur la table, être toujours d'actualité",
+      "type": "locución verbal",
+      "definition": "Permanecer un asunto disponible para ser discutido o decidido, sin haber sido rechazado ni resuelto definitivamente.",
+      "synonyms": ["seguir en discusión", "seguir abierto"],
+      "example": "La propuesta de acuerdo va a seguir sobre la mesa hasta la próxima reunión.",
+      "notes": "También «estar sobre la mesa» y «poner algo sobre la mesa» (plantearlo).",
+      "accept": ["sigue sobre la mesa", "sobre la mesa", "estar sobre la mesa"]
+    }
+  ]
+}

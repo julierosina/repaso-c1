@@ -1,0 +1,118 @@
+{
+  "source": "Artículo de opinión — «Y si mejor planificamos» (Arturo Orellana, La Tercera)",
+  "topic": "Inundaciones en Chile: «Y si mejor planificamos»",
+  "entries": [
+    {
+      "word": "quebradas desbordadas",
+      "fr": "ravins / torrents en crue, qui débordent",
+      "type": "sintagma nominal (plural)",
+      "definition": "Arroyos o torrentes de montaña que se salen de su cauce a causa de lluvias torrenciales o tormentas violentas.",
+      "synonyms": ["arroyos desbordados", "torrentes desbordados"],
+      "example": "Cada invierno, las quebradas desbordadas arrastran barro y piedras hasta las calles.",
+      "context": "Representa el impacto visible e inmediato de fenómenos climáticos como El Niño en las ciudades de Chile.",
+      "connotation": "Evoca una imagen de desastre natural y de vulnerabilidad.",
+      "notes": "Quebrada: en Chile y otros países andinos, arroyo o paso estrecho entre montañas. En España se diría más bien «barranco» o «torrente».",
+      "accept": ["quebrada desbordada", "quebradas"]
+    },
+    {
+      "word": "falta de prospectiva",
+      "fr": "manque d'anticipation, de vision prospective",
+      "type": "sintagma nominal",
+      "definition": "Ausencia de previsión o de visión hacia el futuro.",
+      "synonyms": ["falta de previsión", "imprevisión"],
+      "example": "La falta de prospectiva de las autoridades convierte cada lluvia en una catástrofe.",
+      "context": "La incapacidad crónica de anticiparse a los problemas climáticos, en lugar de solo reaccionar tarde.",
+      "connotation": "Crítica hacia la pasividad institucional.",
+      "notes": "Prospectiva: estudio de las tendencias para prever el futuro."
+    },
+    {
+      "word": "desfile de lamentaciones",
+      "fr": "défilé de lamentations",
+      "type": "sintagma nominal (metáfora)",
+      "definition": "Sucesión de quejas repetitivas que no van acompañadas de soluciones prácticas.",
+      "synonyms": ["serie de quejas"],
+      "example": "Tras cada temporal, asistimos al mismo desfile de lamentaciones en los platós de televisión.",
+      "context": "Lo que ocurre cada invierno en Chile, y más generalmente en América Latina, cuando las autoridades se quejan de los daños sin haber actuado antes.",
+      "connotation": "Tono irónico y despectivo hacia la inacción gubernamental."
+    },
+    {
+      "word": "planes reguladores comunales",
+      "fr": "plans d'urbanisme communaux (≈ PLU)",
+      "type": "sintagma nominal (plural, término técnico)",
+      "definition": "Normas de ordenamiento territorial y urbanismo aprobadas a nivel municipal.",
+      "synonyms": ["planes de urbanismo municipales"],
+      "example": "Muchos planes reguladores comunales no se han actualizado en décadas.",
+      "context": "Instrumentos legales que en Chile están desactualizados y no tienen en cuenta la crisis climática actual.",
+      "connotation": "El autor usa este término técnico para señalar la obsolescencia de las normas urbanas y la falta de adaptación al cambio climático.",
+      "notes": "Comuna: en Chile, división administrativa equivalente al municipio. En España se habla de «plan general de ordenación urbana».",
+      "accept": ["plan regulador comunal", "planes reguladores"]
+    },
+    {
+      "word": "el factor tiempo",
+      "fr": "le facteur temps",
+      "type": "sintagma nominal",
+      "definition": "Influencia o peso que la duración de un proceso ejerce sobre una situación.",
+      "synonyms": ["la lentitud"],
+      "example": "Nadie tuvo en cuenta el factor tiempo: cuando el plan se aprobó, ya estaba obsoleto.",
+      "context": "Actualizar una ley o un plan lleva tanto tiempo que, cuando se termina, la realidad climática ya ha cambiado.",
+      "connotation": "Muestra la lentitud asfixiante de la burocracia.",
+      "accept": ["factor tiempo"]
+    },
+    {
+      "word": "lechos de inundación",
+      "fr": "lits d'inondation, zones inondables",
+      "type": "sintagma nominal (plural)",
+      "definition": "Zonas bajas por donde fluye el agua de forma natural cuando crece un río.",
+      "synonyms": ["zonas inundables", "llanuras de inundación"],
+      "example": "Se siguen construyendo viviendas en los lechos de inundación de los ríos.",
+      "context": "Zonas peligrosas donde hoy se construyen viviendas por falta de prohibiciones estrictas.",
+      "connotation": "Subraya la irresponsabilidad de un desarrollo inmobiliario sin control, que aumenta el riesgo durante las lluvias torrenciales.",
+      "accept": ["lecho de inundación"]
+    },
+    {
+      "word": "lujo técnico",
+      "fr": "luxe technique",
+      "type": "sintagma nominal",
+      "definition": "Gasto de recursos, tiempo o análisis especializado que se considera prescindible, un adorno de expertos.",
+      "synonyms": ["capricho de expertos"],
+      "example": "La planificación urbana no es un lujo técnico, sino una herramienta para proteger vidas.",
+      "context": "El autor defiende que la planificación urbana no es un adorno de expertos ni un capricho burocrático, sino una herramienta vital y urgente para proteger vidas.",
+      "connotation": "Crítica e ironía: denuncia la visión simplista de las autoridades, que ven la planificación como un obstáculo para el desarrollo rápido en lugar de una inversión prioritaria.",
+      "accept": ["un lujo técnico"]
+    },
+    {
+      "word": "prevención silenciosa",
+      "related": ["gestión del riesgo"],
+      "fr": "prévention silencieuse, discrète",
+      "type": "sintagma nominal",
+      "definition": "Acciones de seguridad y planificación que se llevan a cabo sin ruido ni manifestación pública.",
+      "synonyms": ["prevención discreta"],
+      "example": "La prevención silenciosa no da votos, porque sus resultados solo se ven a largo plazo.",
+      "context": "El trabajo de fondo que los políticos suelen ignorar porque sus beneficios se ven a largo plazo y no aportan votos inmediatos en las próximas elecciones.",
+      "connotation": "Denuncia cómo el sistema político prioriza el espectáculo y la respuesta a la emergencia por encima de la protección real de los ciudadanos."
+    },
+    {
+      "word": "gestión del riesgo",
+      "related": ["prevención silenciosa"],
+      "fr": "gestion des risques",
+      "type": "sintagma nominal",
+      "definition": "Análisis de los peligros de desastre y aplicación de medidas para reducirlos.",
+      "synonyms": ["prevención de riesgos"],
+      "example": "Chile necesita una verdadera gestión del riesgo ante los efectos de El Niño.",
+      "context": "Aquí, el análisis de los efectos del fenómeno de El Niño.",
+      "connotation": "Propuesta de solución técnica y moderna.",
+      "accept": ["gestión de riesgos", "gestión de los riesgos"]
+    },
+    {
+      "word": "resultado previsible",
+      "fr": "résultat prévisible",
+      "type": "sintagma nominal",
+      "definition": "Desenlace que se sabe de antemano que va a ocurrir.",
+      "synonyms": ["final esperado"],
+      "example": "Si nadie actúa, la próxima inundación será un resultado previsible.",
+      "context": "La próxima inundación, que no sorprenderá a nadie.",
+      "connotation": "Cierre contundente y fatalista del artículo, para responsabilizar directamente a los dirigentes.",
+      "accept": ["un resultado previsible"]
+    }
+  ]
+}

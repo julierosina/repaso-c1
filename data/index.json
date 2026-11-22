@@ -8,7 +8,11 @@
     "vocab/ejercicios-de-clase.json",
     "vocab/universidad-falla-victima.json",
     "vocab/pueblos-indigenas-afromexicanos.json",
-    "vocab/gran-reemplazo-europeo.json"
+    "vocab/gran-reemplazo-europeo.json",
+    "vocab/glosario-de-clase.json",
+    "vocab/inundaciones-chile.json",
+    "vocab/octubre-rojo-jovenes.json",
+    "vocab/generacion-inquilina.json"
   ],
   "grammar": [
     "grammar/opinion-y-matices.json",
