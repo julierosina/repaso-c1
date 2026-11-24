@@ -401,6 +401,7 @@ main { padding-bottom: 96px; outline: none; }
 }
 .q-prompt { margin: 28px 0 4px; color: var(--muted); }
 .q-word { font-size: clamp(2rem, 5vw, 2.8rem); overflow-wrap: anywhere; }
+.q-usage { margin-left: 0.15em; font-family: Inter, system-ui, sans-serif; font-size: 0.42em; font-weight: 500; letter-spacing: normal; color: hsl(var(--h) var(--strong-s) var(--strong-l)); white-space: normal; }
 .q-definition { margin: 4px 0 0; font-family: var(--font-display); font-size: 1.35rem; line-height: 1.45; }
 .q-pos { margin: 6px 0 0; font-style: italic; color: var(--muted); font-size: 0.9rem; }
 

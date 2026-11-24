@@ -5,7 +5,7 @@
 import { loadVocab } from './data.js';
 import * as progress from './progress.js';
 import { esc, hueFor, topicTag, statusBadge, shuffle } from './ui.js';
-import { compare, containsWord, highlight, cloze, clozeOneWord, clozeHint, norm, sentenceChecks } from './text.js';
+import { compare, containsWord, highlight, cloze, clozeOneWord, clozeHint, norm, sentenceChecks, stemsOf, stripAccents } from './text.js';
 
 // New words introduced per day (the rest wait until tomorrow, or until you ask for more).
 const NEW_PER_DAY = 20;
@@ -50,11 +50,36 @@ const MODES = {
     intro: false,
     newPerDay: Infinity,
     title: 'Palabras · género y sinónimos',
+    usage: true,
   },
 };
 
 export const isSingleWord = e => !/\s/.test(e.word.trim());
 export const palabrasEntries = entries => entries.filter(isSingleWord).map(e => ({ ...e, key: 'palabras:' + e.id }));
+
+// ---------- Verb usage ----------
+
+// For a verb, the few words that follow it in its example ("gozar" -> "de una situación económica…"),
+// so the prompt shows how it is built (preposition, object…). '' when not a verb or not found.
+const USAGE_WORDS = 5;
+// Small words that shouldn't end a cut-off phrase ("el tema de la…" -> "el tema…").
+const USAGE_DANGLING = new Set(['a', 'al', 'ante', 'con', 'de', 'del', 'el', 'en', 'la', 'las', 'lo', 'los', 'no', 'para', 'por', 'que', 'se', 'sin', 'su', 'sus', 'tras', 'un', 'una', 'y']);
+export function usageAfter(e) {
+  if (!/^verbo/i.test(e.type || '')) return '';
+  const [stem] = stemsOf(e.word);
+  if (!stem) return '';
+  for (const m of String(e.example || '').matchAll(/\p{L}+/gu)) {
+    if (!stripAccents(m[0].toLowerCase()).startsWith(stem)) continue;
+    const rest = e.example.slice(m.index + m[0].length).split(/[.,;:!?«»"()—–]/)[0];
+    const words = rest.trim().split(/\s+/).filter(Boolean);
+    if (!words.length) return '';
+    if (words.length <= USAGE_WORDS) return words.join(' ');
+    const cut = words.slice(0, USAGE_WORDS);
+    while (cut.length > 1 && USAGE_DANGLING.has(cut[cut.length - 1].toLowerCase())) cut.pop();
+    return cut.join(' ') + '…';
+  }
+  return '';
+}
 
 // ---------- Gender ----------
 
@@ -324,7 +349,9 @@ export async function renderVocab(root, modeName = 'vocab') {
     if (q.type === 'genero') {
       prompt = `<h2 class="q-word">${esc(e.word)}</h2>`;
     } else if (['elige-fr', 'elige-sinonimo', 'sinonimo-escrito', 'frase'].includes(q.type)) {
-      prompt = `<h2 class="q-word">${esc(e.word)}</h2>${e.type ? `<p class="q-pos">${esc(e.type)}</p>` : ''}`;
+      const usage = cfg.usage ? usageAfter(e) : '';
+      const after = usage ? ` <span class="q-usage">${esc(usage)}</span>` : '';
+      prompt = `<h2 class="q-word">${esc(e.word)}${after}</h2>${e.type ? `<p class="q-pos">${esc(e.type)}</p>` : ''}`;
     } else if (q.type === 'elige-palabra' || q.type === 'inversa') {
       prompt = `<p class="q-definition">${esc(e.definition)}</p>`;
     } else if (q.type === 'fr-es') {

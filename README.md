@@ -191,6 +191,10 @@ kinds of exercise:
   or flags the word as an exception. After a mistake you retype the word with its article.
 - **Sinónimo**: multiple choice, then typing a synonym as the word matures.
 
+Verbs show, in small coloured text next to them, the words that follow them in their `example`
+(*gozar* de una situación económica fácil), so you see the construction: preposition, object…
+This only works when the example uses the verb, and when the entry's `type` starts with "verbo".
+
 It has its own spaced-repetition progress, separate from Vocabulario, and no limit on new words per day.
 Nouns also show their article in Vocabulario's feedback.
 
